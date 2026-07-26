@@ -3,517 +3,894 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whisenhunt Excavation LLC | Land Management & Dirt Work</title>
-    <meta name="description" content="Reliable excavation, land management, and dirt work done right in Nashville, AR. Locally owned and operated by Hadyn Whisenhunt.">
+    <title>Amelia's Picalily Flowers and More | Nashville, AR</title>
+    <meta name="description" content="A one-stop shop in Nashville, AR for beautiful flowers, delicious sweets, coffee and tea, and gifts. AMF certified florist, bakery, and boutique.">
     
-    <!-- Browser Tab Icon (Favicon) -->
-    <link rel="icon" type="image/png" href="./logo/logo.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="photos/Logo/logo.jpg">
     
-    <!-- Tailwind CSS for styling -->
+    <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
                     colors: {
                         brand: {
-                            dark: '#1a1a1a',
-                            earth: '#4a3f35',
-                            accent: '#d97706', // Amber-600, common for construction/excavation
-                            light: '#f3f4f6'
+                            black: '#171717',     // Deep elegant black
+                            yellow: '#FBBF24',    // Rich floral gold/yellow
+                            yellowLight: '#FEF3C7',
+                            white: '#FFFFFF',
+                            gray: '#FAFAFA'
                         }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
+                    backgroundImage: {
+                        'floral-pattern': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 15c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zM25 50c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9z' fill='%23FBBF24' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E\")",
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Slideshow transition styles */
-        .hero-bg {
-            transition: background-image 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Fallback background color if image is missing */
-        .hero-bg-fallback {
-            background-color: #2d3748; 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #171717;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FBBF24;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D97706;
+        }
+
+        /* Page Transitions */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Slider Transitions */
+        .slide {
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1.5s ease-in-out;
+            transform: scale(1.05);
+        }
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Masonry Grid */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1rem;
+        }
+        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 768px) { .masonry-grid { column-count: 3; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 4; } }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-link.active-nav {
+            color: #FBBF24;
+            border-bottom: 2px solid #FBBF24;
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 antialiased bg-gray-50 flex flex-col min-h-screen">
+<body class="bg-brand-gray text-brand-black font-sans flex flex-col min-h-screen relative bg-floral-pattern">
 
-    <!-- Top Bar -->
-    <div class="bg-brand-dark text-white text-sm py-2 px-4">
-        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-            <div class="flex items-center space-x-4 mb-2 sm:mb-0">
-                <a href="tel:8705576218" class="hover:text-brand-accent transition"><i class="fa-solid fa-phone mr-2"></i>(870) 557-6218</a>
-                <a href="mailto:hadynwhisenhunt@gmail.com" class="hover:text-brand-accent transition hidden md:inline-block"><i class="fa-solid fa-envelope mr-2"></i>hadynwhisenhunt@gmail.com</a>
-            </div>
-            <div class="flex items-center space-x-4">
-                <span><i class="fa-solid fa-location-dot mr-2"></i>Nashville, AR 71852</span>
+    <nav class="sticky top-0 z-50 bg-brand-black text-white shadow-lg border-b border-brand-yellow/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <!-- Logo & Brand -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
+                    <img src="photos/Logo/logo.jpg" alt="Amelia's Picalily Logo" class="h-14 w-14 rounded-full border-2 border-brand-yellow object-cover" onerror="this.style.display='none'">
+                    <div class="ml-4">
+                        <span class="font-serif text-2xl md:text-3xl font-bold text-brand-yellow block leading-none">Amelia's</span>
+                        <span class="text-sm md:text-base font-light tracking-widest uppercase">Picalily Flowers</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center h-full">
+                    <button onclick="navigate('home')" class="nav-link active-nav h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="home">Home</button>
+                    <button onclick="navigate('services')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="services">Services</button>
+                    <button onclick="navigate('gallery')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="gallery">Gallery</button>
+                    <button onclick="navigate('events')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="events">Events</button>
+                    <button onclick="navigate('contact')" class="bg-brand-yellow text-brand-black px-6 py-2.5 rounded-full font-bold hover:bg-white transition-colors shadow-[0_0_15px_rgba(251,191,36,0.3)]">Contact Us</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-yellow hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-black border-t border-brand-yellow/20 absolute w-full shadow-2xl pb-6">
+            <div class="px-4 pt-4 pb-2 space-y-2 flex flex-col">
+                <button onclick="navigate('home')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="home">Home</button>
+                <button onclick="navigate('services')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="services">Services</button>
+                <button onclick="navigate('gallery')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="gallery">Gallery</button>
+                <button onclick="navigate('events')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="events">Events</button>
+                <button onclick="navigate('contact')" class="mobile-link mt-4 w-full bg-brand-yellow text-brand-black px-4 py-3 rounded-md text-base font-bold text-center">Contact Us</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN APP ROOT (SPA Container) -->
+    <main id="app-root" class="flex-grow">
+        
+        <!-- ==================== HOME PAGE ==================== -->
+        <section id="page-home" class="page-section active">
+            <!-- Hero Slider -->
+            <div class="relative h-[70vh] min-h-[500px] w-full bg-brand-black overflow-hidden group">
+                <div id="hero-slider" class="w-full h-full relative">
+                    <!-- Slides injected via JS -->
+                </div>
+                
+                <!-- Hero Overlay Content -->
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center z-10">
+                    <div class="text-center px-4 max-w-4xl">
+                        <p class="text-brand-yellow font-medium tracking-[0.3em] uppercase mb-4 text-sm md:text-base">AMF Certified Florist • Bakery • Boutique</p>
+                        <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                            A Perfect Bloom <br>
+                            <span class="italic text-brand-yellow font-light">& Every Little Detail</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
+                            Your one-stop shop in Nashville, AR for beautiful flowers, delicious sweets, coffee, tea, and hand-curated gifts.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button onclick="navigate('services')" class="bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg text-center flex items-center justify-center gap-2 uppercase tracking-wide">
+                                Explore Our Services
+                            </button>
+                            <button onclick="navigate('gallery')" class="bg-transparent text-white border-2 border-brand-yellow px-8 py-4 rounded-full font-bold hover:bg-brand-yellow hover:text-brand-black transition-all text-center flex items-center justify-center gap-2 uppercase tracking-wide">
+                                View Gallery
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <button onclick="prevHeroSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white/50 hover:text-brand-yellow text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="nextHeroSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white/50 hover:text-brand-yellow text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <!-- Intro/About Snippet -->
+            <div class="py-24 bg-white relative">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-black mb-6">More Than Just a Flower Shop</h2>
+                            <div class="w-24 h-1 bg-brand-yellow mb-8"></div>
+                            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                With over 20 years of experience in the floral industry, our talented team has become a trusted business for beautiful weddings, special events, and everyday moments.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                After purchasing our establishment 10 years ago, we extended our business to include a boutique, unique gifts, and a charming bakery and coffee shop—the <strong>Itty Bitty Bakery</strong>. We truly are a one-stop shop, offering multiple options for your big day and everyday life.
+                            </p>
+                            <button onclick="navigate('contact')" class="text-brand-black font-bold uppercase tracking-wider border-b-2 border-brand-yellow pb-1 hover:text-brand-yellow transition-colors">Visit Us Today <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-brand-yellow/20 rounded-xl transform rotate-3"></div>
+                            <img src="photos/Store_and_Displays/image_0003.jpg" alt="Amelia's Picalily Storefront" class="relative z-10 w-full h-[500px] object-cover rounded-xl shadow-2xl" onerror="this.src='https://placehold.co/800x600/171717/FBBF24?text=Storefront'">
+                            <div class="absolute -bottom-8 -left-8 bg-brand-black text-white p-6 rounded-xl shadow-xl z-20 border border-brand-yellow/30">
+                                <div class="flex items-center gap-4">
+                                    <i class="fa-solid fa-award text-4xl text-brand-yellow"></i>
+                                    <div>
+                                        <p class="font-bold text-xl">AMF Certified</p>
+                                        <p class="text-sm text-gray-400">Arkansas Master Florist</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Categories Grid -->
+            <div class="py-16 bg-brand-black text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                        <div class="text-center group cursor-pointer" onclick="navigate('services')">
+                            <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
+                                <i class="fa-solid fa-leaf text-3xl text-brand-yellow group-hover:text-brand-black"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold">Florist</h3>
+                        </div>
+                        <div class="text-center group cursor-pointer" onclick="navigate('services')">
+                            <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
+                                <i class="fa-solid fa-cake-candles text-3xl text-brand-yellow group-hover:text-brand-black"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold">Bakery</h3>
+                        </div>
+                        <div class="text-center group cursor-pointer" onclick="navigate('services')">
+                            <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
+                                <i class="fa-solid fa-mug-hot text-3xl text-brand-yellow group-hover:text-brand-black"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold">Coffee</h3>
+                        </div>
+                        <div class="text-center group cursor-pointer" onclick="navigate('services')">
+                            <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
+                                <i class="fa-solid fa-gift text-3xl text-brand-yellow group-hover:text-brand-black"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold">Boutique</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SERVICES PAGE ==================== -->
+        <section id="page-services" class="page-section">
+            <div class="bg-brand-black py-16 text-center border-b border-brand-yellow/20">
+                <h1 class="text-5xl font-serif font-bold text-white mb-4">Our Services</h1>
+                <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-24">
+                
+                <!-- Florist -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-brand-yellow text-brand-black rounded-full flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <h2 class="text-3xl font-serif font-bold">Fresh Floral Design</h2>
+                        </div>
+                        <p class="text-lg text-gray-600 mb-6">
+                            As an Arkansas Master Florist (AMF) certified shop, we provide exquisite fresh flowers for all occasions. From everyday bouquets to elaborate wedding setups and custom sympathy sprays.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Custom Wedding Flowers & Decor</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Sympathy & Funeral Arrangements</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Daily Deliveries to Local Hospitals & Funeral Homes</span></li>
+                        </ul>
+                        <button onclick="navigate('gallery')" class="bg-brand-black text-white px-6 py-3 rounded hover:bg-brand-yellow hover:text-brand-black transition-colors uppercase font-bold text-sm tracking-wider">View Floral Gallery</button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="photos/Flowers_and_Plants/image_0033.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" alt="Flowers" onerror="this.src='https://placehold.co/400/171717/FBBF24'">
+                        <img src="photos/Flowers_and_Plants/image_0046.jpg" class="w-full h-64 object-cover rounded-lg shadow-md mt-8" alt="Flowers" onerror="this.src='https://placehold.co/400/171717/FBBF24'">
+                    </div>
+                </div>
+
+                <!-- Bakery -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1 grid grid-cols-2 gap-4">
+                        <img src="photos/Food/image_0004.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" alt="Bakery" onerror="this.src='https://placehold.co/400/171717/FBBF24'">
+                        <img src="photos/Food/image_0050.jpg" class="w-full h-64 object-cover rounded-lg shadow-md mt-8" alt="Bakery" onerror="this.src='https://placehold.co/400/171717/FBBF24'">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-brand-yellow text-brand-black rounded-full flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-cake-candles"></i>
+                            </div>
+                            <h2 class="text-3xl font-serif font-bold">Itty Bitty Bakery</h2>
+                        </div>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Indulge your sweet tooth! We offer an array of freshly baked goods daily, plus custom orders for your special events.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Custom Cakes (Birthdays, Weddings, Showers)</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Gourmet Cupcakes (Including Gluten-Free options!)</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Cookies, Homemade Fudge, and Scones</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-star text-brand-yellow mt-1"></i> <span class="font-semibold text-brand-black">Famous Wednesday Take-and-Bake Meals & Lunches</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Coffee & Drinks -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-brand-yellow text-brand-black rounded-full flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-mug-hot"></i>
+                            </div>
+                            <h2 class="text-3xl font-serif font-bold">Coffee & Custom Drinks</h2>
+                        </div>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Our menu is out of control—and that's the way we like it! If you don't see something you love, we'll gladly make a personalized drink with all your specifications.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Gourmet Coffee (Weekly specials like Honey Lavender)</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Lotus Energy Drinks (e.g., Watermelon Crawl)</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Dirty Sodas & Custom Mixes</span></li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="photos/Drinks_and_Drinkware/image_0012.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" alt="Drinks" onerror="this.src='https://placehold.co/400/171717/FBBF24'">
+                        <img src="photos/Drinks_and_Drinkware/image_0037.jpg" class="w-full h-64 object-cover rounded-lg shadow-md mt-8" alt="Drinks" onerror="this.src='https://placehold.co/400/171717/FBBF24'">
+                    </div>
+                </div>
+
+                <!-- Boutique -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1 grid grid-cols-2 gap-4">
+                        <img src="photos/Jewelry_and_Accessories/image_0024.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" alt="Jewelry" onerror="this.src='https://placehold.co/400/171717/FBBF24'">
+                        <img src="photos/Home_Decor/image_0015.jpg" class="w-full h-64 object-cover rounded-lg shadow-md mt-8" alt="Home Decor" onerror="this.src='https://placehold.co/400/171717/FBBF24'">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-brand-yellow text-brand-black rounded-full flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-gift"></i>
+                            </div>
+                            <h2 class="text-3xl font-serif font-bold">Boutique & Gifts</h2>
+                        </div>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Hand-selected, perfectly coordinated gifts. We curate premium brands to ensure you find exactly what you need for yourself or a loved one.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Jewelry: Ronaldo & Enewton Collections</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Bath & Body: Greenwich Bay Trading Co.</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Comfort: Warmies plush & spa accessories</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-yellow mt-1"></i> <span>Home Decor, Clothing, and Loyal West bags</span></li>
+                            <li class="flex items-start gap-3"><i class="fa-solid fa-heart text-brand-yellow mt-1"></i> <span class="font-semibold text-brand-black">Bridal & Gift Registries Available</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== GALLERY PAGE ==================== -->
+        <section id="page-gallery" class="page-section bg-brand-gray min-h-screen pb-20">
+            <div class="bg-brand-black py-16 text-center border-b border-brand-yellow/20">
+                <h1 class="text-5xl font-serif font-bold text-white mb-4">Our Full Gallery</h1>
+                <div class="w-24 h-1 bg-brand-yellow mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto px-4">Browse our extensive collection of floral designs, bakery treats, boutique items, and memories.</p>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-3 mb-10" id="gallery-filters">
+                    <button class="gallery-filter-btn active bg-brand-black text-white px-5 py-2 rounded-full font-medium text-sm transition-colors border-2 border-brand-black" data-filter="all">All</button>
+                    <!-- Other filters injected via JS based on categories -->
+                </div>
+
+                <!-- Masonry Grid -->
+                <div id="masonry-container" class="masonry-grid">
+                    <!-- Images injected via JS -->
+                </div>
+                
+                <div class="text-center mt-12">
+                    <button id="load-more-btn" class="bg-brand-yellow text-brand-black px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition-colors uppercase tracking-wide shadow-lg hidden">Load More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== EVENTS PAGE ==================== -->
+        <section id="page-events" class="page-section">
+            <div class="bg-brand-black py-16 text-center border-b border-brand-yellow/20">
+                <h1 class="text-5xl font-serif font-bold text-white mb-4">Community & Events</h1>
+                <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                
+                <!-- Featured Weekly Event -->
+                <div class="bg-brand-yellow rounded-2xl p-8 md:p-12 shadow-xl mb-16 flex flex-col md:flex-row gap-8 items-center border border-brand-yellow/50">
+                    <div class="md:w-2/3">
+                        <span class="bg-brand-black text-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded mb-4 inline-block">Weekly Favorite</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-black mb-4">Wednesday Take-and-Bake & Lunches</h2>
+                        <p class="text-brand-black/80 text-lg mb-6">
+                            A local tradition! Every Wednesday, Amelia cooks up incredible meals like Cajun Chicken Pasta, Brisket Mac n Cheese, or Protein Bowls. We also offer Lunch Box specials. 
+                        </p>
+                        <p class="font-bold text-brand-black mb-6"><i class="fa-solid fa-clock mr-2"></i> Orders usually cut off Tuesday at 3:00 PM. Call to reserve!</p>
+                        <a href="tel:+18708452738" class="bg-brand-black text-white px-6 py-3 rounded hover:bg-white hover:text-brand-black transition-colors uppercase font-bold text-sm tracking-wider inline-flex items-center gap-2">
+                            <i class="fa-solid fa-phone"></i> (870) 845-2738
+                        </a>
+                    </div>
+                    <div class="md:w-1/3">
+                        <img src="photos/Food/image_0084.jpg" class="w-full h-64 object-cover rounded-xl shadow-lg border-4 border-white" alt="Take and Bake" onerror="this.src='https://placehold.co/400/171717/FBBF24'">
+                    </div>
+                </div>
+
+                <!-- Past/Upcoming Events Grid -->
+                <h3 class="text-3xl font-serif font-bold text-brand-black mb-8 border-b-2 border-brand-yellow pb-2 inline-block">Special Events</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+                        <div class="h-48 relative">
+                            <img src="photos/Events_and_Venues/image_0103.jpg" class="w-full h-full object-cover" alt="Bridal Fair" onerror="this.src='https://placehold.co/600x400/171717/FBBF24'">
+                            <div class="absolute top-4 right-4 bg-white p-2 rounded shadow text-center min-w-[3rem]">
+                                <span class="block text-xs font-bold text-brand-yellow uppercase">Aug</span>
+                                <span class="block text-xl font-bold text-brand-black">15</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="font-bold text-xl font-serif mb-2">Twelve Oaks Bridal Fair</h4>
+                            <p class="text-sm text-gray-500 mb-4"><i class="fa-solid fa-location-dot mr-2"></i>Twelve Oaks Venue</p>
+                            <p class="text-gray-600">Come meet our talented floral team at the bridal fair and discover how we can help bring your wedding vision to life!</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+                        <div class="h-48 relative">
+                            <img src="photos/Events_and_Venues/image_0055.jpg" class="w-full h-full object-cover" alt="Charcuterie Night" onerror="this.src='https://placehold.co/600x400/171717/FBBF24'">
+                            <div class="absolute top-4 right-4 bg-white p-2 rounded shadow text-center min-w-[3rem]">
+                                <span class="block text-xs font-bold text-brand-yellow uppercase">Aug</span>
+                                <span class="block text-xl font-bold text-brand-black">11</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="font-bold text-xl font-serif mb-2">Charcuterie Night</h4>
+                            <p class="text-sm text-gray-500 mb-4"><i class="fa-solid fa-location-dot mr-2"></i>In-Store</p>
+                            <p class="text-gray-600">Join us for a fun and delicious charcuterie making event. Perfect for a girls' night out!</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+                        <div class="h-48 relative">
+                            <img src="photos/Events_and_Venues/image_0195.jpg" class="w-full h-full object-cover" alt="Bridal Showers" onerror="this.src='https://placehold.co/600x400/171717/FBBF24'">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="font-bold text-xl font-serif mb-2">Host Your Bridal Shower</h4>
+                            <p class="text-sm text-gray-500 mb-4"><i class="fa-solid fa-gift mr-2"></i>Registries Available</p>
+                            <p class="text-gray-600">We host and help plan beautiful bridal showers. Register with us for heirloom bags, jewelry, dishware, and home decor.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT PAGE ==================== -->
+        <section id="page-contact" class="page-section">
+            <div class="bg-brand-black py-16 text-center border-b border-brand-yellow/20">
+                <h1 class="text-5xl font-serif font-bold text-white mb-4">Contact & Location</h1>
+                <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-gray-200">
+                    
+                    <!-- Contact Info -->
+                    <div class="lg:w-1/2 p-10 md:p-16">
+                        <h2 class="text-3xl font-serif font-bold text-brand-black mb-8">Get in Touch</h2>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 bg-brand-yellow text-brand-black rounded-full flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Visit Us</h3>
+                                    <p class="text-gray-600 leading-relaxed">218 South Main Street<br>Nashville, AR 71852</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 bg-brand-yellow text-brand-black rounded-full flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Call Us</h3>
+                                    <a href="tel:+18708452738" class="text-gray-600 hover:text-brand-yellow transition-colors text-lg">(870) 845-2738</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 bg-brand-yellow text-brand-black rounded-full flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div class="w-full">
+                                    <h3 class="font-bold text-lg mb-1">Store Hours</h3>
+                                    <table class="w-full text-gray-600 max-w-[250px]">
+                                        <tbody>
+                                            <tr><td class="py-1">Mon - Fri:</td><td class="text-right">8:30 AM - 5:00 PM</td></tr>
+                                            <tr><td class="py-1">Saturday:</td><td class="text-right">9:00 AM - 12:00 PM</td></tr>
+                                            <tr><td class="py-1 font-bold">Sunday:</td><td class="text-right font-bold">Closed</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 pt-8 border-t border-gray-200">
+                            <h3 class="font-bold text-lg mb-4">Follow Our Journey</h3>
+                            <div class="flex gap-4">
+                                <a href="https://www.facebook.com/picalilyflowers/" target="_blank" class="w-12 h-12 bg-brand-black text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors text-xl">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <!-- Instagram placeholder -->
+                                <a href="#" class="w-12 h-12 bg-brand-black text-white rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors text-xl">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="lg:w-1/2 min-h-[400px] lg:min-h-full bg-gray-200 relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3298.121332857448!2d-93.8504!3d33.9452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x862c9bb0bc55e59d%3A0x8c14282810a942df!2sAmelia&#39;s%20Picalily%20Flowers%20and%20More!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                            class="absolute inset-0 w-full h-full border-0" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox for Gallery & Slideshow -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-brand-yellow text-4xl focus:outline-none z-50"><i class="fa-solid fa-xmark"></i></button>
+        
+        <div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center">
+            <img id="lightbox-img" src="" alt="Gallery Image Full" class="max-w-full max-h-full object-contain rounded shadow-2xl transition-opacity duration-300">
+            
+            <!-- Slideshow Controls -->
+            <button onclick="prevLightboxSlide(event)" class="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 text-white hover:text-brand-yellow text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-left"></i></button>
+            <button onclick="nextLightboxSlide(event)" class="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 text-white hover:text-brand-yellow text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <p id="lightbox-caption" class="text-brand-yellow mt-6 text-lg font-medium tracking-wide uppercase"></p>
     </div>
 
-    <!-- Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#" class="flex items-center space-x-3">
-                <!-- Replace src with 'logo/logo.png' as per your directory -->
-                <img src="./logo/logo.png" alt="Whisenhunt Excavation Logo" class="h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/150x50/1a1a1a/FFF?text=WHISENHUNT+EXCAVATION'">
-                <div class="hidden sm:block">
-                    <h1 class="text-xl font-bold text-brand-dark leading-tight uppercase tracking-wide">Whisenhunt</h1>
-                    <p class="text-xs font-semibold text-brand-accent uppercase tracking-widest">Excavation LLC</p>
-                </div>
-            </a>
-
-            <!-- Desktop Menu -->
-            <nav class="hidden md:flex space-x-8 items-center font-medium">
-                <a href="#about" class="text-gray-600 hover:text-brand-accent transition">About</a>
-                <a href="#services" class="text-gray-600 hover:text-brand-accent transition">Services</a>
-                <a href="#gallery" class="text-gray-600 hover:text-brand-accent transition">Recent Work</a>
-                <a href="#reviews" class="text-gray-600 hover:text-brand-accent transition">Reviews</a>
-                <a href="tel:8705576218" class="bg-brand-accent text-white px-6 py-2 rounded shadow hover:bg-yellow-600 transition font-bold">Call Now</a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none text-2xl">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <div class="flex flex-col px-4 pt-2 pb-4 space-y-3 shadow-inner">
-                <a href="#about" class="block text-gray-600 hover:text-brand-accent py-2">About</a>
-                <a href="#services" class="block text-gray-600 hover:text-brand-accent py-2">Services</a>
-                <a href="#gallery" class="block text-gray-600 hover:text-brand-accent py-2">Recent Work</a>
-                <a href="#reviews" class="block text-gray-600 hover:text-brand-accent py-2">Reviews</a>
-                <a href="tel:8705576218" class="block bg-brand-accent text-white px-4 py-2 rounded text-center font-bold">Call (870) 557-6218</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section with Slideshow -->
-    <section id="hero" class="relative hero-bg hero-bg-fallback h-[70vh] min-h-[500px] flex items-center justify-center">
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-        
-        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-6xl font-bold mb-4 uppercase tracking-wider text-shadow">Dirt Work Done Right</h2>
-            <p class="text-lg md:text-2xl mb-8 font-light text-gray-200">Reliable excavation and land management in Nashville, Arkansas.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#contact" class="bg-brand-accent text-white px-8 py-4 rounded text-lg font-bold shadow-lg hover:bg-yellow-600 transition">Get a Free Estimate</a>
-                <a href="#services" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded text-lg font-bold hover:bg-white hover:text-brand-dark transition">Our Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Verse / Mission Section -->
-    <section class="bg-brand-earth text-white py-12">
-        <div class="container mx-auto px-4 text-center max-w-3xl">
-            <i class="fa-solid fa-quote-left text-3xl mb-4 text-brand-accent opacity-50"></i>
-            <p class="font-serif text-xl md:text-2xl italic leading-relaxed mb-4">
-                "A good name is to be chosen rather than great riches, and favor is better than silver or gold."
-            </p>
-            <p class="text-sm font-bold tracking-widest uppercase text-brand-accent">— Proverbs 22:1</p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <!-- Representational image, fallback to placeholder if local file not loaded -->
-                    <img src="./slideshow/image_0005.jpg" alt="Whisenhunt Excavation Equipment" class="rounded-lg shadow-2xl w-full object-cover h-96" onerror="this.onerror=null; this.src='https://placehold.co/800x600/4a3f35/FFF?text=Equipment+in+Action'">
-                </div>
-                <div class="md:w-1/2">
-                    <h3 class="text-brand-accent font-bold uppercase tracking-widest text-sm mb-2">Locally Owned & Operated</h3>
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">Whisenhunt Excavation LLC</h2>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        Led by Hadyn Whisenhunt, we are a trusted contractor based in Nashville, Arkansas, specializing in turning thick overgrowth into clean, usable ground. 
-                    </p>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        We pride ourselves on doing the job right the first time. Whether you have overgrown property, fence rows, trails, or underbrush taking over, we have the right equipment (including Caterpillar and GMC machinery) and expertise to handle it. No burn piles, no hauling brush off—just a clean finish ready to use.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-700">
-                            <i class="fa-solid fa-check text-brand-accent mr-3"></i> Fully equipped for heavy duty clearing
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fa-solid fa-check text-brand-accent mr-3"></i> Local Arkansas business you can trust
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fa-solid fa-check text-brand-accent mr-3"></i> Dedicated to high-quality results
-                        </li>
-                    </ul>
-                    <a href="tel:8705576218" class="text-brand-dark font-bold hover:text-brand-accent transition flex items-center">
-                        Speak with Hadyn Today <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h3 class="text-brand-accent font-bold uppercase tracking-widest text-sm mb-2">What We Do</h3>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Our Core Services</h2>
-                <p class="text-gray-600">From lot clearing to heavy dirt moving, we provide end-to-end land management solutions designed to leave your property completely transformed.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
-                    <div class="h-48 bg-gray-200 overflow-hidden">
-                        <img src="./slideshow/image_0035.jpg" alt="Land Clearing" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4a3f35/FFF?text=Land+Clearing'">
-                    </div>
-                    <div class="p-8">
-                        <div class="w-12 h-12 bg-orange-100 text-brand-accent rounded flex items-center justify-center mb-6 text-2xl">
-                            <i class="fa-solid fa-tree"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Land Clearing & Mulching</h3>
-                        <p class="text-gray-600 mb-4">From thick overgrowth to clean usable ground. We knock it out with the mulcher, leaving no burn piles and no hauling brush off. Just a clean finish.</p>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
-                    <div class="h-48 bg-gray-200 overflow-hidden">
-                        <img src="./slideshow/image_0102.jpg" alt="Excavation" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4a3f35/FFF?text=Excavation'">
-                    </div>
-                    <div class="p-8">
-                        <div class="w-12 h-12 bg-orange-100 text-brand-accent rounded flex items-center justify-center mb-6 text-2xl">
-                            <i class="fa-solid fa-tractor"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Reliable Excavation</h3>
-                        <p class="text-gray-600 mb-4">Precision grading, trenching, and heavy equipment operation for residential, commercial, and agricultural development.</p>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 transition hover:-translate-y-1 hover:shadow-xl">
-                    <div class="h-48 bg-gray-200 overflow-hidden">
-                        <img src="./slideshow/image_0200.jpg" alt="Dirt Work" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4a3f35/FFF?text=Dirt+Work'">
-                    </div>
-                    <div class="p-8">
-                        <div class="w-12 h-12 bg-orange-100 text-brand-accent rounded flex items-center justify-center mb-6 text-2xl">
-                            <i class="fa-solid fa-mountain"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Dirt Work & Grading</h3>
-                        <p class="text-gray-600 mb-4">Leveling, pad construction, and soil management. We ensure your ground is structurally sound and prepared correctly for its next purpose.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Recent Work / Gallery Snippet -->
-    <section id="gallery" class="py-20 bg-brand-dark text-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div class="max-w-2xl">
-                    <h3 class="text-brand-accent font-bold uppercase tracking-widest text-sm mb-2">Our Results</h3>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Night & Day Difference</h2>
-                    <p class="text-gray-400">Take a look at how we transform overgrown, unusable property into clean, functional land.</p>
-                </div>
-                <div class="mt-6 md:mt-0">
-                    <a href="https://www.facebook.com/p/Whisenhunt-Excavation-100093315246821/" target="_blank" class="bg-transparent border border-gray-600 text-white px-6 py-2 rounded hover:bg-gray-800 transition flex items-center">
-                        <i class="fa-brands fa-facebook text-[#1877F2] mr-2 text-xl"></i> See more on Facebook
-                    </a>
-                </div>
-            </div>
-
-            <!-- Dynamic Gallery Grid (using a subset of the provided images) -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="aspect-square bg-gray-800 rounded overflow-hidden">
-                    <img src="./slideshow/image_0006.jpg" alt="Gallery Image" class="w-full h-full object-cover hover:scale-110 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/400/1a1a1a/FFF?text=Project+1'">
-                </div>
-                <div class="aspect-square bg-gray-800 rounded overflow-hidden">
-                    <img src="./slideshow/image_0047.jpg" alt="Gallery Image" class="w-full h-full object-cover hover:scale-110 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/400/1a1a1a/FFF?text=Project+2'">
-                </div>
-                <div class="aspect-square bg-gray-800 rounded overflow-hidden">
-                    <img src="./slideshow/image_0096.jpg" alt="Gallery Image" class="w-full h-full object-cover hover:scale-110 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/400/1a1a1a/FFF?text=Project+3'">
-                </div>
-                <div class="aspect-square bg-gray-800 rounded overflow-hidden">
-                    <img src="./slideshow/image_0150.jpg" alt="Gallery Image" class="w-full h-full object-cover hover:scale-110 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/400/1a1a1a/FFF?text=Project+4'">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section id="reviews" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h3 class="text-brand-accent font-bold uppercase tracking-widest text-sm mb-2">Word of Mouth</h3>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">What Our Clients Say</h2>
-                <div class="flex justify-center space-x-1 text-yellow-400 text-xl mb-4">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="bg-gray-50 p-8 rounded-lg relative">
-                    <i class="fa-solid fa-quote-right absolute top-4 right-6 text-5xl text-gray-200"></i>
-                    <p class="text-gray-700 italic mb-6 relative z-10">"Great work! We will definitely use Hayden again!"</p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-brand-dark rounded-full flex items-center justify-center text-white font-bold mr-4">FD</div>
-                        <div>
-                            <h4 class="font-bold text-brand-dark">Freda Davis</h4>
-                            <p class="text-xs text-gray-500">Facebook Recommendation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 2 -->
-                <div class="bg-gray-50 p-8 rounded-lg relative">
-                    <i class="fa-solid fa-quote-right absolute top-4 right-6 text-5xl text-gray-200"></i>
-                    <p class="text-gray-700 italic mb-6 relative z-10">"Great job on clearing the parking lot after a winter storm."</p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center text-white font-bold mr-4">JM</div>
-                        <div>
-                            <h4 class="font-bold text-brand-dark">Julie McKim</h4>
-                            <p class="text-xs text-gray-500">Facebook Recommendation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 3 -->
-                <div class="bg-gray-50 p-8 rounded-lg relative">
-                    <i class="fa-solid fa-quote-right absolute top-4 right-6 text-5xl text-gray-200"></i>
-                    <p class="text-gray-700 italic mb-6 relative z-10">"You guys do an awesome job! What a difference. Wow, NIGHT & DAY!"</p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-brand-earth rounded-full flex items-center justify-center text-white font-bold mr-4">AP</div>
-                        <div>
-                            <h4 class="font-bold text-brand-dark">Austin Purvis & Savanah Curry</h4>
-                            <p class="text-xs text-gray-500">Facebook Recommendation</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action / Contact -->
-    <section id="contact" class="py-20 bg-brand-accent text-white">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-            <div class="md:w-2/3 mb-8 md:mb-0">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Ready to reclaim your land?</h2>
-                <p class="text-xl opacity-90 mb-6">Contact us today to discuss your project and get a quote.</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
-                    <div class="flex items-center text-lg">
-                        <i class="fa-solid fa-phone text-2xl mr-3"></i>
-                        <span>(870) 557-6218</span>
-                    </div>
-                    <div class="flex items-center text-lg">
-                        <i class="fa-solid fa-envelope text-2xl mr-3"></i>
-                        <span>hadynwhisenhunt@gmail.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="md:w-1/3 flex justify-center md:justify-end">
-                <a href="tel:8705576218" class="bg-white text-brand-dark px-10 py-5 rounded shadow-xl text-xl font-bold hover:bg-gray-100 transition transform hover:scale-105">
-                    Call (870) 557-6218
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-brand-dark text-gray-400 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h4 class="text-white text-lg font-bold mb-4">Whisenhunt Excavation LLC</h4>
-                <p class="mb-4">Reliable excavation, land management, and dirt work done right. Locally owned and operated.</p>
-                <a href="https://www.facebook.com/p/Whisenhunt-Excavation-100093315246821/" target="_blank" class="text-gray-400 hover:text-white text-2xl transition">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
+    <footer class="bg-brand-black text-white pt-16 pb-8 border-t-4 border-brand-yellow mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="photos/Logo/logo.jpg" alt="Logo" class="w-12 h-12 rounded-full border border-brand-yellow" onerror="this.style.display='none'">
+                        <div>
+                            <span class="font-serif text-2xl font-bold text-brand-yellow block leading-none">Amelia's</span>
+                            <span class="text-xs font-light tracking-widest uppercase">Picalily Flowers</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        A perfect bloom and every little detail. Your local Nashville, AR AMF certified florist, bakery, and boutique.
+                    </p>
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-award text-2xl text-brand-yellow" title="AMF Certified"></i>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-brand-yellow font-serif">Quick Navigation</h4>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li><button onclick="navigate('home')" class="hover:text-white transition-colors">Home</button></li>
+                        <li><button onclick="navigate('services')" class="hover:text-white transition-colors">Services</button></li>
+                        <li><button onclick="navigate('gallery')" class="hover:text-white transition-colors">Full Gallery</button></li>
+                        <li><button onclick="navigate('events')" class="hover:text-white transition-colors">Events & Community</button></li>
+                        <li><button onclick="navigate('contact')" class="hover:text-white transition-colors">Contact Us</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-brand-yellow font-serif">Contact Info</h4>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-location-dot mt-1 text-brand-yellow"></i> 218 S Main St, Nashville, AR 71852</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-phone mt-1 text-brand-yellow"></i> <a href="tel:+18708452738" class="hover:text-white transition-colors">(870) 845-2738</a></li>
+                        <li class="flex items-start gap-3"><i class="fa-brands fa-facebook mt-1 text-brand-yellow"></i> <a href="https://www.facebook.com/picalilyflowers/" target="_blank" class="hover:text-white transition-colors">Follow us on Facebook</a></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h4 class="text-white text-lg font-bold mb-4">Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a href="#about" class="hover:text-brand-accent transition">About Us</a></li>
-                    <li><a href="#services" class="hover:text-brand-accent transition">Services</a></li>
-                    <li><a href="#gallery" class="hover:text-brand-accent transition">Recent Work</a></li>
-                    <li><a href="#reviews" class="hover:text-brand-accent transition">Testimonials</a></li>
-                </ul>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2026 Amelia's Picalily Flowers and More. All rights reserved.</p>
             </div>
-            <div>
-                <h4 class="text-white text-lg font-bold mb-4">Contact Info</h4>
-                <ul class="space-y-3">
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-location-dot mt-1 mr-3 text-brand-accent"></i>
-                        <span>Nashville, AR, United States, 71852</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-phone mt-1 mr-3 text-brand-accent"></i>
-                        <a href="tel:8705576218" class="hover:text-white transition">(870) 557-6218</a>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-envelope mt-1 mr-3 text-brand-accent"></i>
-                        <a href="mailto:hadynwhisenhunt@gmail.com" class="hover:text-white transition">hadynwhisenhunt@gmail.com</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="container mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-sm text-center">
-            <p>&copy; 2026 Whisenhunt Excavation LLC. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Mobile Menu Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Slideshow Array - Containing EXACTLY all the provided images from the directory structure
-        const slideshowImages = [
-            "slideshow/image_0005.jpg", "slideshow/image_0006.jpg", "slideshow/image_0007.jpg", "slideshow/image_0008.jpg",
-            "slideshow/image_0009.jpg", "slideshow/image_0010.jpg", "slideshow/image_0011.jpg", "slideshow/image_0012.jpg",
-            "slideshow/image_0014.jpg", "slideshow/image_0015.jpg", "slideshow/image_0016.jpg", "slideshow/image_0018.jpg",
-            "slideshow/image_0019.jpg", "slideshow/image_0020.jpg", "slideshow/image_0021.jpg", "slideshow/image_0022.jpg",
-            "slideshow/image_0023.jpg", "slideshow/image_0024.jpg", "slideshow/image_0025.jpg", "slideshow/image_0026.jpg",
-            "slideshow/image_0027.jpg", "slideshow/image_0028.jpg", "slideshow/image_0029.jpg", "slideshow/image_0030.jpg",
-            "slideshow/image_0031.jpg", "slideshow/image_0032.jpg", "slideshow/image_0034.jpg", "slideshow/image_0035.jpg",
-            "slideshow/image_0039.jpg", "slideshow/image_0040.jpg", "slideshow/image_0041.jpg", "slideshow/image_0042.jpg",
-            "slideshow/image_0043.jpg", "slideshow/image_0044.jpg", "slideshow/image_0045.jpg", "slideshow/image_0047.jpg",
-            "slideshow/image_0048.jpg", "slideshow/image_0049.jpg", "slideshow/image_0050.jpg", "slideshow/image_0051.jpg",
-            "slideshow/image_0052.jpg", "slideshow/image_0053.jpg", "slideshow/image_0054.jpg", "slideshow/image_0055.jpg",
-            "slideshow/image_0056.jpg", "slideshow/image_0057.jpg", "slideshow/image_0058.jpg", "slideshow/image_0059.jpg",
-            "slideshow/image_0060.jpg", "slideshow/image_0061.jpg", "slideshow/image_0062.jpg", "slideshow/image_0063.jpg",
-            "slideshow/image_0064.jpg", "slideshow/image_0065.jpg", "slideshow/image_0066.jpg", "slideshow/image_0067.jpg",
-            "slideshow/image_0068.jpg", "slideshow/image_0069.jpg", "slideshow/image_0070.jpg", "slideshow/image_0072.jpg",
-            "slideshow/image_0073.jpg", "slideshow/image_0074.jpg", "slideshow/image_0076.jpg", "slideshow/image_0077.jpg",
-            "slideshow/image_0078.jpg", "slideshow/image_0079.jpg", "slideshow/image_0080.jpg", "slideshow/image_0081.jpg",
-            "slideshow/image_0082.jpg", "slideshow/image_0083.jpg", "slideshow/image_0084.jpg", "slideshow/image_0085.jpg",
-            "slideshow/image_0086.jpg", "slideshow/image_0087.jpg", "slideshow/image_0088.jpg", "slideshow/image_0089.jpg",
-            "slideshow/image_0090.jpg", "slideshow/image_0091.jpg", "slideshow/image_0092.jpg", "slideshow/image_0093.jpg",
-            "slideshow/image_0094.jpg", "slideshow/image_0095.jpg", "slideshow/image_0096.jpg", "slideshow/image_0097.jpg",
-            "slideshow/image_0098.jpg", "slideshow/image_0100.jpg", "slideshow/image_0102.jpg", "slideshow/image_0104.jpg",
-            "slideshow/image_0106.jpg", "slideshow/image_0107.jpg", "slideshow/image_0108.jpg", "slideshow/image_0109.jpg",
-            "slideshow/image_0110.jpg", "slideshow/image_0111.jpg", "slideshow/image_0112.jpg", "slideshow/image_0113.jpg",
-            "slideshow/image_0114.jpg", "slideshow/image_0115.jpg", "slideshow/image_0116.jpg", "slideshow/image_0117.jpg",
-            "slideshow/image_0118.jpg", "slideshow/image_0119.jpg", "slideshow/image_0120.jpg", "slideshow/image_0121.jpg",
-            "slideshow/image_0122.jpg", "slideshow/image_0123.jpg", "slideshow/image_0124.jpg", "slideshow/image_0125.jpg",
-            "slideshow/image_0126.jpg", "slideshow/image_0127.jpg", "slideshow/image_0128.jpg", "slideshow/image_0129.jpg",
-            "slideshow/image_0130.jpg", "slideshow/image_0131.jpg", "slideshow/image_0132.jpg", "slideshow/image_0133.jpg",
-            "slideshow/image_0134.jpg", "slideshow/image_0136.jpg", "slideshow/image_0137.jpg", "slideshow/image_0138.jpg",
-            "slideshow/image_0139.jpg", "slideshow/image_0141.jpg", "slideshow/image_0142.jpg", "slideshow/image_0143.jpg",
-            "slideshow/image_0144.jpg", "slideshow/image_0145.jpg", "slideshow/image_0146.jpg", "slideshow/image_0147.jpg",
-            "slideshow/image_0148.jpg", "slideshow/image_0150.jpg", "slideshow/image_0152.jpg", "slideshow/image_0153.jpg",
-            "slideshow/image_0154.jpg", "slideshow/image_0155.jpg", "slideshow/image_0156.jpg", "slideshow/image_0157.jpg",
-            "slideshow/image_0158.jpg", "slideshow/image_0159.jpg", "slideshow/image_0160.jpg", "slideshow/image_0162.jpg",
-            "slideshow/image_0163.jpg", "slideshow/image_0164.jpg", "slideshow/image_0165.jpg", "slideshow/image_0166.jpg",
-            "slideshow/image_0167.jpg", "slideshow/image_0168.jpg", "slideshow/image_0169.jpg", "slideshow/image_0170.jpg",
-            "slideshow/image_0172.jpg", "slideshow/image_0173.jpg", "slideshow/image_0175.jpg", "slideshow/image_0176.jpg",
-            "slideshow/image_0177.jpg", "slideshow/image_0178.jpg", "slideshow/image_0179.jpg", "slideshow/image_0180.jpg",
-            "slideshow/image_0182.jpg", "slideshow/image_0183.jpg", "slideshow/image_0184.jpg", "slideshow/image_0185.jpg",
-            "slideshow/image_0187.jpg", "slideshow/image_0189.jpg", "slideshow/image_0191.jpg", "slideshow/image_0192.jpg",
-            "slideshow/image_0193.jpg", "slideshow/image_0194.jpg", "slideshow/image_0195.jpg", "slideshow/image_0196.jpg",
-            "slideshow/image_0197.jpg", "slideshow/image_0198.jpg", "slideshow/image_0199.jpg", "slideshow/image_0200.jpg",
-            "slideshow/image_0201.jpg", "slideshow/image_0202.jpg", "slideshow/image_0203.jpg", "slideshow/image_0204.jpg",
-            "slideshow/image_0205.jpg", "slideshow/image_0206.jpg", "slideshow/image_0207.jpg", "slideshow/image_0208.jpg",
-            "slideshow/image_0209.jpg", "slideshow/image_0210.jpg", "slideshow/image_0211.jpg", "slideshow/image_0212.jpg",
-            "slideshow/image_0213.jpg", "slideshow/image_0214.jpg", "slideshow/image_0215.jpg", "slideshow/image_0216.jpg",
-            "slideshow/image_0217.jpg", "slideshow/image_0218.jpg", "slideshow/image_0219.jpg", "slideshow/image_0220.jpg",
-            "slideshow/image_0221.jpg", "slideshow/image_0222.jpg", "slideshow/image_0223.jpg", "slideshow/image_0224.jpg",
-            "slideshow/image_0225.jpg", "slideshow/image_0226.jpg", "slideshow/image_0227.jpg", "slideshow/image_0228.jpg",
-            "slideshow/image_0229.jpg", "slideshow/image_0230.jpg", "slideshow/image_0231.jpg", "slideshow/image_0232.jpg",
-            "slideshow/image_0233.jpg", "slideshow/image_0234.jpg", "slideshow/image_0235.jpg", "slideshow/image_0236.jpg",
-            "slideshow/image_0237.jpg", "slideshow/image_0238.jpg", "slideshow/image_0239.jpg", "slideshow/image_0240.jpg",
-            "slideshow/image_0241.jpg", "slideshow/image_0242.jpg", "slideshow/image_0243.jpg", "slideshow/image_0244.jpg",
-            "slideshow/image_0245.jpg", "slideshow/image_0246.jpg", "slideshow/image_0247.jpg", "slideshow/image_0248.jpg",
-            "slideshow/image_0249.jpg", "slideshow/image_0250.jpg", "slideshow/image_0251.jpg", "slideshow/image_0252.jpg",
-            "slideshow/image_0253.jpg", "slideshow/image_0254.jpg", "slideshow/image_0255.jpg", "slideshow/image_0256.jpg",
-            "slideshow/image_0257.jpg", "slideshow/image_0258.jpg", "slideshow/image_0259.jpg", "slideshow/image_0260.jpg",
-            "slideshow/image_0261.jpg", "slideshow/image_0262.jpg", "slideshow/image_0263.jpg", "slideshow/image_0264.jpg",
-            "slideshow/image_0266.jpg", "slideshow/image_0267.jpg", "slideshow/image_0272.jpg", "slideshow/image_0274.jpg",
-            "slideshow/image_0277.jpg"
+        // --- 1. DATA INGESTION: ALL PROVIDED IMAGES ---
+        // I have parsed the directory list into a structured array for lazy loading.
+        const allImages = [
+            { cat: "Clothing", url: "photos/Clothing/image_0016.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0017.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0045.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0052.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0064.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0151.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0161.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0183.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0393.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0407.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0425.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0438.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0447.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0463.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0466.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0506.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0592.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0642.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0649.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0676.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0689.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0012.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0026.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0037.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0049.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0080.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0090.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0096.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0135.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0149.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0154.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0168.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0178.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0182.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0194.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0228.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0245.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0321.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0344.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0348.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0365.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0370.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0374.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0420.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0437.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0453.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0454.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0458.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0459.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0484.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0515.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0517.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0586.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0645.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0665.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0667.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0694.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0055.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0103.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0107.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0114.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0116.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0125.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0128.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0130.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0134.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0141.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0145.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0158.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0195.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0196.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0197.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0198.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0206.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0207.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0209.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0223.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0239.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0255.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0266.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0319.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0325.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0329.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0363.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0377.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0468.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0473.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0491.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0495.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0555.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0577.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0593.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0596.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0598.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0600.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0622.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0637.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0641.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0702.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0008.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0033.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0036.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0046.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0051.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0058.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0065.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0069.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0072.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0083.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0092.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0105.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0119.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0131.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0137.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0140.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0143.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0159.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0170.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0175.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0180.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0191.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0192.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0210.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0211.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0212.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0213.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0215.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0217.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0218.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0221.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0222.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0224.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0227.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0230.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0232.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0234.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0238.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0241.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0249.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0260.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0261.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0264.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0268.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0271.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0274.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0277.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0281.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0309.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0312.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0316.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0322.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0337.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0342.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0350.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0353.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0366.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0383.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0386.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0388.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0390.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0400.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0404.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0415.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0419.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0445.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0448.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0451.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0457.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0474.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0478.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0479.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0492.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0497.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0507.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0512.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0523.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0527.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0528.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0532.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0533.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0534.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0537.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0538.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0539.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0541.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0543.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0544.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0545.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0548.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0549.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0550.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0552.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0553.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0554.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0556.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0557.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0560.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0563.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0565.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0568.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0569.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0572.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0575.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0576.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0578.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0580.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0582.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0584.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0587.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0597.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0605.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0606.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0608.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0610.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0612.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0615.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0616.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0619.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0628.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0634.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0636.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0638.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0640.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0648.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0654.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0655.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0656.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0658.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0659.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0660.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0661.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0662.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0670.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0674.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0693.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0713.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0715.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0717.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0718.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0719.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0720.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0728.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0729.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0731.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0733.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0736.jpg" },
+            { cat: "Food", url: "photos/Food/image_0001.jpg" }, { cat: "Food", url: "photos/Food/image_0004.jpg" }, { cat: "Food", url: "photos/Food/image_0005.jpg" }, { cat: "Food", url: "photos/Food/image_0009.jpg" }, { cat: "Food", url: "photos/Food/image_0011.jpg" }, { cat: "Food", url: "photos/Food/image_0013.jpg" }, { cat: "Food", url: "photos/Food/image_0023.jpg" }, { cat: "Food", url: "photos/Food/image_0027.jpg" }, { cat: "Food", url: "photos/Food/image_0029.jpg" }, { cat: "Food", url: "photos/Food/image_0032.jpg" }, { cat: "Food", url: "photos/Food/image_0035.jpg" }, { cat: "Food", url: "photos/Food/image_0040.jpg" }, { cat: "Food", url: "photos/Food/image_0041.jpg" }, { cat: "Food", url: "photos/Food/image_0043.jpg" }, { cat: "Food", url: "photos/Food/image_0050.jpg" }, { cat: "Food", url: "photos/Food/image_0053.jpg" }, { cat: "Food", url: "photos/Food/image_0056.jpg" }, { cat: "Food", url: "photos/Food/image_0060.jpg" }, { cat: "Food", url: "photos/Food/image_0063.jpg" }, { cat: "Food", url: "photos/Food/image_0068.jpg" }, { cat: "Food", url: "photos/Food/image_0077.jpg" }, { cat: "Food", url: "photos/Food/image_0084.jpg" }, { cat: "Food", url: "photos/Food/image_0086.jpg" }, { cat: "Food", url: "photos/Food/image_0087.jpg" }, { cat: "Food", url: "photos/Food/image_0093.jpg" }, { cat: "Food", url: "photos/Food/image_0094.jpg" }, { cat: "Food", url: "photos/Food/image_0106.jpg" }, { cat: "Food", url: "photos/Food/image_0117.jpg" }, { cat: "Food", url: "photos/Food/image_0121.jpg" }, { cat: "Food", url: "photos/Food/image_0122.jpg" }, { cat: "Food", url: "photos/Food/image_0127.jpg" }, { cat: "Food", url: "photos/Food/image_0132.jpg" }, { cat: "Food", url: "photos/Food/image_0136.jpg" }, { cat: "Food", url: "photos/Food/image_0139.jpg" }, { cat: "Food", url: "photos/Food/image_0142.jpg" }, { cat: "Food", url: "photos/Food/image_0146.jpg" }, { cat: "Food", url: "photos/Food/image_0150.jpg" }, { cat: "Food", url: "photos/Food/image_0156.jpg" }, { cat: "Food", url: "photos/Food/image_0166.jpg" }, { cat: "Food", url: "photos/Food/image_0167.jpg" }, { cat: "Food", url: "photos/Food/image_0172.jpg" }, { cat: "Food", url: "photos/Food/image_0173.jpg" }, { cat: "Food", url: "photos/Food/image_0177.jpg" }, { cat: "Food", url: "photos/Food/image_0193.jpg" }, { cat: "Food", url: "photos/Food/image_0199.jpg" }, { cat: "Food", url: "photos/Food/image_0204.jpg" }, { cat: "Food", url: "photos/Food/image_0208.jpg" }, { cat: "Food", url: "photos/Food/image_0233.jpg" }, { cat: "Food", url: "photos/Food/image_0235.jpg" }, { cat: "Food", url: "photos/Food/image_0242.jpg" }, { cat: "Food", url: "photos/Food/image_0284.jpg" }, { cat: "Food", url: "photos/Food/image_0287.jpg" }, { cat: "Food", url: "photos/Food/image_0290.jpg" }, { cat: "Food", url: "photos/Food/image_0294.jpg" }, { cat: "Food", url: "photos/Food/image_0296.jpg" }, { cat: "Food", url: "photos/Food/image_0308.jpg" }, { cat: "Food", url: "photos/Food/image_0311.jpg" }, { cat: "Food", url: "photos/Food/image_0313.jpg" }, { cat: "Food", url: "photos/Food/image_0318.jpg" }, { cat: "Food", url: "photos/Food/image_0324.jpg" }, { cat: "Food", url: "photos/Food/image_0326.jpg" }, { cat: "Food", url: "photos/Food/image_0328.jpg" }, { cat: "Food", url: "photos/Food/image_0335.jpg" }, { cat: "Food", url: "photos/Food/image_0340.jpg" }, { cat: "Food", url: "photos/Food/image_0355.jpg" }, { cat: "Food", url: "photos/Food/image_0356.jpg" }, { cat: "Food", url: "photos/Food/image_0358.jpg" }, { cat: "Food", url: "photos/Food/image_0364.jpg" }, { cat: "Food", url: "photos/Food/image_0368.jpg" }, { cat: "Food", url: "photos/Food/image_0371.jpg" }, { cat: "Food", url: "photos/Food/image_0372.jpg" }, { cat: "Food", url: "photos/Food/image_0376.jpg" }, { cat: "Food", url: "photos/Food/image_0379.jpg" }, { cat: "Food", url: "photos/Food/image_0380.jpg" }, { cat: "Food", url: "photos/Food/image_0382.jpg" }, { cat: "Food", url: "photos/Food/image_0392.jpg" }, { cat: "Food", url: "photos/Food/image_0394.jpg" }, { cat: "Food", url: "photos/Food/image_0395.jpg" }, { cat: "Food", url: "photos/Food/image_0397.jpg" }, { cat: "Food", url: "photos/Food/image_0399.jpg" }, { cat: "Food", url: "photos/Food/image_0402.jpg" }, { cat: "Food", url: "photos/Food/image_0406.jpg" }, { cat: "Food", url: "photos/Food/image_0408.jpg" }, { cat: "Food", url: "photos/Food/image_0409.jpg" }, { cat: "Food", url: "photos/Food/image_0412.jpg" }, { cat: "Food", url: "photos/Food/image_0413.jpg" }, { cat: "Food", url: "photos/Food/image_0416.jpg" }, { cat: "Food", url: "photos/Food/image_0417.jpg" }, { cat: "Food", url: "photos/Food/image_0422.jpg" }, { cat: "Food", url: "photos/Food/image_0428.jpg" }, { cat: "Food", url: "photos/Food/image_0429.jpg" }, { cat: "Food", url: "photos/Food/image_0430.jpg" }, { cat: "Food", url: "photos/Food/image_0431.jpg" }, { cat: "Food", url: "photos/Food/image_0433.jpg" }, { cat: "Food", url: "photos/Food/image_0435.jpg" }, { cat: "Food", url: "photos/Food/image_0436.jpg" }, { cat: "Food", url: "photos/Food/image_0450.jpg" }, { cat: "Food", url: "photos/Food/image_0452.jpg" }, { cat: "Food", url: "photos/Food/image_0456.jpg" }, { cat: "Food", url: "photos/Food/image_0462.jpg" }, { cat: "Food", url: "photos/Food/image_0470.jpg" }, { cat: "Food", url: "photos/Food/image_0472.jpg" }, { cat: "Food", url: "photos/Food/image_0480.jpg" }, { cat: "Food", url: "photos/Food/image_0482.jpg" }, { cat: "Food", url: "photos/Food/image_0485.jpg" }, { cat: "Food", url: "photos/Food/image_0490.jpg" }, { cat: "Food", url: "photos/Food/image_0493.jpg" }, { cat: "Food", url: "photos/Food/image_0494.jpg" }, { cat: "Food", url: "photos/Food/image_0496.jpg" }, { cat: "Food", url: "photos/Food/image_0501.jpg" }, { cat: "Food", url: "photos/Food/image_0502.jpg" }, { cat: "Food", url: "photos/Food/image_0503.jpg" }, { cat: "Food", url: "photos/Food/image_0505.jpg" }, { cat: "Food", url: "photos/Food/image_0522.jpg" }, { cat: "Food", url: "photos/Food/image_0530.jpg" }, { cat: "Food", url: "photos/Food/image_0531.jpg" }, { cat: "Food", url: "photos/Food/image_0540.jpg" }, { cat: "Food", url: "photos/Food/image_0558.jpg" }, { cat: "Food", url: "photos/Food/image_0561.jpg" }, { cat: "Food", url: "photos/Food/image_0570.jpg" }, { cat: "Food", url: "photos/Food/image_0574.jpg" }, { cat: "Food", url: "photos/Food/image_0589.jpg" }, { cat: "Food", url: "photos/Food/image_0601.jpg" }, { cat: "Food", url: "photos/Food/image_0604.jpg" }, { cat: "Food", url: "photos/Food/image_0611.jpg" }, { cat: "Food", url: "photos/Food/image_0614.jpg" }, { cat: "Food", url: "photos/Food/image_0646.jpg" }, { cat: "Food", url: "photos/Food/image_0650.jpg" }, { cat: "Food", url: "photos/Food/image_0651.jpg" }, { cat: "Food", url: "photos/Food/image_0652.jpg" }, { cat: "Food", url: "photos/Food/image_0653.jpg" }, { cat: "Food", url: "photos/Food/image_0671.jpg" }, { cat: "Food", url: "photos/Food/image_0678.jpg" }, { cat: "Food", url: "photos/Food/image_0679.jpg" }, { cat: "Food", url: "photos/Food/image_0681.jpg" }, { cat: "Food", url: "photos/Food/image_0682.jpg" }, { cat: "Food", url: "photos/Food/image_0684.jpg" }, { cat: "Food", url: "photos/Food/image_0685.jpg" }, { cat: "Food", url: "photos/Food/image_0686.jpg" }, { cat: "Food", url: "photos/Food/image_0691.jpg" }, { cat: "Food", url: "photos/Food/image_0696.jpg" }, { cat: "Food", url: "photos/Food/image_0697.jpg" }, { cat: "Food", url: "photos/Food/image_0698.jpg" }, { cat: "Food", url: "photos/Food/image_0701.jpg" }, { cat: "Food", url: "photos/Food/image_0705.jpg" }, { cat: "Food", url: "photos/Food/image_0712.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0002.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0006.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0007.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0018.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0019.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0022.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0030.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0074.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0360.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0369.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0535.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0657.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0010.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0047.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0057.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0070.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0091.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0101.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0104.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0108.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0113.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0144.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0162.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0163.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0171.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0181.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0188.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0267.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0331.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0440.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0487.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0526.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0588.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0599.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0626.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0663.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0666.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0706.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0735.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0015.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0021.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0025.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0044.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0054.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0059.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0062.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0066.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0073.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0075.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0076.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0078.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0082.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0095.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0098.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0099.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0100.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0102.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0109.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0169.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0220.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0226.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0236.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0251.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0252.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0256.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0279.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0285.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0300.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0306.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0333.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0336.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0351.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0352.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0424.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0476.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0488.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0504.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0511.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0513.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0525.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0585.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0687.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0690.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0703.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0704.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0024.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0034.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0079.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0088.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0097.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0164.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0184.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0187.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0216.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0219.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0225.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0253.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0302.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0345.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0367.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0373.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0375.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0384.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0414.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0427.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0441.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0465.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0475.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0477.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0483.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0486.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0498.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0500.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0508.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0510.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0514.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0516.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0518.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0519.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0520.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0524.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0529.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0536.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0542.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0547.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0551.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0559.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0564.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0566.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0579.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0581.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0595.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0621.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0623.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0624.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0630.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0632.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0668.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0672.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0683.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0699.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0708.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0709.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0710.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0714.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0716.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0721.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0722.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0723.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0724.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0725.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0726.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0727.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0730.jpg" },
+            { cat: "Logo", url: "photos/Logo/logo.jpg" },
+            { cat: "Other", url: "photos/Other_or_Unreadable/image_0111.img" },
+            { cat: "People", url: "photos/People/image_0014.jpg" }, { cat: "People", url: "photos/People/image_0031.jpg" }, { cat: "People", url: "photos/People/image_0038.jpg" }, { cat: "People", url: "photos/People/image_0039.jpg" }, { cat: "People", url: "photos/People/image_0071.jpg" }, { cat: "People", url: "photos/People/image_0147.jpg" }, { cat: "People", url: "photos/People/image_0153.jpg" }, { cat: "People", url: "photos/People/image_0157.jpg" }, { cat: "People", url: "photos/People/image_0174.jpg" }, { cat: "People", url: "photos/People/image_0185.jpg" }, { cat: "People", url: "photos/People/image_0186.jpg" }, { cat: "People", url: "photos/People/image_0190.jpg" }, { cat: "People", url: "photos/People/image_0201.jpg" }, { cat: "People", url: "photos/People/image_0349.jpg" }, { cat: "People", url: "photos/People/image_0357.jpg" }, { cat: "People", url: "photos/People/image_0361.jpg" }, { cat: "People", url: "photos/People/image_0362.jpg" }, { cat: "People", url: "photos/People/image_0378.jpg" }, { cat: "People", url: "photos/People/image_0381.jpg" }, { cat: "People", url: "photos/People/image_0385.jpg" }, { cat: "People", url: "photos/People/image_0387.jpg" }, { cat: "People", url: "photos/People/image_0389.jpg" }, { cat: "People", url: "photos/People/image_0391.jpg" }, { cat: "People", url: "photos/People/image_0396.jpg" }, { cat: "People", url: "photos/People/image_0398.jpg" }, { cat: "People", url: "photos/People/image_0401.jpg" }, { cat: "People", url: "photos/People/image_0405.jpg" }, { cat: "People", url: "photos/People/image_0411.jpg" }, { cat: "People", url: "photos/People/image_0423.jpg" }, { cat: "People", url: "photos/People/image_0426.jpg" }, { cat: "People", url: "photos/People/image_0432.jpg" }, { cat: "People", url: "photos/People/image_0439.jpg" }, { cat: "People", url: "photos/People/image_0444.jpg" }, { cat: "People", url: "photos/People/image_0446.jpg" }, { cat: "People", url: "photos/People/image_0449.jpg" }, { cat: "People", url: "photos/People/image_0455.jpg" }, { cat: "People", url: "photos/People/image_0460.jpg" }, { cat: "People", url: "photos/People/image_0461.jpg" }, { cat: "People", url: "photos/People/image_0467.jpg" }, { cat: "People", url: "photos/People/image_0489.jpg" }, { cat: "People", url: "photos/People/image_0499.jpg" }, { cat: "People", url: "photos/People/image_0509.jpg" }, { cat: "People", url: "photos/People/image_0521.jpg" }, { cat: "People", url: "photos/People/image_0567.jpg" }, { cat: "People", url: "photos/People/image_0571.jpg" }, { cat: "People", url: "photos/People/image_0573.jpg" }, { cat: "People", url: "photos/People/image_0583.jpg" }, { cat: "People", url: "photos/People/image_0590.jpg" }, { cat: "People", url: "photos/People/image_0594.jpg" }, { cat: "People", url: "photos/People/image_0603.jpg" }, { cat: "People", url: "photos/People/image_0617.jpg" }, { cat: "People", url: "photos/People/image_0643.jpg" }, { cat: "People", url: "photos/People/image_0644.jpg" }, { cat: "People", url: "photos/People/image_0647.jpg" }, { cat: "People", url: "photos/People/image_0664.jpg" }, { cat: "People", url: "photos/People/image_0669.jpg" }, { cat: "People", url: "photos/People/image_0673.jpg" }, { cat: "People", url: "photos/People/image_0675.jpg" }, { cat: "People", url: "photos/People/image_0677.jpg" }, { cat: "People", url: "photos/People/image_0680.jpg" }, { cat: "People", url: "photos/People/image_0688.jpg" }, { cat: "People", url: "photos/People/image_0695.jpg" }, { cat: "People", url: "photos/People/image_0700.jpg" }, { cat: "People", url: "photos/People/image_0707.jpg" }, { cat: "People", url: "photos/People/image_0734.jpg" },
+            { cat: "Pets", url: "photos/Pets/image_0061.jpg" }, { cat: "Pets", url: "photos/Pets/image_0089.jpg" }, { cat: "Pets", url: "photos/Pets/image_0205.jpg" }, { cat: "Pets", url: "photos/Pets/image_0403.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0003.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0020.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0028.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0067.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0081.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0085.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0160.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0179.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0189.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0304.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0305.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0315.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0410.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0418.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0434.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0442.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0443.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0464.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0469.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0471.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0481.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0546.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0711.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0732.jpg" }
         ];
 
-        // Slideshow Logic
-        const heroSection = document.getElementById('hero');
-        let currentImageIndex = 0;
-
-        // Ensure image preloading logic to prevent flash of empty background during swap
-        function preloadImage(url) {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.src = url;
-                img.onload = () => resolve(url);
-                img.onerror = () => reject(url);
+        // --- 2. SINGLE PAGE APP (SPA) ROUTING ---
+        function navigate(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.remove('active');
             });
-        }
+            // Show target page
+            document.getElementById('page-' + pageId).classList.add('active');
+            
+            // Update Navigation active state
+            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active-nav'));
+            const activeLinks = document.querySelectorAll(`[data-target="${pageId}"]`);
+            activeLinks.forEach(el => el.classList.add('active-nav'));
 
-        async function changeHeroImage() {
-            if (slideshowImages.length === 0) return;
-            
-            let nextImageUrl = slideshowImages[currentImageIndex];
-            
-            // Forcibly prepend strict relative path if missing
-            if (!nextImageUrl.startsWith('./')) {
-                nextImageUrl = './' + nextImageUrl;
+            // Close mobile menu if open
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.querySelector('#mobile-menu-btn i');
+            menu.classList.add('hidden');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+
+            // If entering gallery, initialize if not already done
+            if(pageId === 'gallery' && document.getElementById('masonry-container').children.length === 0) {
+                initGallery();
             }
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = this.querySelector('i');
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')){
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        });
+
+        // --- 3. HERO SLIDESHOW ---
+        // Hand-pick a few images for the hero slider to ensure variety
+        const heroImages = [
+            "photos/Store_and_Displays/image_0003.jpg",
+            "photos/Flowers_and_Plants/image_0008.jpg",
+            "photos/Food/image_0001.jpg",
+            "photos/Jewelry_and_Accessories/image_0024.jpg"
+        ];
+        let currentHeroIndex = 0;
+        let heroInterval;
+
+        function initHeroSlider() {
+            const container = document.getElementById('hero-slider');
+            heroImages.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = `absolute inset-0 w-full h-full object-cover slide ${index === 0 ? 'active' : ''}`;
+                img.setAttribute('onerror', "this.src='https://placehold.co/1200x800/171717/FBBF24'");
+                container.appendChild(img);
+            });
+            startHeroTimer();
+        }
+
+        function showHeroSlide(index) {
+            const slides = document.querySelectorAll('#hero-slider .slide');
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextHeroSlide() {
+            currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+            showHeroSlide(currentHeroIndex);
+            resetHeroTimer();
+        }
+
+        function prevHeroSlide() {
+            currentHeroIndex = (currentHeroIndex - 1 + heroImages.length) % heroImages.length;
+            showHeroSlide(currentHeroIndex);
+            resetHeroTimer();
+        }
+
+        function startHeroTimer() {
+            heroInterval = setInterval(nextHeroSlide, 5000); // 5 seconds
+        }
+
+        function resetHeroTimer() {
+            clearInterval(heroInterval);
+            startHeroTimer();
+        }
+
+        // --- 4. MASSIVE GALLERY WITH LAZY LOADING & FILTERING ---
+        let galleryRenderedCount = 0;
+        const RENDER_CHUNK_SIZE = 40; // Render 40 at a time to keep DOM fast
+        let currentFilter = 'all';
+        let currentFilteredImages = [];
+
+        function initGallery() {
+            // Setup Filter Buttons dynamically based on available categories
+            const filtersContainer = document.getElementById('gallery-filters');
+            const categories = [...new Set(allImages.map(img => img.cat))].sort();
             
-            try {
-                // Preload to ensure image exists locally before applying (bypassing if it doesn't)
-                await preloadImage(nextImageUrl);
-                heroSection.style.backgroundImage = `url('${nextImageUrl}')`;
-            } catch (err) {
-                // If local image fails (e.g. running outside of proper web server context),
-                // it falls back to a visible placeholder so the hero doesn't remain blank.
-                console.warn(`Could not load local image: ${nextImageUrl}. Applying fallback.`);
-                heroSection.style.backgroundImage = `url('https://placehold.co/1920x1080/4a3f35/FFF?text=Whisenhunt+Excavation')`;
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = "gallery-filter-btn bg-transparent text-brand-black px-5 py-2 rounded-full font-medium text-sm transition-colors border-2 border-brand-black hover:bg-brand-black hover:text-white";
+                btn.textContent = cat;
+                btn.dataset.filter = cat;
+                btn.onclick = () => applyGalleryFilter(cat, btn);
+                filtersContainer.appendChild(btn);
+            });
+
+            // "All" button is already there, attach its event
+            filtersContainer.querySelector('[data-filter="all"]').onclick = (e) => applyGalleryFilter('all', e.target);
+
+            // Initial load
+            currentFilteredImages = [...allImages];
+            loadMoreGalleryImages();
+            
+            // Hook up load more button
+            document.getElementById('load-more-btn').addEventListener('click', loadMoreGalleryImages);
+        }
+
+        function applyGalleryFilter(cat, btnElement) {
+            // Update Active State
+            document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-black', 'text-white', 'active');
+                btn.classList.add('bg-transparent', 'text-brand-black');
+            });
+            btnElement.classList.remove('bg-transparent', 'text-brand-black');
+            btnElement.classList.add('bg-brand-black', 'text-white', 'active');
+
+            // Reset container
+            document.getElementById('masonry-container').innerHTML = '';
+            galleryRenderedCount = 0;
+
+            // Filter data
+            if (cat === 'all') {
+                currentFilteredImages = [...allImages];
+            } else {
+                currentFilteredImages = allImages.filter(img => img.cat === cat);
             }
 
-            // Loop back or advance index
-            currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+            loadMoreGalleryImages();
         }
 
-        // Initialize Slideshow
-        if(slideshowImages.length > 0) {
-            // Pick a random starting image from the array
-            currentImageIndex = Math.floor(Math.random() * slideshowImages.length);
+        function loadMoreGalleryImages() {
+            const container = document.getElementById('masonry-container');
+            const loadMoreBtn = document.getElementById('load-more-btn');
             
-            // Set initial image
-            changeHeroImage();
+            const max = Math.min(galleryRenderedCount + RENDER_CHUNK_SIZE, currentFilteredImages.length);
             
-            // Change image every 5 seconds
-            setInterval(changeHeroImage, 5000);
+            for (let i = galleryRenderedCount; i < max; i++) {
+                const imgData = currentFilteredImages[i];
+                
+                // Create Masonry Item
+                const item = document.createElement('div');
+                item.className = 'masonry-item relative group overflow-hidden rounded-xl bg-gray-200 cursor-pointer shadow-sm hover:shadow-xl transition-shadow';
+                // Pass the absolute index relative to the currentFilteredImages array for slideshow indexing
+                item.onclick = () => openLightbox(i); 
+
+                const img = document.createElement('img');
+                img.src = imgData.url;
+                img.loading = "lazy"; // CRUCIAL for massive galleries
+                img.alt = `Amelia's Picalily ${imgData.cat}`;
+                img.className = 'w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500';
+                img.setAttribute('onerror', "this.src='https://placehold.co/400/171717/FBBF24?text=Image+Unavailable'");
+
+                // Overlay tag
+                const overlay = document.createElement('div');
+                overlay.className = 'absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4';
+                const tag = document.createElement('span');
+                tag.className = 'text-white font-bold text-sm tracking-wider uppercase';
+                tag.textContent = imgData.cat;
+                overlay.appendChild(tag);
+
+                item.appendChild(img);
+                item.appendChild(overlay);
+                container.appendChild(item);
+            }
+
+            galleryRenderedCount = max;
+
+            // Toggle Load More Button
+            if (galleryRenderedCount >= currentFilteredImages.length) {
+                loadMoreBtn.classList.add('hidden');
+            } else {
+                loadMoreBtn.classList.remove('hidden');
+            }
         }
+
+        // --- 5. LIGHTBOX SLIDESHOW ---
+        let currentLightboxIndex = -1;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxContent();
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.getElementById('lightbox').classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.getElementById('lightbox').classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateLightboxContent() {
+            const imgData = currentFilteredImages[currentLightboxIndex];
+            const imgEl = document.getElementById('lightbox-img');
+            imgEl.style.opacity = 0; // Fade effect
+            
+            setTimeout(() => {
+                imgEl.src = imgData.url;
+                imgEl.setAttribute('onerror', "this.src='https://placehold.co/800/171717/FBBF24'");
+                document.getElementById('lightbox-caption').textContent = `${imgData.cat} (${currentLightboxIndex + 1} of ${currentFilteredImages.length})`;
+                imgEl.style.opacity = 1;
+            }, 150);
+        }
+
+        function prevLightboxSlide(e) {
+            if(e) e.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex - 1 + currentFilteredImages.length) % currentFilteredImages.length;
+            updateLightboxContent();
+        }
+
+        function nextLightboxSlide(e) {
+            if(e) e.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex + 1) % currentFilteredImages.length;
+            updateLightboxContent();
+        }
+
+        // Keyboard controls for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prevLightboxSlide();
+                if (e.key === 'ArrowRight') nextLightboxSlide();
+            }
+        });
+
+        // Close lightbox on clicking outside
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if(e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // --- 6. INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initHeroSlider();
+            // Start on home page
+            navigate('home');
+        });
 
     </script>
 </body>
