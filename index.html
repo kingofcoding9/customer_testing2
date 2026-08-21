@@ -1627,10 +1627,12 @@
             imageBox.append(fallback, img);
             card.appendChild(imageBox);
 
-            // Always ask FloralPOSBridge for the product image first.
-            // The bridge resolves local POS image files, proxies Picture_Url, and can
-            // fall back to the read-only MySQL Picture BLOB when appropriate.
-            loadShopTunnelImage(img, fallback, item);
+            // Only request an image when the bridge says a genuine source exists.
+            // This prevents thousands of pointless /images/... requests for POS rows
+            // that only contain the generic Floral POS placeholder.
+            if (item.has_image) {
+                loadShopTunnelImage(img, fallback, item);
+            }
 
             const body = document.createElement("div");
             body.className = "p-5 flex flex-col flex-grow";
@@ -1715,9 +1717,9 @@
             if (!item?.pos_item_id || !shopConfigured()) return;
             try {
                 const response = await shopFetch(`/images/${encodeURIComponent(item.pos_item_id)}`);
-                if (!response.ok) return;
+                if (response.status === 204 || !response.ok) return;
                 const blob = await response.blob();
-                if (!blob.type.startsWith("image/")) return;
+                if (!blob.size || !blob.type.startsWith("image/")) return;
                 const objectURL = URL.createObjectURL(blob);
                 shopObjectURLs.add(objectURL);
                 img.src = objectURL;
