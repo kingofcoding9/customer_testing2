@@ -621,7 +621,7 @@
                     <p class="text-brand-yellow uppercase tracking-[0.25em] text-xs md:text-sm font-semibold mb-3">Live Store Inventory</p>
                     <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Shop Amelia's Picalily</h1>
                     <p class="text-gray-300 max-w-3xl mx-auto">
-                        Browse current products directly from our in-store inventory. Products are automatically organized using the categories from our point-of-sale system.
+                        Browse current products directly from our in-store inventory. Products are automatically organized into easy-to-shop departments using the POS category plus each product's name and description.
                     </p>
                 </div>
             </div>
@@ -641,14 +641,14 @@
                     <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px_180px_180px] gap-3">
                         <label class="shop-search-ring flex items-center gap-3 rounded-xl border border-gray-300 bg-white px-4 transition">
                             <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
-                            <input id="shop-search" type="search" autocomplete="off" placeholder="Search products, categories, descriptions, or barcodes..." class="w-full py-3 bg-transparent outline-none text-sm md:text-base">
+                            <input id="shop-search" type="search" autocomplete="off" placeholder="Search products, departments, brands, descriptions, or barcodes..." class="w-full py-3 bg-transparent outline-none text-sm md:text-base">
                             <button id="shop-clear-search" type="button" class="hidden text-gray-400 hover:text-brand-black" aria-label="Clear search">
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
                         </label>
 
                         <select id="shop-category-filter" class="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-brand-yellow">
-                            <option value="">All categories</option>
+                            <option value="">All departments</option>
                         </select>
 
                         <select id="shop-availability-filter" class="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-brand-yellow">
@@ -1067,7 +1067,8 @@
             accessKey: "",
             refreshSeconds: 60,
             hideNonPositivePrice: true,
-            initialProductsPerCategory: 18
+            initialProductsPerCategory: 18,
+            categoryOverrides: {}
         };
         const SHOP_CONFIG = Object.assign({}, SHOP_DEFAULTS, window.PICALILY_SHOP_CONFIG || {});
 
@@ -1109,27 +1110,215 @@
             }).format(shopEscapePrice(value));
         }
 
+        const SHOP_CATEGORY_ORDER = [
+            "Floral & Flowers",
+            "Plants",
+            "Bakery & Sweets",
+            "Gift Baskets",
+            "Food & Gourmet",
+            "Bath & Body",
+            "Candles & Fragrance",
+            "Clothing & Apparel",
+            "Jewelry & Accessories",
+            "Bags & Purses",
+            "Home Décor",
+            "Kitchen & Drinkware",
+            "Books & Stationery",
+            "Baby & Kids",
+            "Plush, Toys & Games",
+            "Balloons & Party",
+            "Wedding & Bridal",
+            "Seasonal & Holiday",
+            "Pet Gifts",
+            "Gifts & Boutique"
+        ];
+
+        const SHOP_CATEGORY_RULES = [
+            {
+                name: "Wedding & Bridal",
+                re: /\b(wedding|bridal|bride|groom|tux|corsage|boutonniere|reception|bridesmaid)\b/i
+            },
+            {
+                name: "Balloons & Party",
+                re: /\b(balloon|balloons|mylar|party supplies?|party decor|confetti)\b/i
+            },
+            {
+                name: "Gift Baskets",
+                re: /\b(gift basket|gift baskets|fruit basket|gourmet basket|basket arrangement|snack basket)\b/i
+            },
+            {
+                name: "Floral & Flowers",
+                re: /\b(floral|flower|flowers|bouquet|bouquets|rose|roses|arrangement|arrangements|spray|wreath|centerpiece|sympathy|cemetery|casket|standing spray)\b/i
+            },
+            {
+                name: "Plants",
+                re: /\b(plant|plants|succulent|succulents|orchid|orchids|green plant|blooming plant|dish garden|terrarium)\b/i
+            },
+            {
+                name: "Bakery & Sweets",
+                re: /\b(bakery|cake|cakes|cupcake|cupcakes|cookie|cookies|fudge|brownie|brownies|kolache|bread|pastry|pastries|dessert|candy|candies|chocolate|chocolates|toffee|sweet treats?)\b/i
+            },
+            {
+                name: "Bath & Body",
+                re: /\b(bath|body|soap|soaps|lotion|lotions|shower|bath bomb|bath bombs|body wash|hand cream|lip balm|scrub|skincare|spa|apothecary)\b/i
+            },
+            {
+                name: "Candles & Fragrance",
+                re: /\b(candle|candles|fragrance|fragrances|diffuser|diffusers|wax melt|wax melts|scent|scents|room spray|perfume|cologne|maison berger|himalayan)\b/i
+            },
+            {
+                name: "Clothing & Apparel",
+                re: /\b(apparel|clothes|clothing|shirt|shirts|tee|tees|t-shirt|dress|dresses|top|tops|blouse|blouses|sweater|sweaters|cardigan|cardigans|pants|jeans|shorts|skirt|skirts|jacket|jackets|pajama|pajamas|robe|robes|hat|hats|sock|socks)\b/i
+            },
+            {
+                name: "Jewelry & Accessories",
+                re: /\b(jewelry|jewellery|bracelet|bracelets|necklace|necklaces|earring|earrings|ring|rings|anklet|anklets|charm|charms|key chain|keychain|accessor(?:y|ies)|brooch|pendant|enewton|e newton)\b/i
+            },
+            {
+                name: "Bags & Purses",
+                re: /\b(bag|bags|purse|purses|handbag|handbags|tote|totes|wallet|wallets|clutch|clutches|backpack|backpacks)\b/i
+            },
+            {
+                name: "Kitchen & Drinkware",
+                re: /\b(mug|mugs|cup|cups|tumbler|tumblers|drinkware|glassware|wine glass|plate|plates|bowl|bowls|dish|dishes|serveware|serving|kitchen|utensil|utensils|pitcher|pitchers|bottle|bottles|coaster|coasters|napkin|napkins|tea towel|tea towels)\b/i
+            },
+            {
+                name: "Books & Stationery",
+                re: /\b(book|books|journal|journals|notebook|notebooks|stationery|card|cards|greeting card|planner|planners|pen|pens|paper|devotional)\b/i
+            },
+            {
+                name: "Baby & Kids",
+                re: /\b(baby|babies|newborn|infant|toddler|kids?|child|children|onesie|bib|bibs|swaddle|swaddles|nursery)\b/i
+            },
+            {
+                name: "Pet Gifts",
+                re: /\b(dog|dogs|cat|cats|pet|pets|puppy|puppies|kitty|kitties|leash|collar|pet toy)\b/i
+            },
+            {
+                name: "Plush, Toys & Games",
+                re: /\b(plush|stuffed animal|teddy|bear|toy|toys|game|games|puzzle|puzzles|doll|dolls|figurine|figurines)\b/i
+            },
+            {
+                name: "Seasonal & Holiday",
+                re: /\b(christmas|xmas|holiday|holidays|halloween|easter|valentine|valentines|thanksgiving|fall decor|autumn|patriotic|fourth of july|4th of july|ornament|ornaments|snowman|santa|pumpkin|pumpkins)\b/i
+            },
+            {
+                name: "Home Décor",
+                re: /\b(home decor|home décor|decor|décor|lantern|lanterns|blanket|blankets|throw|throws|pillow|pillows|frame|frames|wall art|wall decor|sign|signs|vase|vases|pottery|clock|clocks|tray|trays|art heart|art hearts|magnet board)\b/i
+            },
+            {
+                name: "Food & Gourmet",
+                re: /\b(food|gourmet|coffee|tea|jerky|salsa|dip|dips|bruschetta|snack|snacks|sauce|sauces|seasoning|seasonings|mix|mixes|jelly|jam|preserve|preserves|honey|nuts|popcorn|cracker|crackers|cheese)\b/i
+            }
+        ];
+
+        function shopCategoryOrderIndex(category) {
+            const i = SHOP_CATEGORY_ORDER.indexOf(category);
+            return i === -1 ? SHOP_CATEGORY_ORDER.length : i;
+        }
+
+        function shopSourceCategoryKey(value) {
+            return String(value || "")
+                .trim()
+                .toLowerCase()
+                .replace(/[._]+/g, " ")
+                .replace(/\s+/g, " ");
+        }
+
+        function shopDepartmentForItem(item) {
+            const sourceCategory = String(item.category || "").trim();
+            const sourceKey = shopSourceCategoryKey(sourceCategory);
+
+            // Optional exact overrides live in shop-config.js. Matching is case-insensitive.
+            const overrides = SHOP_CONFIG.categoryOverrides || {};
+            for (const [key, value] of Object.entries(overrides)) {
+                if (shopSourceCategoryKey(key) === sourceKey && String(value || "").trim()) {
+                    return String(value).trim();
+                }
+            }
+
+            // Canonical aliases for POS categories that are already real departments.
+            const aliases = new Map([
+                ["floral arrangements", "Floral & Flowers"],
+                ["floral", "Floral & Flowers"],
+                ["flowers", "Floral & Flowers"],
+                ["flower", "Floral & Flowers"],
+                ["bouquets", "Floral & Flowers"],
+                ["plants", "Plants"],
+                ["plant", "Plants"],
+                ["bakery", "Bakery & Sweets"],
+                ["gift baskets", "Gift Baskets"],
+                ["bath", "Bath & Body"],
+                ["apparel", "Clothing & Apparel"],
+                ["clothes", "Clothing & Apparel"],
+                ["clothing", "Clothing & Apparel"],
+                ["jewelry", "Jewelry & Accessories"],
+                ["fashion jewelry", "Jewelry & Accessories"],
+                ["bags", "Bags & Purses"],
+                ["home", "Home Décor"],
+                ["home essentials", "Home Décor"],
+                ["decor", "Home Décor"],
+                ["décor", "Home Décor"],
+                ["candle", "Candles & Fragrance"],
+                ["candles", "Candles & Fragrance"],
+                ["books", "Books & Stationery"],
+                ["book", "Books & Stationery"],
+                ["balloon", "Balloons & Party"],
+                ["balloons", "Balloons & Party"],
+                ["bridal registry", "Wedding & Bridal"],
+                ["food", "Food & Gourmet"],
+                ["gourmet", "Food & Gourmet"],
+                ["holiday", "Seasonal & Holiday"],
+                ["christmas", "Seasonal & Holiday"]
+            ]);
+            if (aliases.has(sourceKey)) return aliases.get(sourceKey);
+
+            // Most POS "categories" are actually brand/vendor labels or shorthand.
+            // Classify those records from the source category + product text instead.
+            const haystack = [
+                sourceCategory,
+                item.name,
+                item.description,
+                item.notes,
+                item.picture_name
+            ].filter(Boolean).join(" ");
+
+            for (const rule of SHOP_CATEGORY_RULES) {
+                if (rule.re.test(haystack)) return rule.name;
+            }
+
+            // A brand/vendor-only POS category belongs in the broad boutique department
+            // rather than becoming one of hundreds of storefront categories.
+            return "Gifts & Boutique";
+        }
+
         function shopNormalizeItems(payload) {
             const raw = Array.isArray(payload) ? payload : (Array.isArray(payload?.items) ? payload.items : []);
             return raw
                 .filter(item => item && !item.disabled)
                 .filter(item => String(item.name || "").trim())
                 .filter(item => !SHOP_CONFIG.hideNonPositivePrice || shopEscapePrice(item.effective_price) > 0)
-                .map(item => ({
-                    ...item,
-                    _category: String(item.category || "").trim() || "Uncategorized",
-                    _name: String(item.name || "").trim(),
-                    _description: String(item.description || "").trim(),
-                    _barcode: String(item.barcode || "").trim(),
-                    _price: shopEscapePrice(item.effective_price),
-                    _search: [
-                        item.name,
-                        item.category,
-                        item.description,
-                        item.barcode,
-                        item.pos_item_id
-                    ].filter(Boolean).join(" ").toLowerCase()
-                }));
+                .map(item => {
+                    const sourceCategory = String(item.category || "").trim();
+                    const department = shopDepartmentForItem(item);
+                    return {
+                        ...item,
+                        _category: department,
+                        _sourceCategory: sourceCategory,
+                        _name: String(item.name || "").trim(),
+                        _description: String(item.description || "").trim(),
+                        _barcode: String(item.barcode || "").trim(),
+                        _price: shopEscapePrice(item.effective_price),
+                        _search: [
+                            item.name,
+                            department,
+                            sourceCategory,
+                            item.description,
+                            item.barcode,
+                            item.pos_item_id
+                        ].filter(Boolean).join(" ").toLowerCase()
+                    };
+                });
         }
 
         async function shopFetch(path, options = {}) {
@@ -1244,12 +1433,15 @@
             const select = document.getElementById("shop-category-filter");
             const current = select.value;
             const categories = [...new Set(shopAllItems.map(i => i._category))]
-                .sort((a, b) => a.localeCompare(b, undefined, {sensitivity: "base"}));
+                .sort((a, b) =>
+                    shopCategoryOrderIndex(a) - shopCategoryOrderIndex(b) ||
+                    a.localeCompare(b, undefined, {sensitivity: "base"})
+                );
 
             select.replaceChildren();
             const all = document.createElement("option");
             all.value = "";
-            all.textContent = `All categories (${categories.length})`;
+            all.textContent = `All departments (${categories.length})`;
             select.appendChild(all);
 
             for (const cat of categories) {
@@ -1309,6 +1501,7 @@
             }
 
             const sortedGroups = [...groups.entries()].sort((a, b) =>
+                shopCategoryOrderIndex(a[0]) - shopCategoryOrderIndex(b[0]) ||
                 a[0].localeCompare(b[0], undefined, {sensitivity: "base"})
             );
 
@@ -1433,13 +1626,26 @@
 
             const top = document.createElement("div");
             top.className = "flex items-start justify-between gap-3 mb-2";
+            const categoryWrap = document.createElement("div");
+            categoryWrap.className = "min-w-0";
             const category = document.createElement("span");
-            category.className = "text-[11px] uppercase tracking-wider font-bold text-amber-700 bg-brand-yellowLight px-2.5 py-1 rounded-full";
+            category.className = "inline-block text-[11px] uppercase tracking-wider font-bold text-amber-700 bg-brand-yellowLight px-2.5 py-1 rounded-full";
             category.textContent = item._category;
+            categoryWrap.appendChild(category);
+
+            if (item._sourceCategory &&
+                shopSourceCategoryKey(item._sourceCategory) !== shopSourceCategoryKey(item._category)) {
+                const source = document.createElement("div");
+                source.className = "mt-1 text-[10px] text-gray-400 truncate max-w-[170px]";
+                source.title = "POS category: " + item._sourceCategory;
+                source.textContent = item._sourceCategory;
+                categoryWrap.appendChild(source);
+            }
+
             const stock = document.createElement("span");
             stock.className = "text-xs font-bold " + (item.in_stock ? "text-green-700" : "text-red-600");
             stock.textContent = item.in_stock ? (item.tracks_quantity ? "In stock" : "Available") : "Out of stock";
-            top.append(category, stock);
+            top.append(categoryWrap, stock);
 
             const name = document.createElement("h3");
             name.className = "font-serif font-bold text-xl leading-snug mb-2";
