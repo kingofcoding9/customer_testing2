@@ -1590,10 +1590,24 @@
 
         function createShopProductCard(item) {
             const card = document.createElement("article");
-            card.className = "rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col";
+            card.className = "rounded-2xl border overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col " +
+                (item.in_stock
+                    ? "border-gray-200 bg-white"
+                    : "border-red-300 bg-red-50/60 ring-2 ring-red-200");
 
             const imageBox = document.createElement("div");
             imageBox.className = "relative aspect-[4/3] bg-gray-100 overflow-hidden";
+
+            if (!item.in_stock) {
+                const outOverlay = document.createElement("div");
+                outOverlay.className = "absolute inset-0 z-[5] bg-red-950/15 pointer-events-none";
+                imageBox.appendChild(outOverlay);
+
+                const outBadge = document.createElement("div");
+                outBadge.className = "absolute top-3 left-3 z-20 bg-red-600 text-white px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider shadow-lg";
+                outBadge.textContent = "Out of Stock";
+                imageBox.appendChild(outBadge);
+            }
 
             const img = document.createElement("img");
             img.loading = "lazy";
@@ -1607,19 +1621,16 @@
             icon.className = "fa-solid fa-seedling text-4xl text-brand-yellow/70 mb-2";
             const fallbackText = document.createElement("span");
             fallbackText.className = "text-xs font-semibold uppercase tracking-wide";
-            fallbackText.textContent = "Image unavailable";
+            fallbackText.textContent = "No product image";
             fallback.append(icon, fallbackText);
 
             imageBox.append(fallback, img);
             card.appendChild(imageBox);
 
-            if (item.picture_url && /^https?:\/\//i.test(item.picture_url)) {
-                img.src = item.picture_url;
-                img.addEventListener("load", () => fallback.classList.add("hidden"), {once: true});
-                img.addEventListener("error", () => loadShopTunnelImage(img, fallback, item), {once: true});
-            } else {
-                loadShopTunnelImage(img, fallback, item);
-            }
+            // Always ask FloralPOSBridge for the product image first.
+            // The bridge resolves local POS image files, proxies Picture_Url, and can
+            // fall back to the read-only MySQL Picture BLOB when appropriate.
+            loadShopTunnelImage(img, fallback, item);
 
             const body = document.createElement("div");
             body.className = "p-5 flex flex-col flex-grow";
@@ -1643,8 +1654,10 @@
             }
 
             const stock = document.createElement("span");
-            stock.className = "text-xs font-bold " + (item.in_stock ? "text-green-700" : "text-red-600");
-            stock.textContent = item.in_stock ? (item.tracks_quantity ? "In stock" : "Available") : "Out of stock";
+            stock.className = item.in_stock
+                ? "inline-flex items-center rounded-full bg-green-50 border border-green-200 text-green-700 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide"
+                : "inline-flex items-center rounded-full bg-red-600 border border-red-600 text-white px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide shadow-sm";
+            stock.textContent = item.in_stock ? (item.tracks_quantity ? "In Stock" : "Available") : "OUT OF STOCK";
             top.append(categoryWrap, stock);
 
             const name = document.createElement("h3");
@@ -1677,6 +1690,12 @@
                 const qty = document.createElement("div");
                 qty.textContent = `${Math.max(0, Number(item.website_quantity) || 0)} available`;
                 details.appendChild(qty);
+            }
+            if (!item.in_stock) {
+                const restock = document.createElement("div");
+                restock.className = "mt-1 font-bold text-red-600 uppercase tracking-wide";
+                restock.textContent = "Call for availability";
+                details.appendChild(restock);
             }
             if (item._barcode) {
                 const barcode = document.createElement("div");
