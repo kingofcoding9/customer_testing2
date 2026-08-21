@@ -24,7 +24,7 @@
                     },
                     colors: {
                         brand: {
-                            black: '#594653',     // Warm plum-brown used for readable text
+                            black: '#34242D',     // Deep plum for strong contrast on light floral backgrounds
                             yellow: '#F4C95D',    // Sunny floral yellow
                             yellowLight: '#FFF6CF',
                             white: '#FFFFFF',
@@ -203,19 +203,122 @@
             box-shadow: 0 10px 28px rgba(163, 111, 133, 0.08);
         }
 
+
+        /* v2.6 Happy + High Contrast Theme
+           Keep the light floral palette, but use deep plum/rose/gold for readable foregrounds
+           and stronger separators so cards, controls and sections do not visually blend together. */
+        :root {
+            --picalily-ink: #34242D;
+            --picalily-muted: #5A4651;
+            --picalily-rose-strong: #9A3C60;
+            --picalily-gold-text: #805500;
+            --picalily-border: #D1B2BC;
+            --picalily-border-strong: #B9919F;
+        }
+
+        body {
+            color: var(--picalily-ink);
+        }
+
+        /* Yellow remains a happy background/accent, but yellow text becomes dark gold for legibility. */
+        .text-brand-yellow {
+            color: var(--picalily-gold-text) !important;
+        }
+
+        /* Small gray text on white/pastel surfaces was too faint. */
+        .text-gray-400 {
+            color: #66535D !important;
+        }
+
+        /* Preserve light text where it intentionally sits over darkened photography. */
+        .photo-overlay-copy,
+        .photo-overlay-copy .text-gray-300 {
+            color: #F9F4F6 !important;
+        }
+
+        /* Clearer keyboard focus on the light palette. */
+        :where(a, button, input, select):focus-visible {
+            outline: 3px solid #9A3C60;
+            outline-offset: 3px;
+        }
+
+        /* More visual separation between white cards and very pale page backgrounds. */
+        .bg-white.rounded-xl,
+        .bg-white.rounded-2xl {
+            box-shadow: 0 8px 24px rgba(73, 45, 58, 0.08);
+        }
+
+        #shop-categories article {
+            box-shadow: 0 10px 28px rgba(73, 45, 58, 0.10);
+        }
+
+        #shop-categories article:hover {
+            box-shadow: 0 14px 34px rgba(73, 45, 58, 0.16);
+        }
+
+        /* Shop controls need a crisp edge against the light sticky panel. */
+        #shop-search,
+        #shop-category-filter,
+        #shop-availability-filter,
+        #shop-sort {
+            color: var(--picalily-ink);
+        }
+
+        #shop-search::placeholder {
+            color: #75616B;
+            opacity: 1;
+        }
+
+        #shop-category-filter,
+        #shop-availability-filter,
+        #shop-sort {
+            font-weight: 600;
+        }
+
+        /* Viewer controls remain light but are clearly distinct and readable. */
+        .shop-image-viewer-control {
+            color: var(--picalily-ink);
+            border-color: var(--picalily-border-strong) !important;
+        }
+
+        #shop-image-viewer-help,
+        #shop-image-viewer-zoom-label {
+            color: #67424F !important;
+        }
+
+        /* Footer headings/icons need stronger foreground color on the pale footer. */
+        footer .text-brand-yellow {
+            color: #7A4E00 !important;
+        }
+
+        /* Header/nav active state is now unmistakable without adding a dark bar. */
+        .nav-link {
+            color: #44313B;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            color: #8E3154 !important;
+        }
+
+        .nav-link.active-nav {
+            color: #8E3154;
+            border-bottom-color: #B85A79;
+        }
+
     </style>
     <script src="shop-config.js"></script>
 </head>
 <body class="bg-[#FFFDF9] text-brand-black font-sans flex flex-col min-h-screen relative bg-floral-pattern">
 
-    <nav class="sticky top-0 z-50 bg-gradient-to-r from-[#FFF9F3] via-[#FFF3F7] to-[#FFF9E7] text-brand-black shadow-md border-b border-[#F2C9D5]">
+    <nav class="sticky top-0 z-50 bg-gradient-to-r from-[#FFF9F3] via-[#FFF3F7] to-[#FFF9E7] text-brand-black shadow-md border-b border-[#D9AEBB]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
                 <!-- Logo & Brand -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
                     <img src="photos/Logo/logo.jpg" alt="Amelia's Picalily Logo" class="h-14 w-14 rounded-full border-2 border-brand-yellow object-cover" onerror="this.style.display='none'">
                     <div class="ml-4">
-                        <span class="font-serif text-2xl md:text-3xl font-bold text-[#C85F80] block leading-none">Amelia's</span>
+                        <span class="font-serif text-2xl md:text-3xl font-bold text-[#A83F65] block leading-none">Amelia's</span>
                         <span class="text-sm md:text-base font-light tracking-widest uppercase">Picalily Flowers</span>
                     </div>
                 </div>
@@ -232,7 +335,7 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-[#C85F80] hover:text-brand-black focus:outline-none p-2">
+                    <button id="mobile-menu-btn" class="text-[#A83F65] hover:text-brand-black focus:outline-none p-2">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -240,14 +343,14 @@
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden bg-[#FFF8F5] border-t border-[#F2C9D5] absolute w-full shadow-xl pb-6">
+        <div id="mobile-menu" class="hidden md:hidden bg-[#FFF8F5] border-t border-[#D9AEBB] absolute w-full shadow-xl pb-6">
             <div class="px-4 pt-4 pb-2 space-y-2 flex flex-col">
-                <button onclick="navigate('home')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="home">Home</button>
-                <button onclick="navigate('floral')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="floral">Floral</button>
-                <button onclick="navigate('gifts')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="gifts">Gifts/Boutique</button>
-                <button onclick="navigate('shop')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="shop">Shop Live Inventory</button>
-                <button onclick="navigate('registry')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="registry">Bridal Registry</button>
-                <button onclick="navigate('wedding')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="wedding">Wedding</button>
+                <button onclick="navigate('home')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="home">Home</button>
+                <button onclick="navigate('floral')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="floral">Floral</button>
+                <button onclick="navigate('gifts')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="gifts">Gifts/Boutique</button>
+                <button onclick="navigate('shop')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="shop">Shop Live Inventory</button>
+                <button onclick="navigate('registry')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="registry">Bridal Registry</button>
+                <button onclick="navigate('wedding')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="wedding">Wedding</button>
             </div>
         </div>
     </nav>
@@ -266,12 +369,12 @@
                 <!-- Hero Overlay Content -->
                 <div class="absolute inset-0 bg-gradient-to-r from-[#FFF9F3]/90 via-[#FFF2F6]/76 to-[#FFF8DF]/72 flex items-center justify-center z-10">
                     <div class="text-center px-4 max-w-5xl">
-                        <p class="text-[#B65376] font-semibold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">Local Nashville Florist • Bakery • Gifts</p>
+                        <p class="text-[#8E3658] font-semibold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">Local Nashville Florist • Bakery • Gifts</p>
                         <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-brand-black mb-6 leading-tight">
                             Welcome Amelia's Picalily <br>
-                            <span class="italic text-[#C85F80] font-light">Flowers and More</span>
+                            <span class="italic text-[#A83F65] font-light">Flowers and More</span>
                         </h1>
-                        <p class="text-xl md:text-2xl text-[#6F5B66] mb-10 max-w-3xl mx-auto font-light">
+                        <p class="text-xl md:text-2xl text-[#57424E] mb-10 max-w-3xl mx-auto font-light">
                             where you'll find three stores in one.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -291,8 +394,8 @@
                 </div>
 
                 <!-- Slider Controls -->
-                <button onclick="prevHeroSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#C85F80] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left"></i></button>
-                <button onclick="nextHeroSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#C85F80] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
+                <button onclick="prevHeroSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#A83F65] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="nextHeroSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#A83F65] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
 
             <!-- About / History & Staff Section -->
@@ -318,7 +421,7 @@
                                     <i class="fa-solid fa-users text-4xl text-brand-yellow"></i>
                                     <div>
                                         <p class="font-bold text-xl">Meet Our Team</p>
-                                        <p class="text-sm text-[#8B7180]">Passionate & Dedicated</p>
+                                        <p class="text-sm text-[#604B57]">Passionate & Dedicated</p>
                                     </div>
                                 </div>
                             </div>
@@ -362,7 +465,7 @@
 
         <!-- ==================== FLORAL PAGE (Includes Bakery) ==================== -->
         <section id="page-floral" class="page-section">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#F1CBD5]">
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
                 <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Floral & Bakery</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
@@ -374,7 +477,7 @@
                     <h2 class="text-4xl font-serif font-bold text-center mb-12">Floral Arrangements</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 text-center p-6 hover:shadow-lg transition">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-champagne-glasses"></i>
                             </div>
@@ -382,7 +485,7 @@
                             <p class="text-gray-600 text-sm">Perfect blooms for birthdays, anniversaries, and milestones.</p>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 text-center p-6 hover:shadow-lg transition">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-holly-berry"></i>
                             </div>
@@ -390,7 +493,7 @@
                             <p class="text-gray-600 text-sm">Seasonal arrangements to make your holidays brighter.</p>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 text-center p-6 hover:shadow-lg transition">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-dove"></i>
                             </div>
@@ -398,7 +501,7 @@
                             <p class="text-gray-600 text-sm">Elegant and thoughtful sprays to express your condolences.</p>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 text-center p-6 hover:shadow-lg transition">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-sun"></i>
                             </div>
@@ -406,7 +509,7 @@
                             <p class="text-gray-600 text-sm">Just because! Fresh flowers to brighten any normal day.</p>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 text-center p-6 hover:shadow-lg transition">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-seedling"></i>
                             </div>
@@ -420,7 +523,7 @@
                     <div class="mt-12 bg-gradient-to-br from-[#FFF7DC] via-[#FFF3F6] to-[#EEF8F0] text-brand-black rounded-2xl p-8 md:p-10 shadow-lg border border-[#F1CED8] text-center">
                         <i class="fa-solid fa-cart-shopping text-4xl text-brand-yellow mb-4"></i>
                         <h3 class="text-3xl font-serif font-bold mb-4">Online Flower Shop</h3>
-                        <p class="text-[#6F5B66] max-w-3xl mx-auto mb-8 leading-relaxed">
+                        <p class="text-[#57424E] max-w-3xl mx-auto mb-8 leading-relaxed">
                             Browse the complete flower catalog, view individual product pages, customize an arrangement, add items to your cart, and place a secure order online 24 hours a day. Local and worldwide delivery options are available.
                         </p>
                         <a href="https://www.picalilyflowers.net/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg uppercase tracking-wide">
@@ -444,7 +547,7 @@
 
                     <!-- Delivery & Custom Orders -->
                     <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div class="bg-white rounded-xl shadow-md border border-gray-200 p-8">
+                        <div class="bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8">
                             <div class="flex items-center gap-4 mb-5">
                                 <div class="w-14 h-14 bg-brand-yellow/20 rounded-full flex items-center justify-center text-2xl text-brand-yellow"><i class="fa-solid fa-truck-fast"></i></div>
                                 <h3 class="text-2xl font-serif font-bold">Flower Delivery</h3>
@@ -455,7 +558,7 @@
                             <a href="https://www.picalilyflowers.net/flower-delivery.php" target="_blank" rel="noopener noreferrer" class="font-bold text-brand-black border-b-2 border-brand-yellow hover:text-brand-yellow transition-colors">View Delivery Information <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md border border-gray-200 p-8">
+                        <div class="bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8">
                             <div class="flex items-center gap-4 mb-5">
                                 <div class="w-14 h-14 bg-brand-yellow/20 rounded-full flex items-center justify-center text-2xl text-brand-yellow"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                                 <h3 class="text-2xl font-serif font-bold">Custom Floral Orders</h3>
@@ -495,7 +598,7 @@
                     </div>
 
                     <!-- Pricing & Substitution Policy -->
-                    <div class="mt-12 bg-white rounded-xl shadow-md border border-gray-200 p-8 md:p-10">
+                    <div class="mt-12 bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8 md:p-10">
                         <h3 class="text-3xl font-serif font-bold text-center mb-6">Pricing & Substitution Policy</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-600">
                             <div>
@@ -529,22 +632,22 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-[#DCC8CF]">
                             <i class="fa-solid fa-basket-shopping text-3xl text-brand-yellow mb-4"></i>
                             <h4 class="font-bold text-lg">Gourmet Gift Baskets</h4>
                             <p class="text-sm text-gray-500 mt-2">Curated treats perfectly wrapped for gifting.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-[#DCC8CF]">
                             <i class="fa-solid fa-cookie-bite text-3xl text-brand-yellow mb-4"></i>
                             <h4 class="font-bold text-lg">Cakes & Cupcakes</h4>
                             <p class="text-sm text-gray-500 mt-2">Handmade mini cakes, sheet cakes, and cupcakes.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-[#DCC8CF]">
                             <i class="fa-solid fa-candy-cane text-3xl text-brand-yellow mb-4"></i>
                             <h4 class="font-bold text-lg">Candy and Fudge</h4>
                             <p class="text-sm text-gray-500 mt-2">Rich, homemade fudge and sweet treats.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-[#DCC8CF]">
                             <i class="fa-solid fa-utensils text-3xl text-brand-yellow mb-4"></i>
                             <h4 class="font-bold text-lg">Cookie Baskets</h4>
                             <p class="text-sm text-gray-500 mt-2">Scratch-made cookie assortments prepared for gifting.</p>
@@ -590,7 +693,7 @@
 
         <!-- ==================== GIFTS/BOUTIQUE PAGE ==================== -->
         <section id="page-gifts" class="page-section">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#F1CBD5]">
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
                 <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Gifts & Boutique</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
@@ -608,7 +711,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Bath</h3>
-                                <p class="text-gray-300 text-sm">Luxurious bath bombs, soaps, and body care.</p>
+                                <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Luxurious bath bombs, soaps, and body care.</p>
                             </div>
                         </div>
                     </div>
@@ -619,7 +722,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Home Decor</h3>
-                                <p class="text-gray-300 text-sm">Unique accents to make any house a home.</p>
+                                <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Unique accents to make any house a home.</p>
                             </div>
                         </div>
                     </div>
@@ -630,7 +733,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Candles</h3>
-                                <p class="text-gray-300 text-sm">Premium poured candles in exquisite scents.</p>
+                                <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Premium poured candles in exquisite scents.</p>
                             </div>
                         </div>
                     </div>
@@ -641,7 +744,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Clothing</h3>
-                                <p class="text-gray-300 text-sm">Stylish boutique apparel carefully curated for you.</p>
+                                <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Stylish boutique apparel carefully curated for you.</p>
                             </div>
                         </div>
                     </div>
@@ -652,7 +755,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Accessories & Jewelry</h3>
-                                <p class="text-gray-300 text-sm">Bags, statement jewelry, and everyday pieces.</p>
+                                <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Bags, statement jewelry, and everyday pieces.</p>
                             </div>
                         </div>
                     </div>
@@ -662,8 +765,8 @@
                 <div class="mt-16 bg-gradient-to-br from-[#FCE8EE] via-[#FFF7DB] to-[#EAF7EE] text-brand-black rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0CBD6] text-center">
                     <i class="fa-solid fa-tags text-4xl text-brand-yellow mb-4"></i>
                     <h3 class="text-3xl font-serif font-bold mb-4">Special Offers & Holiday Reminders</h3>
-                    <p class="text-[#6F5B66] max-w-3xl mx-auto mb-4">Current featured offers include Deal of the Day, Weekly Special, and Birthday Florals selections.</p>
-                    <p class="text-[#6F5B66] max-w-3xl mx-auto mb-8">Visit the special-offers page to view current pricing and join the mailing list for offers and holiday reminders.</p>
+                    <p class="text-[#57424E] max-w-3xl mx-auto mb-4">Current featured offers include Deal of the Day, Weekly Special, and Birthday Florals selections.</p>
+                    <p class="text-[#57424E] max-w-3xl mx-auto mb-8">Visit the special-offers page to view current pricing and join the mailing list for offers and holiday reminders.</p>
                     <a href="https://www.picalilyflowers.net/special_offers.php" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg uppercase tracking-wide">
                         <span>View Offers & Join Mailing List</span>
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -675,11 +778,11 @@
 
         <!-- ==================== LIVE INVENTORY SHOP ==================== -->
         <section id="page-shop" class="page-section min-h-screen">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-12 md:py-16 text-center border-b border-[#F1CBD5]">
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-12 md:py-16 text-center border-b border-[#DDB6C2]">
                 <div class="max-w-5xl mx-auto px-4">
                     <p class="text-brand-yellow uppercase tracking-[0.25em] text-xs md:text-sm font-semibold mb-3">Live Store Inventory</p>
                     <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-black mb-4">Shop Amelia's Picalily</h1>
-                    <p class="text-gray-300 max-w-3xl mx-auto">
+                    <p class="text-[#57424E] max-w-3xl mx-auto font-medium leading-relaxed">
                         Browse current products directly from our in-store inventory. Products are automatically organized into easy-to-shop departments using the POS category plus each product's name and description.
                     </p>
                 </div>
@@ -696,9 +799,9 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 md:p-6 mb-8 sticky top-24 z-30">
+                <div class="bg-white rounded-2xl border border-[#D6BBC5] shadow-sm p-4 md:p-6 mb-8 sticky top-24 z-30">
                     <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px_180px_180px] gap-3">
-                        <label class="shop-search-ring flex items-center gap-3 rounded-xl border border-gray-300 bg-white px-4 transition">
+                        <label class="shop-search-ring flex items-center gap-3 rounded-xl border border-[#BFA2AD] bg-white px-4 transition">
                             <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
                             <input id="shop-search" type="search" autocomplete="off" placeholder="Search products, departments, brands, descriptions, or barcodes..." class="w-full py-3 bg-transparent outline-none text-sm md:text-base">
                             <button id="shop-clear-search" type="button" class="hidden text-gray-400 hover:text-brand-black" aria-label="Clear search">
@@ -706,17 +809,17 @@
                             </button>
                         </label>
 
-                        <select id="shop-category-filter" class="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-brand-yellow">
+                        <select id="shop-category-filter" class="rounded-xl border border-[#BFA2AD] bg-white px-4 py-3 outline-none focus:border-brand-yellow">
                             <option value="">All departments</option>
                         </select>
 
-                        <select id="shop-availability-filter" class="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-brand-yellow">
+                        <select id="shop-availability-filter" class="rounded-xl border border-[#BFA2AD] bg-white px-4 py-3 outline-none focus:border-brand-yellow">
                             <option value="all">All availability</option>
                             <option value="in">In stock / available</option>
                             <option value="out">Out of stock</option>
                         </select>
 
-                        <select id="shop-sort" class="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-brand-yellow">
+                        <select id="shop-sort" class="rounded-xl border border-[#BFA2AD] bg-white px-4 py-3 outline-none focus:border-brand-yellow">
                             <option value="name">Name A–Z</option>
                             <option value="price-low">Price low–high</option>
                             <option value="price-high">Price high–low</option>
@@ -734,7 +837,7 @@
                         </div>
                         <div class="flex items-center gap-3">
                             <span id="shop-result-count" class="font-medium text-gray-600"></span>
-                            <button id="shop-refresh" type="button" class="inline-flex items-center gap-2 rounded-full border border-gray-300 px-4 py-2 font-semibold hover:border-brand-yellow hover:bg-brand-yellowLight transition">
+                            <button id="shop-refresh" type="button" class="inline-flex items-center gap-2 rounded-full border border-[#BFA2AD] px-4 py-2 font-semibold hover:border-brand-yellow hover:bg-brand-yellowLight transition">
                                 <i class="fa-solid fa-rotate"></i>
                                 Refresh
                             </button>
@@ -770,7 +873,7 @@
 
                 <div class="mt-12 rounded-2xl bg-gradient-to-r from-[#EEF8F0] via-[#FFF9DD] to-[#FFF0F4] text-brand-black p-6 md:p-8 text-center border border-[#E6D5C2] shadow-sm">
                     <h2 class="text-2xl font-serif font-bold mb-2">Need help finding something?</h2>
-                    <p class="text-[#6F5B66] mb-5">Call Amelia's Picalily and we'll help you locate an item or prepare an order.</p>
+                    <p class="text-[#57424E] mb-5">Call Amelia's Picalily and we'll help you locate an item or prepare an order.</p>
                     <a href="tel:+18708452738" class="inline-flex items-center gap-2 bg-brand-yellow text-brand-black px-6 py-3 rounded-full font-bold hover:bg-white transition">
                         <i class="fa-solid fa-phone"></i>
                         (870) 845-2738
@@ -781,7 +884,7 @@
 
         <!-- ==================== BRIDAL REGISTRY PAGE ==================== -->
         <section id="page-registry" class="page-section bg-[#FFFDF8]">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#F1CBD5]">
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
                 <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Bridal Registry</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
@@ -804,7 +907,7 @@
 
         <!-- ==================== WEDDING PAGE ==================== -->
         <section id="page-wedding" class="page-section bg-[#FFFDF8] min-h-screen pb-20">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#F1CBD5]">
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
                 <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Weddings</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
@@ -832,14 +935,14 @@
 
     <!-- Lightbox for Gallery & Slideshow -->
     <div id="lightbox" class="fixed inset-0 bg-[#FFF9F5]/95 backdrop-blur-md z-[100] hidden flex-col items-center justify-center p-4">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-brand-black hover:text-[#C85F80] text-4xl focus:outline-none z-50"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-brand-black hover:text-[#A83F65] text-4xl focus:outline-none z-50"><i class="fa-solid fa-xmark"></i></button>
         
         <div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center">
             <img id="lightbox-img" src="" alt="Gallery Image Full" class="max-w-full max-h-full object-contain rounded shadow-2xl transition-opacity duration-300">
             
             <!-- Slideshow Controls -->
-            <button onclick="prevLightboxSlide(event)" class="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 text-brand-black hover:text-[#C85F80] text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-left"></i></button>
-            <button onclick="nextLightboxSlide(event)" class="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 text-brand-black hover:text-[#C85F80] text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-right"></i></button>
+            <button onclick="prevLightboxSlide(event)" class="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 text-brand-black hover:text-[#A83F65] text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-left"></i></button>
+            <button onclick="nextLightboxSlide(event)" class="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 text-brand-black hover:text-[#A83F65] text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
         <p id="lightbox-caption" class="text-brand-yellow mt-6 text-lg font-medium tracking-wide uppercase"></p>
     </div>
@@ -851,14 +954,14 @@
          aria-modal="true"
          aria-labelledby="shop-image-viewer-title">
         <div class="absolute inset-0 flex flex-col">
-            <div class="relative z-30 flex items-center justify-between gap-3 border-b border-[#F0D5DC] bg-white/90 px-3 py-3 sm:px-5 shadow-sm">
+            <div class="relative z-30 flex items-center justify-between gap-3 border-b border-[#D6B8C2] bg-white/90 px-3 py-3 sm:px-5 shadow-sm">
                 <div class="min-w-0">
                     <div id="shop-image-viewer-title" class="truncate font-serif text-base font-bold text-brand-black sm:text-xl">Product image</div>
-                    <div id="shop-image-viewer-help" class="hidden text-xs text-[#7E6874] sm:block">Drag to pan • Mouse wheel or slider to zoom • Esc to close</div>
+                    <div id="shop-image-viewer-help" class="hidden text-xs text-[#5D4854] sm:block">Drag to pan • Mouse wheel or slider to zoom • Esc to close</div>
                 </div>
                 <button id="shop-image-viewer-close"
                         type="button"
-                        class="shop-image-viewer-control flex shrink-0 items-center justify-center rounded-full border border-[#E9BCC9] bg-[#FFF4F7] text-2xl text-brand-black transition hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566] focus:outline-none focus:ring-2 focus:ring-brand-yellow"
+                        class="shop-image-viewer-control flex shrink-0 items-center justify-center rounded-full border border-[#C98FA2] bg-[#FFF4F7] text-2xl text-brand-black transition hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#8A2F50] focus:outline-none focus:ring-2 focus:ring-brand-yellow"
                         aria-label="Close full image viewer"
                         title="Close">
                     <i class="fa-solid fa-xmark"></i>
@@ -872,31 +975,31 @@
                      draggable="false"
                      class="max-h-full max-w-full object-contain select-none">
 
-                <div class="pointer-events-none absolute left-3 top-3 rounded-full bg-white/90 border border-[#EBC8D2] px-3 py-1 text-xs font-semibold text-brand-black shadow-sm sm:hidden">
+                <div class="pointer-events-none absolute left-3 top-3 rounded-full bg-white/90 border border-[#CFA7B4] px-3 py-1 text-xs font-semibold text-brand-black shadow-sm sm:hidden">
                     Drag to pan • Pinch to zoom
                 </div>
             </div>
 
-            <div id="shop-image-viewer-toolbar" class="relative z-30 border-t border-[#F0D5DC] bg-white/92 px-3 py-3 text-brand-black shadow-sm sm:px-5">
+            <div id="shop-image-viewer-toolbar" class="relative z-30 border-t border-[#D6B8C2] bg-white/92 px-3 py-3 text-brand-black shadow-sm sm:px-5">
                 <div class="mx-auto flex max-w-5xl flex-col gap-3">
                     <div class="flex items-center gap-3">
-                        <button id="shop-image-viewer-zoom-out" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] text-lg hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Zoom out" title="Zoom out">
+                        <button id="shop-image-viewer-zoom-out" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#C98FA2] bg-[#FFF7F9] text-lg hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#8A2F50]" aria-label="Zoom out" title="Zoom out">
                             <i class="fa-solid fa-minus"></i>
                         </button>
                         <input id="shop-image-viewer-zoom" type="range" min="1" max="5" step="0.05" value="1" class="h-2 min-w-0 flex-1 cursor-pointer" aria-label="Image zoom level">
-                        <button id="shop-image-viewer-zoom-in" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] text-lg hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Zoom in" title="Zoom in">
+                        <button id="shop-image-viewer-zoom-in" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#C98FA2] bg-[#FFF7F9] text-lg hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#8A2F50]" aria-label="Zoom in" title="Zoom in">
                             <i class="fa-solid fa-plus"></i>
                         </button>
-                        <div id="shop-image-viewer-zoom-label" class="w-14 shrink-0 text-center text-sm font-bold text-[#C85F80]">100%</div>
-                        <button id="shop-image-viewer-reset" type="button" class="shop-image-viewer-control rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] px-3 text-xs font-bold uppercase tracking-wide hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Reset zoom and pan" title="Reset zoom and pan">Reset</button>
+                        <div id="shop-image-viewer-zoom-label" class="w-14 shrink-0 text-center text-sm font-bold text-[#A83F65]">100%</div>
+                        <button id="shop-image-viewer-reset" type="button" class="shop-image-viewer-control rounded-xl border border-[#C98FA2] bg-[#FFF7F9] px-3 text-xs font-bold uppercase tracking-wide hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#8A2F50]" aria-label="Reset zoom and pan" title="Reset zoom and pan">Reset</button>
                     </div>
 
                     <div class="flex items-center justify-center gap-2" aria-label="Pan image controls">
-                        <button id="shop-image-viewer-pan-left" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Pan image left" title="Pan left"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button id="shop-image-viewer-pan-up" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Pan image up" title="Pan up"><i class="fa-solid fa-arrow-up"></i></button>
-                        <button id="shop-image-viewer-pan-down" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Pan image down" title="Pan down"><i class="fa-solid fa-arrow-down"></i></button>
-                        <button id="shop-image-viewer-pan-right" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Pan image right" title="Pan right"><i class="fa-solid fa-arrow-right"></i></button>
-                        <span class="ml-2 hidden text-xs text-[#8A7480] md:inline">Arrow keys also pan</span>
+                        <button id="shop-image-viewer-pan-left" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#C98FA2] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#8A2F50]" aria-label="Pan image left" title="Pan left"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button id="shop-image-viewer-pan-up" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#C98FA2] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#8A2F50]" aria-label="Pan image up" title="Pan up"><i class="fa-solid fa-arrow-up"></i></button>
+                        <button id="shop-image-viewer-pan-down" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#C98FA2] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#8A2F50]" aria-label="Pan image down" title="Pan down"><i class="fa-solid fa-arrow-down"></i></button>
+                        <button id="shop-image-viewer-pan-right" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#C98FA2] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#8A2F50]" aria-label="Pan image right" title="Pan right"><i class="fa-solid fa-arrow-right"></i></button>
+                        <span class="ml-2 hidden text-xs text-[#65505B] md:inline">Arrow keys also pan</span>
                     </div>
                 </div>
             </div>
@@ -911,11 +1014,11 @@
                     <div class="flex items-center gap-3 mb-6">
                         <img src="photos/Logo/logo.jpg" alt="Logo" class="w-12 h-12 rounded-full border border-brand-yellow" onerror="this.style.display='none'">
                         <div>
-                            <span class="font-serif text-2xl font-bold text-[#C85F80] block leading-none">Amelia's</span>
+                            <span class="font-serif text-2xl font-bold text-[#A83F65] block leading-none">Amelia's</span>
                             <span class="text-xs font-light tracking-widest uppercase">Picalily Flowers</span>
                         </div>
                     </div>
-                    <p class="text-[#75616C] text-sm leading-relaxed mb-6">
+                    <p class="text-[#59444F] text-sm leading-relaxed mb-6">
                         Welcome Amelia's Picalily Flowers and More where you'll find three stores in one.
                     </p>
                     <div class="flex gap-3">
@@ -925,27 +1028,27 @@
                 
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-brand-yellow font-serif">Quick Navigation</h4>
-                    <ul class="space-y-3 text-sm text-[#705B66]">
-                        <li><button onclick="navigate('home')" class="hover:text-[#B84F72] transition-colors">Home</button></li>
-                        <li><button onclick="navigate('floral')" class="hover:text-[#B84F72] transition-colors">Floral</button></li>
-                        <li><button onclick="navigate('gifts')" class="hover:text-[#B84F72] transition-colors">Gifts/Boutique</button></li>
-                        <li><button onclick="navigate('shop')" class="hover:text-[#B84F72] transition-colors">Shop Live Inventory</button></li>
-                        <li><button onclick="navigate('registry')" class="hover:text-[#B84F72] transition-colors">Bridal Registry</button></li>
-                        <li><button onclick="navigate('wedding')" class="hover:text-[#B84F72] transition-colors">Wedding</button></li>
+                    <ul class="space-y-3 text-sm text-[#57424E]">
+                        <li><button onclick="navigate('home')" class="hover:text-[#913456] transition-colors">Home</button></li>
+                        <li><button onclick="navigate('floral')" class="hover:text-[#913456] transition-colors">Floral</button></li>
+                        <li><button onclick="navigate('gifts')" class="hover:text-[#913456] transition-colors">Gifts/Boutique</button></li>
+                        <li><button onclick="navigate('shop')" class="hover:text-[#913456] transition-colors">Shop Live Inventory</button></li>
+                        <li><button onclick="navigate('registry')" class="hover:text-[#913456] transition-colors">Bridal Registry</button></li>
+                        <li><button onclick="navigate('wedding')" class="hover:text-[#913456] transition-colors">Wedding</button></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-brand-yellow font-serif">Contact Info</h4>
-                    <ul class="space-y-4 text-sm text-[#705B66]">
+                    <ul class="space-y-4 text-sm text-[#57424E]">
                         <li class="flex items-start gap-3"><i class="fa-solid fa-location-dot mt-1 text-brand-yellow"></i> 218 S Main St, Nashville, AR 71852</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-phone mt-1 text-brand-yellow"></i> <a href="tel:+18708452738" class="hover:text-[#B84F72] transition-colors">(870) 845-2738</a></li>
-                        <li class="flex items-start gap-3"><i class="fa-brands fa-facebook mt-1 text-brand-yellow"></i> <a href="https://www.facebook.com/picalilyflowers/" target="_blank" class="hover:text-[#B84F72] transition-colors">Follow us on Facebook</a></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-phone mt-1 text-brand-yellow"></i> <a href="tel:+18708452738" class="hover:text-[#913456] transition-colors">(870) 845-2738</a></li>
+                        <li class="flex items-start gap-3"><i class="fa-brands fa-facebook mt-1 text-brand-yellow"></i> <a href="https://www.facebook.com/picalilyflowers/" target="_blank" class="hover:text-[#913456] transition-colors">Follow us on Facebook</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-[#EACDD5] pt-8 text-center text-sm text-[#806D76]">
+            <div class="border-t border-[#D2AFBA] pt-8 text-center text-sm text-[#604B55]">
                 <p>&copy; 2026 Amelia's Picalily Flowers and More. All rights reserved.</p>
             </div>
         </div>
@@ -1637,7 +1740,7 @@
 
             sortedGroups.forEach(([category, products], index) => {
                 const details = document.createElement("details");
-                details.className = "shop-category bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden";
+                details.className = "shop-category bg-white rounded-2xl border border-[#D6BBC5] shadow-sm overflow-hidden";
                 details.dataset.category = category;
 
                 // Open search results and explicit category selections automatically.
@@ -1661,7 +1764,7 @@
                 summary.append(left, chevron);
 
                 const body = document.createElement("div");
-                body.className = "border-t border-gray-100 p-4 md:p-6";
+                body.className = "border-t border-[#DCC8CF] p-4 md:p-6";
                 body.dataset.rendered = "false";
 
                 details.append(summary, body);
@@ -1722,7 +1825,7 @@
             const card = document.createElement("article");
             card.className = "rounded-2xl border overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col " +
                 (item.in_stock
-                    ? "border-gray-200 bg-white"
+                    ? "border-[#D6BBC5] bg-white"
                     : "border-red-300 bg-red-50/60 ring-2 ring-red-200");
 
             const imageBox = document.createElement("div");
@@ -1756,7 +1859,7 @@
 
             const zoomHint = document.createElement("button");
             zoomHint.type = "button";
-            zoomHint.className = "hidden absolute bottom-3 right-3 z-20 h-11 w-11 items-center justify-center rounded-full border border-[#E8C1CC] bg-white/90 text-brand-black shadow-lg backdrop-blur-sm transition hover:bg-[#FCE8EE] hover:text-[#A94566] focus:outline-none focus:ring-2 focus:ring-brand-yellow";
+            zoomHint.className = "hidden absolute bottom-3 right-3 z-20 h-11 w-11 items-center justify-center rounded-full border border-[#E8C1CC] bg-white/90 text-brand-black shadow-lg backdrop-blur-sm transition hover:bg-[#FCE8EE] hover:text-[#8A2F50] focus:outline-none focus:ring-2 focus:ring-brand-yellow";
             zoomHint.innerHTML = '<i class="fa-solid fa-expand"></i>';
             zoomHint.title = "View full image";
             zoomHint.setAttribute("aria-label", `View full image of ${item._name}`);
