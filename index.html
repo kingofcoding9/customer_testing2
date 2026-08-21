@@ -107,7 +107,45 @@
             color: #FBBF24;
             border-bottom: 2px solid #FBBF24;
         }
+
+        /* Live Inventory Shop */
+        .shop-search-ring:focus-within {
+            border-color: #FBBF24;
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.16);
+        }
+
+        .shop-category > summary {
+            list-style: none;
+        }
+
+        .shop-category > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .shop-category[open] .shop-chevron {
+            transform: rotate(180deg);
+        }
+
+        .shop-product-description {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .shop-skeleton {
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shopShimmer 1.3s infinite;
+        }
+
+        @keyframes shopShimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
     </style>
+    <script src="shop-config.js"></script>
 </head>
 <body class="bg-brand-gray text-brand-black font-sans flex flex-col min-h-screen relative bg-floral-pattern">
 
@@ -128,6 +166,7 @@
                     <button onclick="navigate('home')" class="nav-link active-nav h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="home">Home</button>
                     <button onclick="navigate('floral')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="floral">Floral</button>
                     <button onclick="navigate('gifts')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="gifts">Gifts/Boutique</button>
+                    <button onclick="navigate('shop')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="shop">Shop</button>
                     <button onclick="navigate('registry')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="registry">Bridal Registry</button>
                     <button onclick="navigate('wedding')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="wedding">Wedding</button>
                 </div>
@@ -147,6 +186,7 @@
                 <button onclick="navigate('home')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="home">Home</button>
                 <button onclick="navigate('floral')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="floral">Floral</button>
                 <button onclick="navigate('gifts')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="gifts">Gifts/Boutique</button>
+                <button onclick="navigate('shop')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="shop">Shop Live Inventory</button>
                 <button onclick="navigate('registry')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="registry">Bridal Registry</button>
                 <button onclick="navigate('wedding')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="wedding">Wedding</button>
             </div>
@@ -178,6 +218,10 @@
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
                             <button onclick="navigate('floral')" class="bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg text-center flex items-center justify-center gap-2 uppercase tracking-wide">
                                 Explore Floral & Bakery
+                            </button>
+                            <button onclick="navigate('shop')" class="bg-white text-brand-black px-8 py-4 rounded-full font-bold hover:bg-brand-yellow transition-all shadow-lg text-center flex items-center justify-center gap-2 uppercase tracking-wide">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                Shop Live Inventory
                             </button>
                             <a href="https://www.picalilyflowers.net/" target="_blank" rel="noopener noreferrer" class="bg-white text-brand-black px-8 py-4 rounded-full font-bold hover:bg-brand-yellow transition-all shadow-lg text-center flex items-center justify-center gap-2 uppercase tracking-wide">
                                 Shop Flowers Online
@@ -569,6 +613,113 @@
             </div>
         </section>
 
+
+        <!-- ==================== LIVE INVENTORY SHOP ==================== -->
+        <section id="page-shop" class="page-section min-h-screen">
+            <div class="bg-brand-black py-12 md:py-16 text-center border-b border-brand-yellow/20">
+                <div class="max-w-5xl mx-auto px-4">
+                    <p class="text-brand-yellow uppercase tracking-[0.25em] text-xs md:text-sm font-semibold mb-3">Live Store Inventory</p>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Shop Amelia's Picalily</h1>
+                    <p class="text-gray-300 max-w-3xl mx-auto">
+                        Browse current products directly from our in-store inventory. Products are automatically organized using the categories from our point-of-sale system.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+                <div id="shop-config-warning" class="hidden mb-8 rounded-2xl border border-amber-300 bg-amber-50 p-5 text-amber-950">
+                    <div class="flex gap-3">
+                        <i class="fa-solid fa-triangle-exclamation mt-1"></i>
+                        <div>
+                            <p class="font-bold">Live inventory connection is not configured.</p>
+                            <p class="text-sm mt-1">The site owner needs to set the Cloudflare Tunnel URL and bridge access key in <code>shop-config.js</code>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 md:p-6 mb-8 sticky top-24 z-30">
+                    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px_180px_180px] gap-3">
+                        <label class="shop-search-ring flex items-center gap-3 rounded-xl border border-gray-300 bg-white px-4 transition">
+                            <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                            <input id="shop-search" type="search" autocomplete="off" placeholder="Search products, categories, descriptions, or barcodes..." class="w-full py-3 bg-transparent outline-none text-sm md:text-base">
+                            <button id="shop-clear-search" type="button" class="hidden text-gray-400 hover:text-brand-black" aria-label="Clear search">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </label>
+
+                        <select id="shop-category-filter" class="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-brand-yellow">
+                            <option value="">All categories</option>
+                        </select>
+
+                        <select id="shop-availability-filter" class="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-brand-yellow">
+                            <option value="all">All availability</option>
+                            <option value="in">In stock / available</option>
+                            <option value="out">Out of stock</option>
+                        </select>
+
+                        <select id="shop-sort" class="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-brand-yellow">
+                            <option value="name">Name A–Z</option>
+                            <option value="price-low">Price low–high</option>
+                            <option value="price-high">Price high–low</option>
+                            <option value="newest">Newest Item ID</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+                        <div class="flex items-center gap-3">
+                            <span id="shop-live-dot" class="inline-flex items-center gap-2 text-gray-500">
+                                <span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span>
+                                Connecting…
+                            </span>
+                            <span id="shop-last-updated" class="text-gray-400"></span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span id="shop-result-count" class="font-medium text-gray-600"></span>
+                            <button id="shop-refresh" type="button" class="inline-flex items-center gap-2 rounded-full border border-gray-300 px-4 py-2 font-semibold hover:border-brand-yellow hover:bg-brand-yellowLight transition">
+                                <i class="fa-solid fa-rotate"></i>
+                                Refresh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="shop-loading" class="space-y-4">
+                    <div class="shop-skeleton h-20 rounded-2xl"></div>
+                    <div class="shop-skeleton h-20 rounded-2xl"></div>
+                    <div class="shop-skeleton h-20 rounded-2xl"></div>
+                    <div class="shop-skeleton h-20 rounded-2xl"></div>
+                </div>
+
+                <div id="shop-error" class="hidden rounded-2xl border border-red-200 bg-red-50 p-6 text-red-900">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-exclamation mt-1"></i>
+                        <div>
+                            <h2 class="font-bold text-lg">We couldn't load live inventory.</h2>
+                            <p id="shop-error-text" class="text-sm mt-1"></p>
+                            <button id="shop-error-retry" class="mt-4 rounded-full bg-brand-black px-5 py-2.5 text-white font-semibold hover:bg-brand-yellow hover:text-brand-black transition">Try Again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="shop-empty" class="hidden text-center py-20">
+                    <i class="fa-solid fa-box-open text-5xl text-brand-yellow mb-5"></i>
+                    <h2 class="text-2xl font-serif font-bold mb-2">No matching products</h2>
+                    <p class="text-gray-500">Try another search or filter.</p>
+                </div>
+
+                <div id="shop-categories" class="space-y-4"></div>
+
+                <div class="mt-12 rounded-2xl bg-brand-black text-white p-6 md:p-8 text-center border border-brand-yellow/30">
+                    <h2 class="text-2xl font-serif font-bold mb-2">Need help finding something?</h2>
+                    <p class="text-gray-300 mb-5">Call Amelia's Picalily and we'll help you locate an item or prepare an order.</p>
+                    <a href="tel:+18708452738" class="inline-flex items-center gap-2 bg-brand-yellow text-brand-black px-6 py-3 rounded-full font-bold hover:bg-white transition">
+                        <i class="fa-solid fa-phone"></i>
+                        (870) 845-2738
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- ==================== BRIDAL REGISTRY PAGE ==================== -->
         <section id="page-registry" class="page-section bg-white">
             <div class="bg-brand-black py-16 text-center border-b border-brand-yellow/20">
@@ -660,6 +811,7 @@
                         <li><button onclick="navigate('home')" class="hover:text-white transition-colors">Home</button></li>
                         <li><button onclick="navigate('floral')" class="hover:text-white transition-colors">Floral</button></li>
                         <li><button onclick="navigate('gifts')" class="hover:text-white transition-colors">Gifts/Boutique</button></li>
+                        <li><button onclick="navigate('shop')" class="hover:text-white transition-colors">Shop Live Inventory</button></li>
                         <li><button onclick="navigate('registry')" class="hover:text-white transition-colors">Bridal Registry</button></li>
                         <li><button onclick="navigate('wedding')" class="hover:text-white transition-colors">Wedding</button></li>
                     </ul>
@@ -728,6 +880,9 @@
             // Initialize Wedding Gallery only if navigating to wedding page and not yet populated
             if(pageId === 'wedding' && document.getElementById('masonry-container').children.length === 0) {
                 initWeddingGallery();
+            }
+            if(pageId === 'shop') {
+                initLiveShop();
             }
         }
 
@@ -904,6 +1059,476 @@
                 closeLightbox();
             }
         });
+
+
+        // --- LIVE INVENTORY SHOP ---
+        const SHOP_DEFAULTS = {
+            tunnelUrl: "",
+            accessKey: "",
+            refreshSeconds: 60,
+            hideNonPositivePrice: true,
+            initialProductsPerCategory: 18
+        };
+        const SHOP_CONFIG = Object.assign({}, SHOP_DEFAULTS, window.PICALILY_SHOP_CONFIG || {});
+
+        let shopAllItems = [];
+        let shopLoaded = false;
+        let shopLoading = false;
+        let shopETag = "";
+        let shopGeneratedAt = "";
+        let shopRefreshTimer = null;
+        let shopSearchTimer = null;
+        const shopObjectURLs = new Set();
+
+        function shopConfigured() {
+            return Boolean(
+                String(SHOP_CONFIG.tunnelUrl || "").trim() &&
+                String(SHOP_CONFIG.accessKey || "").trim()
+            );
+        }
+
+        function shopBaseURL() {
+            return String(SHOP_CONFIG.tunnelUrl || "").trim().replace(/\/+$/, "");
+        }
+
+        function shopHeaders(extra = {}) {
+            return Object.assign({
+                "Authorization": "Bearer " + String(SHOP_CONFIG.accessKey || "").trim()
+            }, extra);
+        }
+
+        function shopEscapePrice(value) {
+            const n = Number.parseFloat(value);
+            return Number.isFinite(n) ? n : 0;
+        }
+
+        function shopMoney(value) {
+            return new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD"
+            }).format(shopEscapePrice(value));
+        }
+
+        function shopNormalizeItems(payload) {
+            const raw = Array.isArray(payload) ? payload : (Array.isArray(payload?.items) ? payload.items : []);
+            return raw
+                .filter(item => item && !item.disabled)
+                .filter(item => String(item.name || "").trim())
+                .filter(item => !SHOP_CONFIG.hideNonPositivePrice || shopEscapePrice(item.effective_price) > 0)
+                .map(item => ({
+                    ...item,
+                    _category: String(item.category || "").trim() || "Uncategorized",
+                    _name: String(item.name || "").trim(),
+                    _description: String(item.description || "").trim(),
+                    _barcode: String(item.barcode || "").trim(),
+                    _price: shopEscapePrice(item.effective_price),
+                    _search: [
+                        item.name,
+                        item.category,
+                        item.description,
+                        item.barcode,
+                        item.pos_item_id
+                    ].filter(Boolean).join(" ").toLowerCase()
+                }));
+        }
+
+        async function shopFetch(path, options = {}) {
+            const response = await fetch(shopBaseURL() + path, {
+                ...options,
+                mode: "cors",
+                cache: "no-store",
+                headers: shopHeaders(options.headers || {})
+            });
+            return response;
+        }
+
+        async function initLiveShop(force = false) {
+            if (shopLoaded && !force) {
+                scheduleShopRefresh();
+                return;
+            }
+            if (shopLoading) return;
+
+            const warning = document.getElementById("shop-config-warning");
+            if (!shopConfigured()) {
+                warning.classList.remove("hidden");
+                setShopConnectionState("offline", "Not configured");
+                document.getElementById("shop-loading").classList.add("hidden");
+                document.getElementById("shop-categories").innerHTML = "";
+                return;
+            }
+            warning.classList.add("hidden");
+            await loadLiveInventory(force);
+        }
+
+        async function loadLiveInventory(force = false) {
+            if (shopLoading) return;
+            shopLoading = true;
+            setShopConnectionState("loading", "Connecting…");
+            document.getElementById("shop-error").classList.add("hidden");
+            if (!shopLoaded) document.getElementById("shop-loading").classList.remove("hidden");
+
+            try {
+                const headers = {};
+                if (shopETag && !force) headers["If-None-Match"] = shopETag;
+
+                const response = await shopFetch("/inventory", { headers });
+                if (response.status === 304) {
+                    setShopConnectionState("online", "Live inventory");
+                    updateShopTimestamp();
+                    return;
+                }
+                if (!response.ok) {
+                    throw new Error(`Inventory service returned HTTP ${response.status}.`);
+                }
+
+                shopETag = response.headers.get("ETag") || "";
+                const payload = await response.json();
+                shopGeneratedAt = payload?.generated_at || "";
+                shopAllItems = shopNormalizeItems(payload);
+                shopLoaded = true;
+
+                populateShopCategoryFilter();
+                renderShop();
+                setShopConnectionState("online", "Live inventory");
+                updateShopTimestamp();
+            } catch (err) {
+                console.error("Live inventory error:", err);
+                setShopConnectionState("offline", "Inventory unavailable");
+                const errorBox = document.getElementById("shop-error");
+                document.getElementById("shop-error-text").textContent =
+                    err?.message || "Unable to reach the inventory tunnel.";
+                errorBox.classList.remove("hidden");
+            } finally {
+                shopLoading = false;
+                document.getElementById("shop-loading").classList.add("hidden");
+                scheduleShopRefresh();
+            }
+        }
+
+        function scheduleShopRefresh() {
+            if (shopRefreshTimer) clearTimeout(shopRefreshTimer);
+            const seconds = Math.max(15, Number(SHOP_CONFIG.refreshSeconds) || 60);
+            shopRefreshTimer = setTimeout(() => {
+                if (!document.hidden && document.getElementById("page-shop")?.classList.contains("active")) {
+                    loadLiveInventory(false);
+                } else {
+                    scheduleShopRefresh();
+                }
+            }, seconds * 1000);
+        }
+
+        function setShopConnectionState(state, label) {
+            const el = document.getElementById("shop-live-dot");
+            if (!el) return;
+            const dot = el.querySelector("span");
+            el.lastChild.textContent = " " + label;
+            dot.className = "w-2.5 h-2.5 rounded-full " +
+                (state === "online" ? "bg-green-500" : state === "loading" ? "bg-brand-yellow animate-pulse" : "bg-red-500");
+            el.className = "inline-flex items-center gap-2 " +
+                (state === "online" ? "text-green-700" : state === "loading" ? "text-amber-700" : "text-red-700");
+        }
+
+        function updateShopTimestamp() {
+            const el = document.getElementById("shop-last-updated");
+            if (!el) return;
+            if (!shopGeneratedAt) {
+                el.textContent = "";
+                return;
+            }
+            const d = new Date(shopGeneratedAt);
+            el.textContent = Number.isNaN(d.getTime()) ? "" : "Updated " + d.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"});
+        }
+
+        function populateShopCategoryFilter() {
+            const select = document.getElementById("shop-category-filter");
+            const current = select.value;
+            const categories = [...new Set(shopAllItems.map(i => i._category))]
+                .sort((a, b) => a.localeCompare(b, undefined, {sensitivity: "base"}));
+
+            select.replaceChildren();
+            const all = document.createElement("option");
+            all.value = "";
+            all.textContent = `All categories (${categories.length})`;
+            select.appendChild(all);
+
+            for (const cat of categories) {
+                const option = document.createElement("option");
+                option.value = cat;
+                option.textContent = cat;
+                select.appendChild(option);
+            }
+            if ([...select.options].some(o => o.value === current)) select.value = current;
+        }
+
+        function filteredShopItems() {
+            const search = document.getElementById("shop-search").value.trim().toLowerCase();
+            const category = document.getElementById("shop-category-filter").value;
+            const availability = document.getElementById("shop-availability-filter").value;
+            const sort = document.getElementById("shop-sort").value;
+
+            let items = shopAllItems.filter(item => {
+                if (search && !item._search.includes(search)) return false;
+                if (category && item._category !== category) return false;
+                if (availability === "in" && !item.in_stock) return false;
+                if (availability === "out" && item.in_stock) return false;
+                return true;
+            });
+
+            items.sort((a, b) => {
+                if (sort === "price-low") return a._price - b._price || a._name.localeCompare(b._name);
+                if (sort === "price-high") return b._price - a._price || a._name.localeCompare(b._name);
+                if (sort === "newest") return Number(b.pos_item_id || 0) - Number(a.pos_item_id || 0);
+                return a._name.localeCompare(b._name, undefined, {sensitivity: "base"});
+            });
+            return items;
+        }
+
+        function renderShop() {
+            if (!shopLoaded) return;
+            const items = filteredShopItems();
+            const searchActive = Boolean(document.getElementById("shop-search").value.trim());
+            const categorySelected = Boolean(document.getElementById("shop-category-filter").value);
+            const root = document.getElementById("shop-categories");
+            const empty = document.getElementById("shop-empty");
+            const count = document.getElementById("shop-result-count");
+
+            count.textContent = `${items.length.toLocaleString()} product${items.length === 1 ? "" : "s"}`;
+            root.replaceChildren();
+
+            if (!items.length) {
+                empty.classList.remove("hidden");
+                return;
+            }
+            empty.classList.add("hidden");
+
+            const groups = new Map();
+            for (const item of items) {
+                if (!groups.has(item._category)) groups.set(item._category, []);
+                groups.get(item._category).push(item);
+            }
+
+            const sortedGroups = [...groups.entries()].sort((a, b) =>
+                a[0].localeCompare(b[0], undefined, {sensitivity: "base"})
+            );
+
+            sortedGroups.forEach(([category, products], index) => {
+                const details = document.createElement("details");
+                details.className = "shop-category bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden";
+                details.dataset.category = category;
+
+                // Open search results and explicit category selections automatically.
+                details.open = searchActive || categorySelected || (sortedGroups.length === 1);
+
+                const summary = document.createElement("summary");
+                summary.className = "cursor-pointer select-none px-5 md:px-7 py-5 flex items-center justify-between gap-4 hover:bg-brand-yellowLight transition";
+
+                const left = document.createElement("div");
+                const title = document.createElement("h2");
+                title.className = "font-serif font-bold text-xl md:text-2xl";
+                title.textContent = category;
+                const meta = document.createElement("p");
+                meta.className = "text-sm text-gray-500 mt-1";
+                const availableCount = products.filter(p => p.in_stock).length;
+                meta.textContent = `${products.length.toLocaleString()} products • ${availableCount.toLocaleString()} available`;
+                left.append(title, meta);
+
+                const chevron = document.createElement("i");
+                chevron.className = "shop-chevron fa-solid fa-chevron-down text-brand-yellow transition-transform duration-200";
+                summary.append(left, chevron);
+
+                const body = document.createElement("div");
+                body.className = "border-t border-gray-100 p-4 md:p-6";
+                body.dataset.rendered = "false";
+
+                details.append(summary, body);
+                root.appendChild(details);
+
+                const ensureRendered = () => {
+                    if (details.open && body.dataset.rendered !== "true") {
+                        renderShopCategoryProducts(body, products);
+                        body.dataset.rendered = "true";
+                    }
+                };
+                details.addEventListener("toggle", ensureRendered);
+                ensureRendered();
+            });
+        }
+
+        function renderShopCategoryProducts(container, products) {
+            let shown = Math.min(Math.max(6, Number(SHOP_CONFIG.initialProductsPerCategory) || 18), products.length);
+
+            const grid = document.createElement("div");
+            grid.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5";
+            container.appendChild(grid);
+
+            const renderRange = (from, to) => {
+                for (let i = from; i < to; i++) {
+                    grid.appendChild(createShopProductCard(products[i]));
+                }
+            };
+            renderRange(0, shown);
+
+            if (shown < products.length) {
+                const footer = document.createElement("div");
+                footer.className = "text-center pt-6";
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "rounded-full bg-brand-black text-white px-6 py-3 font-bold hover:bg-brand-yellow hover:text-brand-black transition";
+                const updateLabel = () => {
+                    button.textContent = `Show More (${(products.length - shown).toLocaleString()} remaining)`;
+                };
+                updateLabel();
+
+                button.addEventListener("click", () => {
+                    const oldShown = shown;
+                    shown = Math.min(shown + Math.max(12, Number(SHOP_CONFIG.initialProductsPerCategory) || 18), products.length);
+                    renderRange(oldShown, shown);
+                    if (shown >= products.length) {
+                        footer.remove();
+                    } else {
+                        updateLabel();
+                    }
+                });
+                footer.appendChild(button);
+                container.appendChild(footer);
+            }
+        }
+
+        function createShopProductCard(item) {
+            const card = document.createElement("article");
+            card.className = "rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col";
+
+            const imageBox = document.createElement("div");
+            imageBox.className = "relative aspect-[4/3] bg-gray-100 overflow-hidden";
+
+            const img = document.createElement("img");
+            img.loading = "lazy";
+            img.alt = item._name;
+            img.className = "w-full h-full object-cover";
+            img.dataset.shopItemId = String(item.pos_item_id || "");
+
+            const fallback = document.createElement("div");
+            fallback.className = "absolute inset-0 flex flex-col items-center justify-center text-gray-400 bg-gradient-to-br from-gray-50 to-gray-100";
+            const icon = document.createElement("i");
+            icon.className = "fa-solid fa-seedling text-4xl text-brand-yellow/70 mb-2";
+            const fallbackText = document.createElement("span");
+            fallbackText.className = "text-xs font-semibold uppercase tracking-wide";
+            fallbackText.textContent = "Image unavailable";
+            fallback.append(icon, fallbackText);
+
+            imageBox.append(fallback, img);
+            card.appendChild(imageBox);
+
+            if (item.picture_url && /^https?:\/\//i.test(item.picture_url)) {
+                img.src = item.picture_url;
+                img.addEventListener("load", () => fallback.classList.add("hidden"), {once: true});
+                img.addEventListener("error", () => loadShopTunnelImage(img, fallback, item), {once: true});
+            } else {
+                loadShopTunnelImage(img, fallback, item);
+            }
+
+            const body = document.createElement("div");
+            body.className = "p-5 flex flex-col flex-grow";
+
+            const top = document.createElement("div");
+            top.className = "flex items-start justify-between gap-3 mb-2";
+            const category = document.createElement("span");
+            category.className = "text-[11px] uppercase tracking-wider font-bold text-amber-700 bg-brand-yellowLight px-2.5 py-1 rounded-full";
+            category.textContent = item._category;
+            const stock = document.createElement("span");
+            stock.className = "text-xs font-bold " + (item.in_stock ? "text-green-700" : "text-red-600");
+            stock.textContent = item.in_stock ? (item.tracks_quantity ? "In stock" : "Available") : "Out of stock";
+            top.append(category, stock);
+
+            const name = document.createElement("h3");
+            name.className = "font-serif font-bold text-xl leading-snug mb-2";
+            name.textContent = item._name;
+
+            const desc = document.createElement("p");
+            desc.className = "shop-product-description text-sm text-gray-500 leading-relaxed mb-4";
+            desc.textContent = item._description || "Contact us for product details.";
+
+            const priceRow = document.createElement("div");
+            priceRow.className = "mt-auto pt-2 flex items-end justify-between gap-3";
+
+            const prices = document.createElement("div");
+            const effective = document.createElement("div");
+            effective.className = "text-2xl font-bold text-brand-black";
+            effective.textContent = shopMoney(item.effective_price);
+            prices.appendChild(effective);
+
+            if (item.sale_active && shopEscapePrice(item.regular_price) > shopEscapePrice(item.effective_price)) {
+                const regular = document.createElement("div");
+                regular.className = "text-sm text-gray-400 line-through";
+                regular.textContent = shopMoney(item.regular_price);
+                prices.appendChild(regular);
+            }
+
+            const details = document.createElement("div");
+            details.className = "text-right text-xs text-gray-400";
+            if (item.tracks_quantity && item.website_quantity !== null && item.website_quantity !== undefined) {
+                const qty = document.createElement("div");
+                qty.textContent = `${Math.max(0, Number(item.website_quantity) || 0)} available`;
+                details.appendChild(qty);
+            }
+            if (item._barcode) {
+                const barcode = document.createElement("div");
+                barcode.className = "max-w-[130px] truncate";
+                barcode.title = item._barcode;
+                barcode.textContent = `#${item._barcode}`;
+                details.appendChild(barcode);
+            }
+
+            priceRow.append(prices, details);
+            body.append(top, name, desc, priceRow);
+            card.appendChild(body);
+            return card;
+        }
+
+        async function loadShopTunnelImage(img, fallback, item) {
+            if (!item?.pos_item_id || !shopConfigured()) return;
+            try {
+                const response = await shopFetch(`/images/${encodeURIComponent(item.pos_item_id)}`);
+                if (!response.ok) return;
+                const blob = await response.blob();
+                if (!blob.type.startsWith("image/")) return;
+                const objectURL = URL.createObjectURL(blob);
+                shopObjectURLs.add(objectURL);
+                img.src = objectURL;
+                fallback.classList.add("hidden");
+            } catch (_) {
+                // No product image is not an inventory failure.
+            }
+        }
+
+        function scheduleShopRender() {
+            clearTimeout(shopSearchTimer);
+            shopSearchTimer = setTimeout(renderShop, 120);
+        }
+
+        document.getElementById("shop-search").addEventListener("input", function() {
+            document.getElementById("shop-clear-search").classList.toggle("hidden", !this.value);
+            scheduleShopRender();
+        });
+        document.getElementById("shop-clear-search").addEventListener("click", () => {
+            const input = document.getElementById("shop-search");
+            input.value = "";
+            document.getElementById("shop-clear-search").classList.add("hidden");
+            input.focus();
+            renderShop();
+        });
+        document.getElementById("shop-category-filter").addEventListener("change", renderShop);
+        document.getElementById("shop-availability-filter").addEventListener("change", renderShop);
+        document.getElementById("shop-sort").addEventListener("change", renderShop);
+        document.getElementById("shop-refresh").addEventListener("click", () => loadLiveInventory(true));
+        document.getElementById("shop-error-retry").addEventListener("click", () => loadLiveInventory(true));
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden && shopLoaded && document.getElementById("page-shop")?.classList.contains("active")) {
+                loadLiveInventory(false);
+            }
+        });
+
 
         // --- 6. INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
