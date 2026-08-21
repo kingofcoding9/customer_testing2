@@ -24,15 +24,21 @@
                     },
                     colors: {
                         brand: {
-                            black: '#171717',     // Deep elegant black
-                            yellow: '#FBBF24',    // Rich floral gold/yellow
-                            yellowLight: '#FEF3C7',
+                            black: '#594653',     // Warm plum-brown used for readable text
+                            yellow: '#F4C95D',    // Sunny floral yellow
+                            yellowLight: '#FFF6CF',
                             white: '#FFFFFF',
-                            gray: '#FAFAFA'
+                            gray: '#FFFDF8',
+                            blush: '#FCE8EE',
+                            peach: '#FFF0E3',
+                            mint: '#EAF7EE',
+                            lavender: '#F3EEFB',
+                            rose: '#D87391',
+                            sky: '#EAF5FB'
                         }
                     },
                     backgroundImage: {
-                        'floral-pattern': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 15c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zM25 50c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9z' fill='%23FBBF24' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                        'floral-pattern': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 15c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zM25 50c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9z' fill='%23E8A7B8' fill-opacity='0.12' fill-rule='evenodd'/%3E%3C/svg%3E\")",
                     }
                 }
             }
@@ -49,14 +55,14 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #171717;
+            background: #FFF4EE;
         }
         ::-webkit-scrollbar-thumb {
-            background: #FBBF24;
+            background: #E9A9B9;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #D97706;
+            background: #D7839A;
         }
 
         /* Page Transitions */
@@ -104,14 +110,14 @@
         }
         
         .nav-link.active-nav {
-            color: #FBBF24;
-            border-bottom: 2px solid #FBBF24;
+            color: #C85F80;
+            border-bottom: 2px solid #E9A9B9;
         }
 
         /* Live Inventory Shop */
         .shop-search-ring:focus-within {
-            border-color: #FBBF24;
-            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.16);
+            border-color: #E9A9B9;
+            box-shadow: 0 0 0 3px rgba(233, 169, 185, 0.20);
         }
 
         .shop-category > summary {
@@ -160,7 +166,7 @@
         }
 
         #shop-image-viewer-zoom {
-            accent-color: #FBBF24;
+            accent-color: #D87391;
         }
 
         .shop-image-viewer-control {
@@ -175,19 +181,41 @@
             }
         }
 
+        /* v2.5 Happy Floral Theme */
+        ::selection {
+            background: #F6D7E0;
+            color: #594653;
+        }
+
+        a, button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .page-section {
+            color: #594653;
+        }
+
+        .shop-category > summary:hover {
+            background: linear-gradient(90deg, #FFF7F2, #FFF3F7, #FFFBE8);
+        }
+
+        #shop-categories article {
+            box-shadow: 0 10px 28px rgba(163, 111, 133, 0.08);
+        }
+
     </style>
     <script src="shop-config.js"></script>
 </head>
-<body class="bg-brand-gray text-brand-black font-sans flex flex-col min-h-screen relative bg-floral-pattern">
+<body class="bg-[#FFFDF9] text-brand-black font-sans flex flex-col min-h-screen relative bg-floral-pattern">
 
-    <nav class="sticky top-0 z-50 bg-brand-black text-white shadow-lg border-b border-brand-yellow/20">
+    <nav class="sticky top-0 z-50 bg-gradient-to-r from-[#FFF9F3] via-[#FFF3F7] to-[#FFF9E7] text-brand-black shadow-md border-b border-[#F2C9D5]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
                 <!-- Logo & Brand -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
                     <img src="photos/Logo/logo.jpg" alt="Amelia's Picalily Logo" class="h-14 w-14 rounded-full border-2 border-brand-yellow object-cover" onerror="this.style.display='none'">
                     <div class="ml-4">
-                        <span class="font-serif text-2xl md:text-3xl font-bold text-brand-yellow block leading-none">Amelia's</span>
+                        <span class="font-serif text-2xl md:text-3xl font-bold text-[#C85F80] block leading-none">Amelia's</span>
                         <span class="text-sm md:text-base font-light tracking-widest uppercase">Picalily Flowers</span>
                     </div>
                 </div>
@@ -204,7 +232,7 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-brand-yellow hover:text-white focus:outline-none p-2">
+                    <button id="mobile-menu-btn" class="text-[#C85F80] hover:text-brand-black focus:outline-none p-2">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -212,14 +240,14 @@
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-black border-t border-brand-yellow/20 absolute w-full shadow-2xl pb-6">
+        <div id="mobile-menu" class="hidden md:hidden bg-[#FFF8F5] border-t border-[#F2C9D5] absolute w-full shadow-xl pb-6">
             <div class="px-4 pt-4 pb-2 space-y-2 flex flex-col">
-                <button onclick="navigate('home')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="home">Home</button>
-                <button onclick="navigate('floral')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="floral">Floral</button>
-                <button onclick="navigate('gifts')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="gifts">Gifts/Boutique</button>
-                <button onclick="navigate('shop')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="shop">Shop Live Inventory</button>
-                <button onclick="navigate('registry')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="registry">Bridal Registry</button>
-                <button onclick="navigate('wedding')" class="mobile-link text-left w-full px-4 py-3 rounded-md text-base font-medium text-white hover:text-brand-yellow hover:bg-white/5" data-target="wedding">Wedding</button>
+                <button onclick="navigate('home')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="home">Home</button>
+                <button onclick="navigate('floral')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="floral">Floral</button>
+                <button onclick="navigate('gifts')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="gifts">Gifts/Boutique</button>
+                <button onclick="navigate('shop')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="shop">Shop Live Inventory</button>
+                <button onclick="navigate('registry')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="registry">Bridal Registry</button>
+                <button onclick="navigate('wedding')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#B84F72] hover:bg-[#FCE8EE]" data-target="wedding">Wedding</button>
             </div>
         </div>
     </nav>
@@ -230,20 +258,20 @@
         <!-- ==================== HOME PAGE ==================== -->
         <section id="page-home" class="page-section active">
             <!-- Hero Slider -->
-            <div class="relative h-[70vh] min-h-[500px] w-full bg-brand-black overflow-hidden group">
+            <div class="relative h-[70vh] min-h-[500px] w-full bg-[#FCEEF2] overflow-hidden group">
                 <div id="hero-slider" class="w-full h-full relative">
                     <!-- Slides injected via JS -->
                 </div>
                 
                 <!-- Hero Overlay Content -->
-                <div class="absolute inset-0 bg-black/60 flex items-center justify-center z-10">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#FFF9F3]/90 via-[#FFF2F6]/76 to-[#FFF8DF]/72 flex items-center justify-center z-10">
                     <div class="text-center px-4 max-w-5xl">
-                        <p class="text-brand-yellow font-medium tracking-[0.3em] uppercase mb-4 text-sm md:text-base">Local Nashville Florist • Bakery • Gifts</p>
-                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                        <p class="text-[#B65376] font-semibold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">Local Nashville Florist • Bakery • Gifts</p>
+                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-brand-black mb-6 leading-tight">
                             Welcome Amelia's Picalily <br>
-                            <span class="italic text-brand-yellow font-light">Flowers and More</span>
+                            <span class="italic text-[#C85F80] font-light">Flowers and More</span>
                         </h1>
-                        <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-light">
+                        <p class="text-xl md:text-2xl text-[#6F5B66] mb-10 max-w-3xl mx-auto font-light">
                             where you'll find three stores in one.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -263,12 +291,12 @@
                 </div>
 
                 <!-- Slider Controls -->
-                <button onclick="prevHeroSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white/50 hover:text-brand-yellow text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left"></i></button>
-                <button onclick="nextHeroSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white/50 hover:text-brand-yellow text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
+                <button onclick="prevHeroSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#C85F80] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="nextHeroSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#C85F80] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
 
             <!-- About / History & Staff Section -->
-            <div class="py-24 bg-white relative">
+            <div class="py-24 bg-[#FFFDF8] relative">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
@@ -284,13 +312,13 @@
                         <div class="relative">
                             <!-- Staff Photo -->
                             <div class="absolute -inset-4 bg-brand-yellow/20 rounded-xl transform rotate-3"></div>
-                            <img src="photos/People/image_0038.jpg" alt="Amelia's Picalily Staff" class="relative z-10 w-full h-[500px] object-cover rounded-xl shadow-2xl" onerror="this.src='https://placehold.co/800x600/171717/FBBF24?text=Meet+Our+Staff'">
-                            <div class="absolute -bottom-8 -left-8 bg-brand-black text-white p-6 rounded-xl shadow-xl z-20 border border-brand-yellow/30">
+                            <img src="photos/People/image_0038.jpg" alt="Amelia's Picalily Staff" class="relative z-10 w-full h-[500px] object-cover rounded-xl shadow-2xl" onerror="this.src='https://placehold.co/800x600/FFF1F5/D87391?text=Meet+Our+Staff'">
+                            <div class="absolute -bottom-8 -left-8 bg-[#FFF1F5] text-brand-black p-6 rounded-xl shadow-xl z-20 border border-[#F0C1CF]">
                                 <div class="flex items-center gap-4">
                                     <i class="fa-solid fa-users text-4xl text-brand-yellow"></i>
                                     <div>
                                         <p class="font-bold text-xl">Meet Our Team</p>
-                                        <p class="text-sm text-gray-400">Passionate & Dedicated</p>
+                                        <p class="text-sm text-[#8B7180]">Passionate & Dedicated</p>
                                     </div>
                                 </div>
                             </div>
@@ -300,7 +328,7 @@
             </div>
             
             <!-- Quick Categories Grid -->
-            <div class="py-16 bg-brand-black text-white">
+            <div class="py-16 bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] text-brand-black">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                         <div class="text-center group cursor-pointer" onclick="navigate('floral')">
@@ -334,8 +362,8 @@
 
         <!-- ==================== FLORAL PAGE (Includes Bakery) ==================== -->
         <section id="page-floral" class="page-section">
-            <div class="bg-brand-black py-16 text-center border-b border-brand-yellow/20">
-                <h1 class="text-5xl font-serif font-bold text-white mb-4">Floral & Bakery</h1>
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#F1CBD5]">
+                <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Floral & Bakery</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
 
@@ -389,10 +417,10 @@
                     </div>
 
                     <!-- Online Ordering & Product Categories -->
-                    <div class="mt-12 bg-brand-black text-white rounded-2xl p-8 md:p-10 shadow-xl border border-brand-yellow/30 text-center">
+                    <div class="mt-12 bg-gradient-to-br from-[#FFF7DC] via-[#FFF3F6] to-[#EEF8F0] text-brand-black rounded-2xl p-8 md:p-10 shadow-lg border border-[#F1CED8] text-center">
                         <i class="fa-solid fa-cart-shopping text-4xl text-brand-yellow mb-4"></i>
                         <h3 class="text-3xl font-serif font-bold mb-4">Online Flower Shop</h3>
-                        <p class="text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+                        <p class="text-[#6F5B66] max-w-3xl mx-auto mb-8 leading-relaxed">
                             Browse the complete flower catalog, view individual product pages, customize an arrangement, add items to your cart, and place a secure order online 24 hours a day. Local and worldwide delivery options are available.
                         </p>
                         <a href="https://www.picalilyflowers.net/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg uppercase tracking-wide">
@@ -494,7 +522,7 @@
                             Itty Bitty Bakery is a small bakery operating as part of Amelia's Picalily Flowers. We offer handmade bakery items, including mini cakes, cupcakes, sheet cakes, cookie baskets, and other sweet treats. Because our bakery is small, we do not make large tiered wedding cakes or cakes requiring fondant décor.
                         </p>
                         
-                        <div class="mt-8 inline-block bg-brand-black text-white px-6 py-4 rounded-lg shadow-md border-2 border-brand-yellow">
+                        <div class="mt-8 inline-block bg-[#FFF3CE] text-brand-black px-6 py-4 rounded-xl shadow-md border-2 border-[#F1C85B]">
                             <i class="fa-solid fa-triangle-exclamation text-brand-yellow mr-2 text-xl"></i>
                             <span class="font-bold text-lg">Please Note: Special orders or flavors require one week's notice.</span>
                         </div>
@@ -528,7 +556,7 @@
                         <h3 class="text-3xl font-serif font-bold mb-8">Our Menus</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
-                                <h4 class="font-bold text-xl mb-4 bg-brand-black text-white py-2 rounded-t-lg">Bakery Menu</h4>
+                                <h4 class="font-bold text-xl mb-4 bg-[#FCE8EE] text-brand-black py-3 rounded-t-lg border border-[#F0C9D4]">Bakery Menu</h4>
                                 <div class="bg-white p-6 border-2 border-brand-black rounded-b-lg shadow-xl h-[500px] flex items-center justify-center bg-gray-50">
                                     <div class="text-left text-gray-700 w-full max-w-sm space-y-4">
                                         <div class="flex justify-between gap-4 border-b pb-2"><a href="https://www.picalilyflowers.net/product/5c2bc22e333bb/vanilla-mini-cake" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-brand-yellow">Vanilla Mini Cake</a><strong>$17</strong></div>
@@ -548,7 +576,7 @@
                                         <i class="fa-solid fa-phone text-4xl text-brand-yellow mb-5"></i>
                                         <p class="font-bold text-xl mb-4">Planning a special flavor or bakery order?</p>
                                         <p class="mb-6 leading-relaxed">Please call at least one week before the requested pickup or delivery date. Large tiered wedding cakes and cakes requiring fondant d&eacute;cor are not available.</p>
-                                        <a href="tel:+18708452738" class="inline-flex items-center justify-center gap-2 bg-brand-black text-white px-6 py-3 rounded-full font-bold hover:bg-brand-yellow hover:text-brand-black transition-colors">Call (870) 845-2738</a>
+                                        <a href="tel:+18708452738" class="inline-flex items-center justify-center gap-2 bg-[#E9A9B9] text-brand-black px-6 py-3 rounded-full font-bold hover:bg-brand-yellow transition-colors shadow-sm">Call (870) 845-2738</a>
                                     </div>
                                 </div>
                             </div>
@@ -562,8 +590,8 @@
 
         <!-- ==================== GIFTS/BOUTIQUE PAGE ==================== -->
         <section id="page-gifts" class="page-section">
-            <div class="bg-brand-black py-16 text-center border-b border-brand-yellow/20">
-                <h1 class="text-5xl font-serif font-bold text-white mb-4">Gifts & Boutique</h1>
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#F1CBD5]">
+                <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Gifts & Boutique</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
 
@@ -577,7 +605,7 @@
                     <!-- Bath -->
                     <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80">
                         <img src="photos/Gifts_and_Products/image_0002.jpg" alt="Bath Products" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Bath'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Bath</h3>
                                 <p class="text-gray-300 text-sm">Luxurious bath bombs, soaps, and body care.</p>
@@ -588,7 +616,7 @@
                     <!-- Home Decor -->
                     <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80">
                         <img src="photos/Home_Decor/image_0015.jpg" alt="Home Decor" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Home+Decor'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Home Decor</h3>
                                 <p class="text-gray-300 text-sm">Unique accents to make any house a home.</p>
@@ -599,7 +627,7 @@
                     <!-- Candles -->
                     <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80">
                         <img src="photos/Gifts_and_Products/image_0030.jpg" alt="Candles" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Candles'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Candles</h3>
                                 <p class="text-gray-300 text-sm">Premium poured candles in exquisite scents.</p>
@@ -610,7 +638,7 @@
                     <!-- Clothing -->
                     <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80 md:col-span-2 lg:col-span-1 lg:col-start-2">
                         <img src="photos/Clothing/image_0016.jpg" alt="Clothing" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Clothing'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Clothing</h3>
                                 <p class="text-gray-300 text-sm">Stylish boutique apparel carefully curated for you.</p>
@@ -621,7 +649,7 @@
                     <!-- Accessories -->
                     <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80 md:col-span-2 lg:col-span-1">
                         <img src="photos/Jewelry_and_Accessories/image_0024.jpg" alt="Accessories" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Accessories'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Accessories & Jewelry</h3>
                                 <p class="text-gray-300 text-sm">Bags, statement jewelry, and everyday pieces.</p>
@@ -631,11 +659,11 @@
 
                 </div>
 
-                <div class="mt-16 bg-brand-black text-white rounded-2xl p-8 md:p-10 shadow-xl border border-brand-yellow/30 text-center">
+                <div class="mt-16 bg-gradient-to-br from-[#FCE8EE] via-[#FFF7DB] to-[#EAF7EE] text-brand-black rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0CBD6] text-center">
                     <i class="fa-solid fa-tags text-4xl text-brand-yellow mb-4"></i>
                     <h3 class="text-3xl font-serif font-bold mb-4">Special Offers & Holiday Reminders</h3>
-                    <p class="text-gray-300 max-w-3xl mx-auto mb-4">Current featured offers include Deal of the Day, Weekly Special, and Birthday Florals selections.</p>
-                    <p class="text-gray-300 max-w-3xl mx-auto mb-8">Visit the special-offers page to view current pricing and join the mailing list for offers and holiday reminders.</p>
+                    <p class="text-[#6F5B66] max-w-3xl mx-auto mb-4">Current featured offers include Deal of the Day, Weekly Special, and Birthday Florals selections.</p>
+                    <p class="text-[#6F5B66] max-w-3xl mx-auto mb-8">Visit the special-offers page to view current pricing and join the mailing list for offers and holiday reminders.</p>
                     <a href="https://www.picalilyflowers.net/special_offers.php" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg uppercase tracking-wide">
                         <span>View Offers & Join Mailing List</span>
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -647,10 +675,10 @@
 
         <!-- ==================== LIVE INVENTORY SHOP ==================== -->
         <section id="page-shop" class="page-section min-h-screen">
-            <div class="bg-brand-black py-12 md:py-16 text-center border-b border-brand-yellow/20">
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-12 md:py-16 text-center border-b border-[#F1CBD5]">
                 <div class="max-w-5xl mx-auto px-4">
                     <p class="text-brand-yellow uppercase tracking-[0.25em] text-xs md:text-sm font-semibold mb-3">Live Store Inventory</p>
-                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Shop Amelia's Picalily</h1>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-black mb-4">Shop Amelia's Picalily</h1>
                     <p class="text-gray-300 max-w-3xl mx-auto">
                         Browse current products directly from our in-store inventory. Products are automatically organized into easy-to-shop departments using the POS category plus each product's name and description.
                     </p>
@@ -727,7 +755,7 @@
                         <div>
                             <h2 class="font-bold text-lg">We couldn't load live inventory.</h2>
                             <p id="shop-error-text" class="text-sm mt-1"></p>
-                            <button id="shop-error-retry" class="mt-4 rounded-full bg-brand-black px-5 py-2.5 text-white font-semibold hover:bg-brand-yellow hover:text-brand-black transition">Try Again</button>
+                            <button id="shop-error-retry" class="mt-4 rounded-full bg-[#E9A9B9] px-5 py-2.5 text-brand-black font-semibold hover:bg-brand-yellow transition shadow-sm">Try Again</button>
                         </div>
                     </div>
                 </div>
@@ -740,9 +768,9 @@
 
                 <div id="shop-categories" class="space-y-4"></div>
 
-                <div class="mt-12 rounded-2xl bg-brand-black text-white p-6 md:p-8 text-center border border-brand-yellow/30">
+                <div class="mt-12 rounded-2xl bg-gradient-to-r from-[#EEF8F0] via-[#FFF9DD] to-[#FFF0F4] text-brand-black p-6 md:p-8 text-center border border-[#E6D5C2] shadow-sm">
                     <h2 class="text-2xl font-serif font-bold mb-2">Need help finding something?</h2>
-                    <p class="text-gray-300 mb-5">Call Amelia's Picalily and we'll help you locate an item or prepare an order.</p>
+                    <p class="text-[#6F5B66] mb-5">Call Amelia's Picalily and we'll help you locate an item or prepare an order.</p>
                     <a href="tel:+18708452738" class="inline-flex items-center gap-2 bg-brand-yellow text-brand-black px-6 py-3 rounded-full font-bold hover:bg-white transition">
                         <i class="fa-solid fa-phone"></i>
                         (870) 845-2738
@@ -752,9 +780,9 @@
         </section>
 
         <!-- ==================== BRIDAL REGISTRY PAGE ==================== -->
-        <section id="page-registry" class="page-section bg-white">
-            <div class="bg-brand-black py-16 text-center border-b border-brand-yellow/20">
-                <h1 class="text-5xl font-serif font-bold text-white mb-4">Bridal Registry</h1>
+        <section id="page-registry" class="page-section bg-[#FFFDF8]">
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#F1CBD5]">
+                <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Bridal Registry</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
 
@@ -765,7 +793,7 @@
                     Access Amelia's Picalily bridal registry to create a registry, manage a wish list, or shop for a happy couple.
                 </p>
                 
-                <a href="https://ameliaspicalilyflowersandmore.myshoplocal.com/registry.cfm" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-brand-black text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-brand-yellow hover:text-brand-black transition-all shadow-[0_10px_30px_rgba(23,23,23,0.3)] hover:shadow-[0_10px_30px_rgba(251,191,36,0.4)] uppercase tracking-widest">
+                <a href="https://ameliaspicalilyflowersandmore.myshoplocal.com/registry.cfm" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-[#E9A9B9] text-brand-black px-10 py-5 rounded-full font-bold text-lg hover:bg-brand-yellow transition-all shadow-[0_10px_30px_rgba(216,115,145,0.20)] hover:shadow-[0_10px_30px_rgba(244,201,93,0.28)] uppercase tracking-widest">
                     <span>Access Registry Portal</span>
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
@@ -775,9 +803,9 @@
         </section>
 
         <!-- ==================== WEDDING PAGE ==================== -->
-        <section id="page-wedding" class="page-section bg-brand-gray min-h-screen pb-20">
-            <div class="bg-brand-black py-16 text-center border-b border-brand-yellow/20">
-                <h1 class="text-5xl font-serif font-bold text-white mb-4">Weddings</h1>
+        <section id="page-wedding" class="page-section bg-[#FFFDF8] min-h-screen pb-20">
+            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#F1CBD5]">
+                <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Weddings</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
 
@@ -795,7 +823,7 @@
                 </div>
                 
                 <div class="text-center mt-12">
-                    <button id="load-more-btn" class="bg-brand-yellow text-brand-black px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition-colors uppercase tracking-wide shadow-lg hidden">Load More Gallery</button>
+                    <button id="load-more-btn" class="bg-brand-yellow text-brand-black px-8 py-3 rounded-full font-bold hover:bg-[#FCE8EE] transition-colors uppercase tracking-wide shadow-lg hidden">Load More Gallery</button>
                 </div>
             </div>
         </section>
@@ -803,72 +831,72 @@
     </main>
 
     <!-- Lightbox for Gallery & Slideshow -->
-    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center justify-center p-4">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-brand-yellow text-4xl focus:outline-none z-50"><i class="fa-solid fa-xmark"></i></button>
+    <div id="lightbox" class="fixed inset-0 bg-[#FFF9F5]/95 backdrop-blur-md z-[100] hidden flex-col items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-brand-black hover:text-[#C85F80] text-4xl focus:outline-none z-50"><i class="fa-solid fa-xmark"></i></button>
         
         <div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center">
             <img id="lightbox-img" src="" alt="Gallery Image Full" class="max-w-full max-h-full object-contain rounded shadow-2xl transition-opacity duration-300">
             
             <!-- Slideshow Controls -->
-            <button onclick="prevLightboxSlide(event)" class="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 text-white hover:text-brand-yellow text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-left"></i></button>
-            <button onclick="nextLightboxSlide(event)" class="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 text-white hover:text-brand-yellow text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-right"></i></button>
+            <button onclick="prevLightboxSlide(event)" class="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 text-brand-black hover:text-[#C85F80] text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-left"></i></button>
+            <button onclick="nextLightboxSlide(event)" class="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 text-brand-black hover:text-[#C85F80] text-5xl p-4 focus:outline-none"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
         <p id="lightbox-caption" class="text-brand-yellow mt-6 text-lg font-medium tracking-wide uppercase"></p>
     </div>
 
     <!-- Fullscreen Product Image Viewer -->
     <div id="shop-image-viewer"
-         class="fixed inset-0 z-[220] hidden bg-black/95 backdrop-blur-sm"
+         class="fixed inset-0 z-[220] hidden bg-[#FFF9F5]/96 backdrop-blur-md"
          role="dialog"
          aria-modal="true"
          aria-labelledby="shop-image-viewer-title">
         <div class="absolute inset-0 flex flex-col">
-            <div class="relative z-30 flex items-center justify-between gap-3 border-b border-white/10 bg-black/65 px-3 py-3 sm:px-5">
+            <div class="relative z-30 flex items-center justify-between gap-3 border-b border-[#F0D5DC] bg-white/90 px-3 py-3 sm:px-5 shadow-sm">
                 <div class="min-w-0">
-                    <div id="shop-image-viewer-title" class="truncate font-serif text-base font-bold text-white sm:text-xl">Product image</div>
-                    <div id="shop-image-viewer-help" class="hidden text-xs text-gray-300 sm:block">Drag to pan • Mouse wheel or slider to zoom • Esc to close</div>
+                    <div id="shop-image-viewer-title" class="truncate font-serif text-base font-bold text-brand-black sm:text-xl">Product image</div>
+                    <div id="shop-image-viewer-help" class="hidden text-xs text-[#7E6874] sm:block">Drag to pan • Mouse wheel or slider to zoom • Esc to close</div>
                 </div>
                 <button id="shop-image-viewer-close"
                         type="button"
-                        class="shop-image-viewer-control flex shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-2xl text-white transition hover:border-brand-yellow hover:bg-brand-yellow hover:text-black focus:outline-none focus:ring-2 focus:ring-brand-yellow"
+                        class="shop-image-viewer-control flex shrink-0 items-center justify-center rounded-full border border-[#E9BCC9] bg-[#FFF4F7] text-2xl text-brand-black transition hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566] focus:outline-none focus:ring-2 focus:ring-brand-yellow"
                         aria-label="Close full image viewer"
                         title="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <div id="shop-image-viewer-stage" class="relative min-h-0 flex-1 overflow-hidden bg-black flex items-center justify-center cursor-grab active:cursor-grabbing">
+            <div id="shop-image-viewer-stage" class="relative min-h-0 flex-1 overflow-hidden bg-[#F7F2EF] flex items-center justify-center cursor-grab active:cursor-grabbing">
                 <img id="shop-image-viewer-img"
                      src=""
                      alt=""
                      draggable="false"
                      class="max-h-full max-w-full object-contain select-none">
 
-                <div class="pointer-events-none absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white sm:hidden">
+                <div class="pointer-events-none absolute left-3 top-3 rounded-full bg-white/90 border border-[#EBC8D2] px-3 py-1 text-xs font-semibold text-brand-black shadow-sm sm:hidden">
                     Drag to pan • Pinch to zoom
                 </div>
             </div>
 
-            <div id="shop-image-viewer-toolbar" class="relative z-30 border-t border-white/10 bg-black/80 px-3 py-3 text-white sm:px-5">
+            <div id="shop-image-viewer-toolbar" class="relative z-30 border-t border-[#F0D5DC] bg-white/92 px-3 py-3 text-brand-black shadow-sm sm:px-5">
                 <div class="mx-auto flex max-w-5xl flex-col gap-3">
                     <div class="flex items-center gap-3">
-                        <button id="shop-image-viewer-zoom-out" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 text-lg hover:border-brand-yellow hover:text-brand-yellow" aria-label="Zoom out" title="Zoom out">
+                        <button id="shop-image-viewer-zoom-out" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] text-lg hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Zoom out" title="Zoom out">
                             <i class="fa-solid fa-minus"></i>
                         </button>
                         <input id="shop-image-viewer-zoom" type="range" min="1" max="5" step="0.05" value="1" class="h-2 min-w-0 flex-1 cursor-pointer" aria-label="Image zoom level">
-                        <button id="shop-image-viewer-zoom-in" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 text-lg hover:border-brand-yellow hover:text-brand-yellow" aria-label="Zoom in" title="Zoom in">
+                        <button id="shop-image-viewer-zoom-in" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] text-lg hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Zoom in" title="Zoom in">
                             <i class="fa-solid fa-plus"></i>
                         </button>
-                        <div id="shop-image-viewer-zoom-label" class="w-14 shrink-0 text-center text-sm font-bold text-brand-yellow">100%</div>
-                        <button id="shop-image-viewer-reset" type="button" class="shop-image-viewer-control rounded-xl border border-white/20 bg-white/10 px-3 text-xs font-bold uppercase tracking-wide hover:border-brand-yellow hover:text-brand-yellow" aria-label="Reset zoom and pan" title="Reset zoom and pan">Reset</button>
+                        <div id="shop-image-viewer-zoom-label" class="w-14 shrink-0 text-center text-sm font-bold text-[#C85F80]">100%</div>
+                        <button id="shop-image-viewer-reset" type="button" class="shop-image-viewer-control rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] px-3 text-xs font-bold uppercase tracking-wide hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Reset zoom and pan" title="Reset zoom and pan">Reset</button>
                     </div>
 
                     <div class="flex items-center justify-center gap-2" aria-label="Pan image controls">
-                        <button id="shop-image-viewer-pan-left" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 hover:border-brand-yellow hover:text-brand-yellow" aria-label="Pan image left" title="Pan left"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button id="shop-image-viewer-pan-up" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 hover:border-brand-yellow hover:text-brand-yellow" aria-label="Pan image up" title="Pan up"><i class="fa-solid fa-arrow-up"></i></button>
-                        <button id="shop-image-viewer-pan-down" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 hover:border-brand-yellow hover:text-brand-yellow" aria-label="Pan image down" title="Pan down"><i class="fa-solid fa-arrow-down"></i></button>
-                        <button id="shop-image-viewer-pan-right" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 hover:border-brand-yellow hover:text-brand-yellow" aria-label="Pan image right" title="Pan right"><i class="fa-solid fa-arrow-right"></i></button>
-                        <span class="ml-2 hidden text-xs text-gray-400 md:inline">Arrow keys also pan</span>
+                        <button id="shop-image-viewer-pan-left" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Pan image left" title="Pan left"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button id="shop-image-viewer-pan-up" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Pan image up" title="Pan up"><i class="fa-solid fa-arrow-up"></i></button>
+                        <button id="shop-image-viewer-pan-down" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Pan image down" title="Pan down"><i class="fa-solid fa-arrow-down"></i></button>
+                        <button id="shop-image-viewer-pan-right" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-[#E9BCC9] bg-[#FFF7F9] hover:border-[#D87391] hover:bg-[#FCE8EE] hover:text-[#A94566]" aria-label="Pan image right" title="Pan right"><i class="fa-solid fa-arrow-right"></i></button>
+                        <span class="ml-2 hidden text-xs text-[#8A7480] md:inline">Arrow keys also pan</span>
                     </div>
                 </div>
             </div>
@@ -876,18 +904,18 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-brand-black text-white pt-16 pb-8 border-t-4 border-brand-yellow mt-auto">
+    <footer class="bg-gradient-to-r from-[#FFF0F4] via-[#FFF8E7] to-[#EEF8F0] text-brand-black pt-16 pb-8 border-t-4 border-[#F2C95E] mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <div>
                     <div class="flex items-center gap-3 mb-6">
                         <img src="photos/Logo/logo.jpg" alt="Logo" class="w-12 h-12 rounded-full border border-brand-yellow" onerror="this.style.display='none'">
                         <div>
-                            <span class="font-serif text-2xl font-bold text-brand-yellow block leading-none">Amelia's</span>
+                            <span class="font-serif text-2xl font-bold text-[#C85F80] block leading-none">Amelia's</span>
                             <span class="text-xs font-light tracking-widest uppercase">Picalily Flowers</span>
                         </div>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    <p class="text-[#75616C] text-sm leading-relaxed mb-6">
                         Welcome Amelia's Picalily Flowers and More where you'll find three stores in one.
                     </p>
                     <div class="flex gap-3">
@@ -897,27 +925,27 @@
                 
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-brand-yellow font-serif">Quick Navigation</h4>
-                    <ul class="space-y-3 text-sm text-gray-300">
-                        <li><button onclick="navigate('home')" class="hover:text-white transition-colors">Home</button></li>
-                        <li><button onclick="navigate('floral')" class="hover:text-white transition-colors">Floral</button></li>
-                        <li><button onclick="navigate('gifts')" class="hover:text-white transition-colors">Gifts/Boutique</button></li>
-                        <li><button onclick="navigate('shop')" class="hover:text-white transition-colors">Shop Live Inventory</button></li>
-                        <li><button onclick="navigate('registry')" class="hover:text-white transition-colors">Bridal Registry</button></li>
-                        <li><button onclick="navigate('wedding')" class="hover:text-white transition-colors">Wedding</button></li>
+                    <ul class="space-y-3 text-sm text-[#705B66]">
+                        <li><button onclick="navigate('home')" class="hover:text-[#B84F72] transition-colors">Home</button></li>
+                        <li><button onclick="navigate('floral')" class="hover:text-[#B84F72] transition-colors">Floral</button></li>
+                        <li><button onclick="navigate('gifts')" class="hover:text-[#B84F72] transition-colors">Gifts/Boutique</button></li>
+                        <li><button onclick="navigate('shop')" class="hover:text-[#B84F72] transition-colors">Shop Live Inventory</button></li>
+                        <li><button onclick="navigate('registry')" class="hover:text-[#B84F72] transition-colors">Bridal Registry</button></li>
+                        <li><button onclick="navigate('wedding')" class="hover:text-[#B84F72] transition-colors">Wedding</button></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-brand-yellow font-serif">Contact Info</h4>
-                    <ul class="space-y-4 text-sm text-gray-300">
+                    <ul class="space-y-4 text-sm text-[#705B66]">
                         <li class="flex items-start gap-3"><i class="fa-solid fa-location-dot mt-1 text-brand-yellow"></i> 218 S Main St, Nashville, AR 71852</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-phone mt-1 text-brand-yellow"></i> <a href="tel:+18708452738" class="hover:text-white transition-colors">(870) 845-2738</a></li>
-                        <li class="flex items-start gap-3"><i class="fa-brands fa-facebook mt-1 text-brand-yellow"></i> <a href="https://www.facebook.com/picalilyflowers/" target="_blank" class="hover:text-white transition-colors">Follow us on Facebook</a></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-phone mt-1 text-brand-yellow"></i> <a href="tel:+18708452738" class="hover:text-[#B84F72] transition-colors">(870) 845-2738</a></li>
+                        <li class="flex items-start gap-3"><i class="fa-brands fa-facebook mt-1 text-brand-yellow"></i> <a href="https://www.facebook.com/picalilyflowers/" target="_blank" class="hover:text-[#B84F72] transition-colors">Follow us on Facebook</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-white/10 pt-8 text-center text-sm text-gray-500">
+            <div class="border-t border-[#EACDD5] pt-8 text-center text-sm text-[#806D76]">
                 <p>&copy; 2026 Amelia's Picalily Flowers and More. All rights reserved.</p>
             </div>
         </div>
@@ -1669,7 +1697,7 @@
                 footer.className = "text-center pt-6";
                 const button = document.createElement("button");
                 button.type = "button";
-                button.className = "rounded-full bg-brand-black text-white px-6 py-3 font-bold hover:bg-brand-yellow hover:text-brand-black transition";
+                button.className = "rounded-full bg-[#F2B8C7] text-brand-black px-6 py-3 font-bold hover:bg-brand-yellow transition shadow-sm";
                 const updateLabel = () => {
                     button.textContent = `Show More (${(products.length - shown).toLocaleString()} remaining)`;
                 };
@@ -1728,7 +1756,7 @@
 
             const zoomHint = document.createElement("button");
             zoomHint.type = "button";
-            zoomHint.className = "hidden absolute bottom-3 right-3 z-20 h-11 w-11 items-center justify-center rounded-full border border-white/50 bg-black/65 text-white shadow-lg backdrop-blur-sm transition hover:bg-brand-yellow hover:text-black focus:outline-none focus:ring-2 focus:ring-brand-yellow";
+            zoomHint.className = "hidden absolute bottom-3 right-3 z-20 h-11 w-11 items-center justify-center rounded-full border border-[#E8C1CC] bg-white/90 text-brand-black shadow-lg backdrop-blur-sm transition hover:bg-[#FCE8EE] hover:text-[#A94566] focus:outline-none focus:ring-2 focus:ring-brand-yellow";
             zoomHint.innerHTML = '<i class="fa-solid fa-expand"></i>';
             zoomHint.title = "View full image";
             zoomHint.setAttribute("aria-label", `View full image of ${item._name}`);
