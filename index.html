@@ -939,16 +939,302 @@
             }
         }
 
+
+        /* =========================================================
+           v2.8 MOBILE OVERHAUL
+           Real-phone layout, not a scaled-down desktop layout.
+           ========================================================= */
+        @media (max-width: 767px) {
+            html { scroll-padding-top: 74px; }
+            body { overflow-x: hidden; background-size: 180px 180px; }
+
+            /* Header */
+            .site-nav > .max-w-7xl { padding-left: .8rem !important; padding-right: .8rem !important; }
+            .site-nav-row { height: 4.5rem !important; }
+            .site-brand { min-width: 0; max-width: calc(100vw - 62px); }
+            .site-brand img { width: 3rem !important; height: 3rem !important; flex: 0 0 3rem; }
+            .site-brand > div { min-width: 0; margin-left: .65rem !important; }
+            .site-brand span:first-child { font-size: 1.6rem !important; line-height: 1 !important; }
+            .site-brand span:last-child {
+                display: block; white-space: nowrap;
+                font-size: .72rem !important; line-height: 1.15 !important;
+                letter-spacing: .14em !important;
+            }
+            #mobile-menu-btn {
+                width: 44px; height: 44px; padding: 0 !important;
+                display: inline-flex; align-items: center; justify-content: center;
+                border: 1px solid #D2A8B6; border-radius: 13px;
+                background: rgba(255,255,255,.8);
+            }
+            #mobile-menu-btn i { font-size: 1.45rem !important; }
+            #mobile-menu {
+                max-height: calc(100svh - 4.5rem); overflow-y: auto;
+                overscroll-behavior: contain;
+                padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+            }
+            #mobile-menu .mobile-link {
+                min-height: 44px; padding: .68rem .9rem !important;
+                font-size: .95rem !important; font-weight: 700 !important;
+            }
+
+            /* Shared page headings */
+            .page-heading-band { padding: 1.5rem .8rem !important; }
+            .page-heading-band h1 {
+                max-width: calc(100vw - 2rem);
+                font-size: clamp(1.8rem, 8vw, 2.2rem) !important;
+                line-height: 1.08 !important;
+                padding: .5rem .85rem .58rem !important;
+                margin-bottom: .75rem !important;
+            }
+            .page-heading-band p { font-size: .9rem !important; line-height: 1.5 !important; }
+            .section-heading {
+                font-size: clamp(1.75rem, 8vw, 2.15rem) !important;
+                line-height: 1.12 !important;
+            }
+
+            /* HOME hero: content controls its height */
+            .home-hero { height: auto !important; min-height: 0 !important; }
+            .home-hero #hero-slider {
+                position: absolute !important; inset: 0 !important;
+                width: 100% !important; height: 100% !important; z-index: 0;
+            }
+            .hero-overlay {
+                position: relative !important; inset: auto !important;
+                min-height: 0 !important; padding: .8rem .65rem 1rem !important;
+                background: linear-gradient(180deg,
+                    rgba(255,249,245,.92),
+                    rgba(255,246,248,.89) 58%,
+                    rgba(255,251,236,.92)) !important;
+            }
+            .hero-copy-panel {
+                width: 100%; max-width: 100% !important; margin: 0 !important;
+                padding: 1.05rem .95rem !important;
+                border-width: 1px !important; border-radius: 17px !important;
+                box-shadow: 0 9px 25px rgba(55,34,43,.13) !important;
+                backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            }
+            .hero-copy-panel > p:first-child {
+                margin-bottom: .55rem !important;
+                font-size: .7rem !important; line-height: 1.5 !important;
+                letter-spacing: .15em !important;
+            }
+            .hero-copy-panel h1 {
+                margin-bottom: .7rem !important;
+                font-size: clamp(1.9rem, 9.2vw, 2.45rem) !important;
+                line-height: 1.03 !important;
+            }
+            .hero-copy-panel h1 br { display: none; }
+            .hero-copy-panel h1 span { display: block; margin-top: .12rem; }
+            .hero-copy-panel > p:nth-of-type(2) {
+                margin-bottom: .9rem !important;
+                font-size: .95rem !important; line-height: 1.4 !important;
+                font-weight: 500 !important;
+            }
+            .hero-copy-panel .flex.flex-col { gap: .55rem !important; }
+            .hero-copy-panel button, .hero-copy-panel a {
+                width: 100%; min-height: 44px;
+                padding: .68rem .8rem !important;
+                border-width: 1.5px !important;
+                font-size: .8rem !important; line-height: 1.15 !important;
+                letter-spacing: .04em !important;
+                box-shadow: 0 4px 12px rgba(63,40,49,.09) !important;
+            }
+            .hero-slider-control { display: none !important; }
+
+            /* HOME below hero */
+            #page-home .py-24 { padding-top: 2.7rem !important; padding-bottom: 2.7rem !important; }
+            #page-home .py-24 .grid { gap: 1.6rem !important; }
+            #page-home .py-24 .grid > div:first-child { padding: 1.2rem !important; border-left-width: 4px !important; }
+            #page-home .py-24 .grid > div:first-child h2 { font-size: 1.9rem !important; margin-bottom: .8rem !important; }
+            #page-home .py-24 .grid > div:first-child .w-24 { margin-bottom: 1rem !important; }
+            #page-home .py-24 .grid > div:first-child p { font-size: .96rem !important; line-height: 1.62 !important; }
+            .staff-photo { height: 290px !important; }
+            .team-badge {
+                position: relative !important; left: auto !important; bottom: auto !important;
+                margin: .7rem 0 0 !important; padding: .8rem .9rem !important;
+            }
+            .team-badge i { font-size: 1.7rem !important; }
+            .team-badge .text-xl { font-size: 1.05rem !important; }
+
+            #page-home .py-16 { padding-top: 2.2rem !important; padding-bottom: 2.2rem !important; }
+            #page-home .py-16 .grid { gap: .7rem !important; }
+            #page-home .py-16 .grid > div { padding: .95rem .55rem !important; border-radius: 14px !important; }
+            #page-home .py-16 .grid > div > div {
+                width: 3.35rem !important; height: 3.35rem !important;
+                margin-bottom: .6rem !important;
+            }
+            #page-home .py-16 .grid > div > div i { font-size: 1.35rem !important; }
+            #page-home .py-16 .grid h3 { font-size: 1.02rem !important; }
+
+            /* FLORAL + BAKERY */
+            #page-floral > .max-w-7xl { padding-top: 2.3rem !important; padding-bottom: 2.5rem !important; }
+            #page-floral .space-y-24 > :not([hidden]) ~ :not([hidden]) { margin-top: 3rem !important; }
+            #page-floral .section-heading { margin-bottom: 1.5rem !important; }
+            #page-floral .grid { gap: .85rem !important; }
+            .floral-service-card {
+                min-height: 0 !important; padding: 1rem !important;
+                border-top-width: 4px !important;
+            }
+            .floral-service-card .w-16 {
+                width: 3.15rem !important; height: 3.15rem !important; margin-bottom: .65rem !important;
+            }
+            .floral-service-card h3 { font-size: 1.1rem !important; }
+            .online-flower-panel, .facility-panel, .bakery-panel, .policy-card, .information-card {
+                padding: 1.15rem !important; border-radius: 15px !important;
+            }
+            .online-flower-panel { margin-top: 1.4rem !important; }
+            .flower-shop-chip { min-height: 42px; padding: .58rem !important; font-size: .8rem !important; }
+            .facility-panel > .grid > div { padding: .85rem !important; }
+
+            /* GIFTS */
+            #page-gifts > .max-w-7xl { padding-top: 2.3rem !important; padding-bottom: 2.5rem !important; }
+            #page-gifts > .max-w-7xl > p {
+                font-size: .96rem !important; line-height: 1.62 !important; margin-bottom: 1.5rem !important;
+            }
+            #page-gifts .grid { gap: .9rem !important; }
+            .gift-photo-card { height: 245px !important; border-radius: 15px !important; }
+            .gift-photo-card h3 { font-size: 1.55rem !important; }
+            .gift-photo-card .absolute.bottom-0 { padding: 1rem !important; }
+
+            /* SHOP */
+            #page-shop > .max-w-7xl { padding: .9rem .65rem 2.4rem !important; }
+
+            /* Critical fix from screenshot: on phones the large filter card must not float
+               over the first category while scrolling. */
+            .shop-control-panel {
+                position: static !important; top: auto !important; z-index: auto !important;
+                margin-bottom: .8rem !important; padding: .65rem !important;
+                border-width: 1.5px !important; border-radius: 15px !important;
+                box-shadow: 0 6px 18px rgba(62,38,48,.09) !important;
+            }
+            .shop-filter-grid {
+                display: grid !important;
+                grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+                gap: .55rem !important;
+            }
+            .shop-filter-grid > .shop-search-ring, #shop-category-filter { grid-column: 1 / -1; }
+            .shop-search-ring {
+                min-height: 44px !important; padding: 0 .7rem !important;
+                gap: .55rem !important; border-radius: 11px !important;
+            }
+            .shop-search-ring i { font-size: .95rem !important; }
+            #shop-search {
+                min-width: 0; min-height: 42px !important; padding: 0 !important;
+                font-size: 16px !important; line-height: 1.15 !important;
+            }
+            #shop-category-filter, #shop-availability-filter, #shop-sort {
+                width: 100%; min-width: 0; min-height: 44px !important;
+                padding: .5rem 1.7rem .5rem .62rem !important;
+                border-radius: 11px !important;
+                font-size: .84rem !important; line-height: 1.1 !important;
+                font-weight: 700 !important;
+            }
+            .shop-status-row {
+                display: grid !important; grid-template-columns: 1fr !important;
+                gap: .45rem !important; margin-top: .55rem !important;
+                padding: .05rem .1rem 0 !important;
+            }
+            .shop-status-left, .shop-status-right {
+                width: 100%; display: flex !important; align-items: center !important;
+                justify-content: space-between !important; gap: .45rem !important;
+            }
+            .shop-status-left { flex-wrap: wrap; }
+            #shop-live-dot, #shop-last-updated, #shop-result-count { font-size: .82rem !important; }
+            #shop-live-dot { font-weight: 700; }
+            #shop-last-updated { margin-left: auto; }
+            #shop-refresh {
+                min-height: 38px !important; padding: .4rem .75rem !important;
+                font-size: .82rem !important;
+            }
+            #shop-categories { margin-top: .65rem !important; }
+            #shop-categories.space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: .65rem !important; }
+            .shop-category { border-radius: 13px !important; }
+            .shop-category > summary {
+                min-height: 66px !important; padding: .78rem .85rem !important;
+                gap: .65rem !important; border-left-width: 5px !important;
+            }
+            .shop-category > summary > div { min-width: 0; }
+            .shop-category > summary h2 {
+                font-size: 1.1rem !important; line-height: 1.15 !important; overflow-wrap: anywhere;
+            }
+            .shop-category > summary p {
+                margin-top: .2rem !important; font-size: .76rem !important; line-height: 1.22 !important;
+            }
+            .shop-chevron {
+                width: 33px !important; height: 33px !important; flex-basis: 33px !important;
+                font-size: .88rem !important;
+            }
+            .shop-category > div { padding: .65rem !important; }
+            .shop-category .grid { gap: .75rem !important; }
+            #shop-categories article { border-radius: 13px !important; box-shadow: 0 5px 15px rgba(61,37,47,.08) !important; }
+            #shop-categories article > div:last-child { padding: .9rem !important; }
+            #shop-categories article h3 { font-size: 1.1rem !important; line-height: 1.18 !important; }
+            .shop-help-card { margin-top: 1.35rem !important; padding: 1.1rem !important; }
+
+            /* REGISTRY */
+            #page-registry .registry-card {
+                margin: 1rem .7rem 2.2rem !important; padding: 1.35rem .95rem !important;
+                border-radius: 17px !important; border-left-width: 4px !important;
+            }
+            .registry-card > .fa-gift {
+                width: 64px !important; height: 64px !important; font-size: 2rem !important;
+                margin-bottom: 1rem !important; border-radius: 17px !important;
+            }
+            .registry-card .section-heading { font-size: 1.7rem !important; margin-bottom: .9rem !important; }
+            .registry-card > p { font-size: .96rem !important; line-height: 1.62 !important; }
+            .registry-card > a { width: 100%; min-height: 44px; padding: .7rem .9rem !important; }
+
+            /* WEDDING */
+            #page-wedding > .max-w-7xl { padding-top: 2rem !important; padding-bottom: 2.4rem !important; }
+            .wedding-intro-card {
+                margin-bottom: 1.7rem !important; padding: 1.05rem !important;
+                border-radius: 15px !important; border-left-width: 4px !important;
+            }
+            .wedding-intro-card .section-heading { font-size: 1.7rem !important; }
+            .wedding-intro-card p { font-size: .94rem !important; line-height: 1.62 !important; }
+            .gallery-heading {
+                width: 100%; margin-bottom: 1.1rem !important; padding: .55rem .8rem !important;
+                font-size: 1.5rem !important;
+            }
+            .masonry-item { margin-bottom: .65rem !important; border-radius: 11px !important; }
+
+            /* Footer */
+            footer { padding-top: 2.2rem !important; padding-bottom: 1.3rem !important; }
+            .footer-card-grid { gap: .7rem !important; margin-bottom: 1.3rem !important; }
+            .footer-card-grid > div { padding: .9rem !important; border-radius: 13px !important; }
+            footer h4 { margin-bottom: .65rem !important; }
+            footer .border-t { padding-top: 1rem !important; }
+
+            /* Lightboxes */
+            #lightbox { padding: .45rem !important; }
+            #lightbox > button {
+                top: max(.65rem, env(safe-area-inset-top)) !important; right: .65rem !important;
+                width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+                border-radius: 999px; background: rgba(255,255,255,.94); border: 1px solid #C49AAA;
+                font-size: 1.7rem !important;
+            }
+            #lightbox > .relative { height: 72svh !important; }
+            #shop-image-viewer-toolbar { padding-left: .6rem !important; padding-right: .6rem !important; }
+        }
+
+        @media (max-width: 380px) {
+            .site-brand span:first-child { font-size: 1.4rem !important; }
+            .site-brand span:last-child { font-size: .63rem !important; letter-spacing: .09em !important; }
+            .hero-copy-panel h1 { font-size: 1.82rem !important; }
+            .hero-copy-panel button, .hero-copy-panel a { font-size: .75rem !important; }
+            #shop-category-filter, #shop-availability-filter, #shop-sort { font-size: .79rem !important; }
+        }
+
     </style>
     <script src="shop-config.js"></script>
 </head>
 <body class="bg-[#FFFDF9] text-brand-black font-sans flex flex-col min-h-screen relative bg-floral-pattern">
 
-    <nav class="sticky top-0 z-50 bg-gradient-to-r from-[#FFF9F3] via-[#FFF3F7] to-[#FFF9E7] text-brand-black shadow-md border-b border-[#D9AEBB]">
+    <nav class="site-nav sticky top-0 z-50 bg-gradient-to-r from-[#FFF9F3] via-[#FFF3F7] to-[#FFF9E7] text-brand-black shadow-md border-b border-[#D9AEBB]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-24 items-center">
+            <div class="site-nav-row flex justify-between h-24 items-center">
                 <!-- Logo & Brand -->
-                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
+                <div class="site-brand flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
                     <img src="photos/Logo/logo.jpg" alt="Amelia's Picalily Logo" class="h-14 w-14 rounded-full border-2 border-brand-yellow object-cover" onerror="this.style.display='none'">
                     <div class="ml-4">
                         <span class="font-serif text-2xl md:text-3xl font-bold text-[#A83F65] block leading-none">Amelia's</span>
@@ -994,13 +1280,13 @@
         <!-- ==================== HOME PAGE ==================== -->
         <section id="page-home" class="page-section active">
             <!-- Hero Slider -->
-            <div class="relative h-[70vh] min-h-[500px] w-full bg-[#FCEEF2] overflow-hidden group">
+            <div class="home-hero relative h-[70vh] min-h-[500px] w-full bg-[#FCEEF2] overflow-hidden group">
                 <div id="hero-slider" class="w-full h-full relative">
                     <!-- Slides injected via JS -->
                 </div>
                 
                 <!-- Hero Overlay Content -->
-                <div class="absolute inset-0 bg-gradient-to-r from-[#FFF9F3]/90 via-[#FFF2F6]/76 to-[#FFF8DF]/72 flex items-center justify-center z-10">
+                <div class="hero-overlay absolute inset-0 bg-gradient-to-r from-[#FFF9F3]/90 via-[#FFF2F6]/76 to-[#FFF8DF]/72 flex items-center justify-center z-10">
                     <div class="hero-copy-panel text-center px-6 md:px-10 py-8 md:py-10 max-w-5xl mx-4">
                         <p class="text-[#8E3658] font-semibold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">Local Nashville Florist • Bakery • Gifts</p>
                         <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-brand-black mb-6 leading-tight">
@@ -1027,8 +1313,8 @@
                 </div>
 
                 <!-- Slider Controls -->
-                <button onclick="prevHeroSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#A83F65] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left"></i></button>
-                <button onclick="nextHeroSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#A83F65] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
+                <button onclick="prevHeroSlide()" class="hero-slider-control hero-slider-prev absolute left-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#A83F65] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="nextHeroSlide()" class="hero-slider-control hero-slider-next absolute right-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#A83F65] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
 
             <!-- About / History & Staff Section -->
@@ -1048,8 +1334,8 @@
                         <div class="relative">
                             <!-- Staff Photo -->
                             <div class="absolute -inset-4 bg-brand-yellow/20 rounded-xl transform rotate-3"></div>
-                            <img src="photos/People/image_0038.jpg" alt="Amelia's Picalily Staff" class="relative z-10 w-full h-[500px] object-cover rounded-xl shadow-2xl" onerror="this.src='https://placehold.co/800x600/FFF1F5/D87391?text=Meet+Our+Staff'">
-                            <div class="absolute -bottom-8 -left-8 bg-[#FFF1F5] text-brand-black p-6 rounded-xl shadow-xl z-20 border border-[#F0C1CF]">
+                            <img src="photos/People/image_0038.jpg" alt="Amelia's Picalily Staff" class="staff-photo relative z-10 w-full h-[500px] object-cover rounded-xl shadow-2xl" onerror="this.src='https://placehold.co/800x600/FFF1F5/D87391?text=Meet+Our+Staff'">
+                            <div class="team-badge absolute -bottom-8 -left-8 bg-[#FFF1F5] text-brand-black p-6 rounded-xl shadow-xl z-20 border border-[#F0C1CF]">
                                 <div class="flex items-center gap-4">
                                     <i class="fa-solid fa-users text-4xl text-brand-yellow"></i>
                                     <div>
@@ -1433,10 +1719,10 @@
                 </div>
 
                 <div class="shop-control-panel bg-white rounded-2xl border border-[#D6BBC5] shadow-sm p-4 md:p-6 mb-8 sticky top-24 z-30">
-                    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px_180px_180px] gap-3">
+                    <div class="shop-filter-grid grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px_180px_180px] gap-3">
                         <label class="shop-search-ring flex items-center gap-3 rounded-xl border border-[#BFA2AD] bg-white px-4 transition">
                             <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
-                            <input id="shop-search" type="search" autocomplete="off" placeholder="Search products, departments, brands, descriptions, or barcodes..." class="w-full py-3 bg-transparent outline-none text-sm md:text-base">
+                            <input id="shop-search" type="search" autocomplete="off" placeholder="Search products, brands, or barcodes..." class="w-full py-3 bg-transparent outline-none text-sm md:text-base">
                             <button id="shop-clear-search" type="button" class="hidden text-gray-400 hover:text-brand-black" aria-label="Clear search">
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
@@ -1460,15 +1746,15 @@
                         </select>
                     </div>
 
-                    <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
-                        <div class="flex items-center gap-3">
+                    <div class="shop-status-row mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+                        <div class="shop-status-left flex items-center gap-3">
                             <span id="shop-live-dot" class="inline-flex items-center gap-2 text-gray-500">
                                 <span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span>
                                 Connecting…
                             </span>
                             <span id="shop-last-updated" class="text-gray-400"></span>
                         </div>
-                        <div class="flex items-center gap-3">
+                        <div class="shop-status-right flex items-center gap-3">
                             <span id="shop-result-count" class="font-medium text-gray-600"></span>
                             <button id="shop-refresh" type="button" class="inline-flex items-center gap-2 rounded-full border border-[#BFA2AD] px-4 py-2 font-semibold hover:border-brand-yellow hover:bg-brand-yellowLight transition">
                                 <i class="fa-solid fa-rotate"></i>
@@ -2868,9 +3154,37 @@
         });
 
 
+
+        function initMobileHeroSwipe() {
+            const hero = document.querySelector(".home-hero");
+            if (!hero) return;
+
+            let startX = null;
+            let startY = null;
+
+            hero.addEventListener("touchstart", (event) => {
+                if (event.touches.length !== 1) return;
+                startX = event.touches[0].clientX;
+                startY = event.touches[0].clientY;
+            }, {passive: true});
+
+            hero.addEventListener("touchend", (event) => {
+                if (startX === null || !event.changedTouches.length) return;
+                const dx = event.changedTouches[0].clientX - startX;
+                const dy = event.changedTouches[0].clientY - startY;
+                startX = null;
+                startY = null;
+
+                if (Math.abs(dx) < 55 || Math.abs(dx) <= Math.abs(dy) * 1.25) return;
+                if (dx < 0) nextHeroSlide();
+                else prevHeroSlide();
+            }, {passive: true});
+        }
+
         // --- 6. INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
             initHeroSlider();
+            initMobileHeroSwipe();
             initShopImageViewer();
             navigate('home');
         });
