@@ -38,7 +38,7 @@
                         }
                     },
                     backgroundImage: {
-                        'floral-pattern': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 15c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zM25 50c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9z' fill='%23E8A7B8' fill-opacity='0.12' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                        'floral-pattern': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 15c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zM25 50c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm25 21c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 14c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9z' fill='%23E8A7B8' fill-opacity='0.065' fill-rule='evenodd'/%3E%3C/svg%3E\")",
                     }
                 }
             }
@@ -306,6 +306,639 @@
             border-bottom-color: #B85A79;
         }
 
+
+        /* =========================================================
+           v2.7 - Readable Happy Floral Redesign
+           Audited against every supplied page capture.
+           ========================================================= */
+
+        :root {
+            --v27-ink: #2F2028;
+            --v27-copy: #493640;
+            --v27-muted: #5A4650;
+            --v27-rose: #963858;
+            --v27-rose-dark: #7D2948;
+            --v27-gold: #6E4900;
+            --v27-gold-border: #C39220;
+            --v27-border: #CBA8B4;
+            --v27-border-strong: #B77F92;
+            --v27-cream: #FFFDF8;
+            --v27-blush: #FFF1F5;
+            --v27-peach: #FFF3E7;
+            --v27-mint: #EDF8F1;
+            --v27-yellow: #FFF4C9;
+        }
+
+        /* The flower-dot pattern in the captures was competing with small text.
+           Keep the personality, but make the pattern much quieter. */
+        body {
+            color: var(--v27-ink);
+            background-color: #FFFDF9;
+        }
+
+        .page-section {
+            color: var(--v27-ink);
+        }
+
+        .page-section p {
+            line-height: 1.7;
+        }
+
+        .text-gray-700 {
+            color: #3E2F37 !important;
+        }
+
+        .text-gray-600 {
+            color: #4A3942 !important;
+        }
+
+        .text-gray-500 {
+            color: #57434E !important;
+        }
+
+        .text-gray-400 {
+            color: #604A55 !important;
+        }
+
+        /* Header/nav: a filled active chip reads much more clearly than a thin underline. */
+        nav {
+            border-bottom-width: 2px !important;
+            box-shadow: 0 8px 28px rgba(72, 44, 56, 0.10) !important;
+        }
+
+        .nav-link {
+            height: auto !important;
+            padding: 0.65rem 0.85rem !important;
+            border: 1px solid transparent;
+            border-radius: 9999px;
+            line-height: 1.15;
+            color: #3D2C35;
+            font-weight: 700;
+        }
+
+        .nav-link:hover {
+            color: var(--v27-rose-dark) !important;
+            background: #FFF7F9;
+            border-color: #E4C8D1;
+        }
+
+        .nav-link.active-nav {
+            color: #722543 !important;
+            background: #FBE3EA;
+            border: 1px solid #C98097;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.75), 0 3px 10px rgba(115, 51, 75, 0.08);
+        }
+
+        #mobile-menu {
+            border-top: 1px solid #D9B8C3;
+        }
+
+        .mobile-link {
+            border: 1px solid #E0C7CF;
+            background: rgba(255,255,255,0.72);
+        }
+
+        /* Page title bands now have a definite title "plate" with strong edges. */
+        .page-heading-band {
+            position: relative;
+            border-bottom: 2px solid #CFA7B4 !important;
+            box-shadow: inset 0 -1px 0 rgba(255,255,255,0.8);
+        }
+
+        .page-heading-band h1 {
+            display: inline-block;
+            color: var(--v27-ink) !important;
+            background: rgba(255,255,255,0.78);
+            border: 1px solid #C79CAA;
+            border-radius: 18px;
+            padding: 0.55rem 1.25rem 0.7rem;
+            box-shadow: 0 8px 20px rgba(69, 42, 53, 0.08);
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        .page-heading-band > .w-24,
+        .page-heading-band > div > .w-24 {
+            height: 4px !important;
+            background: #B57A16 !important;
+            border-radius: 999px;
+        }
+
+        .section-heading {
+            color: var(--v27-ink) !important;
+            text-wrap: balance;
+        }
+
+        .section-heading::after {
+            content: "";
+            display: block;
+            width: 72px;
+            height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #C95D7F, #D6A62E);
+            margin: 0.75rem auto 0;
+        }
+
+        /* HOME -------------------------------------------------- */
+        .hero-copy-panel {
+            background: rgba(255, 253, 249, 0.90);
+            border: 2px solid rgba(175, 121, 141, 0.58);
+            border-radius: 28px;
+            box-shadow: 0 22px 60px rgba(55, 34, 43, 0.20);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        #page-home .hero-copy-panel p {
+            color: #46333D !important;
+        }
+
+        #page-home .hero-copy-panel > p:first-child {
+            color: #8A2F51 !important;
+        }
+
+        #page-home .hero-copy-panel button,
+        #page-home .hero-copy-panel a {
+            border: 2px solid #A87820;
+            box-shadow: 0 8px 20px rgba(63, 40, 49, 0.14);
+        }
+
+        #page-home .hero-copy-panel .bg-white {
+            border-color: #B88C9A;
+        }
+
+        #page-home .group > button[onclick*="HeroSlide"] {
+            opacity: 0.9 !important;
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.90);
+            border: 1px solid #BC91A0;
+            box-shadow: 0 5px 15px rgba(56,34,43,0.14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #page-home .py-24 .grid > div:first-child {
+            background: #FFFFFF;
+            border: 1px solid var(--v27-border);
+            border-left: 6px solid #C76483;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 14px 34px rgba(69, 42, 53, 0.10);
+        }
+
+        #page-home .py-24 .grid > div:first-child p {
+            color: var(--v27-copy) !important;
+        }
+
+        /* Home category choices become actual cards rather than pale icons floating
+           on another pale background. */
+        #page-home .py-16 .grid > div {
+            background: rgba(255,255,255,0.86);
+            border: 1px solid var(--v27-border);
+            border-radius: 18px;
+            padding: 1.5rem 0.9rem;
+            box-shadow: 0 9px 22px rgba(66, 40, 51, 0.08);
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+
+        #page-home .py-16 .grid > div:hover {
+            transform: translateY(-3px);
+            border-color: #B46F89;
+            box-shadow: 0 13px 28px rgba(66, 40, 51, 0.13);
+        }
+
+        #page-home .py-16 .grid > div:nth-child(1) { background: #FFF4F7; }
+        #page-home .py-16 .grid > div:nth-child(2) { background: #FFF8DF; }
+        #page-home .py-16 .grid > div:nth-child(3) { background: #F0F8F2; }
+        #page-home .py-16 .grid > div:nth-child(4) { background: #F6F1FA; }
+
+        #page-home .py-16 .grid > div > div {
+            background: #FFFFFF !important;
+            border: 2px solid #D0A873;
+            box-shadow: 0 4px 10px rgba(66, 40, 51, 0.08);
+        }
+
+        #page-home .py-16 .grid > div > div i {
+            color: #704900 !important;
+        }
+
+        /* FLORAL / BAKERY -------------------------------------- */
+        .floral-service-card {
+            border: 2px solid #CDA9B5 !important;
+            border-top: 6px solid #CA6786 !important;
+            border-radius: 18px !important;
+            min-height: 205px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 10px 24px rgba(69, 42, 53, 0.09) !important;
+        }
+
+        .floral-service-card:nth-child(2n) {
+            border-top-color: #C5962E !important;
+        }
+
+        .floral-service-card:nth-child(3n) {
+            border-top-color: #77A684 !important;
+        }
+
+        .floral-service-card .rounded-full {
+            background: #FFF3C6 !important;
+            border: 1px solid #D3A22C;
+            color: #714A00 !important;
+        }
+
+        .floral-service-card p {
+            color: var(--v27-copy) !important;
+            font-size: 0.95rem !important;
+        }
+
+        .online-flower-panel,
+        .facility-panel,
+        .bakery-panel,
+        .policy-card,
+        .information-card {
+            border-width: 2px !important;
+            border-color: #C7A1AE !important;
+            box-shadow: 0 14px 36px rgba(69, 42, 53, 0.10) !important;
+        }
+
+        .online-flower-panel {
+            border-left: 7px solid #C66583 !important;
+        }
+
+        .flower-shop-chip {
+            color: #392B32 !important;
+            background: rgba(255,255,255,0.94) !important;
+            border: 1px solid #B9909E !important;
+            font-weight: 700;
+            box-shadow: 0 3px 8px rgba(65, 39, 50, 0.06);
+        }
+
+        .flower-shop-chip:hover {
+            background: #FFF0BC !important;
+            border-color: #B88916 !important;
+        }
+
+        .information-card {
+            border-top: 5px solid #76A585 !important;
+        }
+
+        .facility-panel {
+            background: #FFF2BA !important;
+            border-color: #C9A333 !important;
+        }
+
+        .facility-panel > .grid > div {
+            background: rgba(255,255,255,0.76);
+            border: 1px solid #C9AA63;
+            border-radius: 16px;
+            padding: 1.4rem;
+        }
+
+        .facility-panel .text-sm {
+            color: #483842 !important;
+        }
+
+        .policy-card {
+            border-left: 6px solid #8AA994 !important;
+        }
+
+        .bakery-panel {
+            background: #FFF2BF !important;
+            border-color: #C8A344 !important;
+        }
+
+        .bakery-panel > .grid > div {
+            border-width: 2px !important;
+            border-color: #C6A7B2 !important;
+        }
+
+        .bakery-panel .bg-white {
+            color: var(--v27-ink);
+        }
+
+        /* GIFTS / BOUTIQUE ------------------------------------- */
+        .gift-photo-card {
+            border: 3px solid #FFFFFF;
+            outline: 1px solid #C28FA1;
+            border-radius: 20px !important;
+            box-shadow: 0 14px 30px rgba(62, 38, 48, 0.16) !important;
+        }
+
+        .gift-photo-card h3 {
+            text-shadow: 0 2px 8px rgba(0,0,0,0.55);
+        }
+
+        .gift-photo-card .photo-overlay-copy {
+            color: #FFFFFF !important;
+            font-size: 0.95rem !important;
+            text-shadow: 0 2px 7px rgba(0,0,0,0.65);
+        }
+
+        #page-gifts > .max-w-7xl > p {
+            color: #43323B !important;
+            font-weight: 500;
+        }
+
+        /* SHOP -------------------------------------------------- */
+        .shop-control-panel {
+            border: 2px solid #B98B9B !important;
+            background: rgba(255,255,255,0.97) !important;
+            box-shadow: 0 14px 36px rgba(62, 38, 48, 0.14) !important;
+        }
+
+        .shop-control-panel input,
+        .shop-control-panel select,
+        .shop-control-panel label {
+            min-height: 48px;
+        }
+
+        #shop-search,
+        #shop-category-filter,
+        #shop-availability-filter,
+        #shop-sort {
+            color: #31242B !important;
+            font-weight: 650;
+        }
+
+        #shop-search::placeholder {
+            color: #6A535F !important;
+        }
+
+        .shop-category {
+            border: 2px solid #C9A9B4 !important;
+            border-radius: 16px !important;
+            box-shadow: 0 8px 20px rgba(61, 37, 47, 0.08) !important;
+        }
+
+        .shop-category > summary {
+            min-height: 84px;
+            border-left: 7px solid #C65F80;
+            background: #FFFFFF;
+        }
+
+        #shop-categories .shop-category:nth-child(4n+2) > summary {
+            border-left-color: #C59B2E;
+            background: #FFFDF5;
+        }
+
+        #shop-categories .shop-category:nth-child(4n+3) > summary {
+            border-left-color: #78A485;
+            background: #FBFEFC;
+        }
+
+        #shop-categories .shop-category:nth-child(4n+4) > summary {
+            border-left-color: #9880B3;
+            background: #FDFBFF;
+        }
+
+        .shop-category > summary h2 {
+            color: #312129;
+        }
+
+        .shop-category > summary p {
+            color: #55414B !important;
+            font-weight: 600;
+        }
+
+        .shop-chevron {
+            width: 36px;
+            height: 36px;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 36px;
+            border-radius: 999px;
+            color: #6B4700 !important;
+            background: #FFF1B8;
+            border: 1px solid #C69A28;
+        }
+
+        .shop-category > div {
+            background: #FFFDFC;
+        }
+
+        .shop-help-card {
+            border: 2px solid #C7A2AE !important;
+            box-shadow: 0 12px 28px rgba(63, 39, 49, 0.09) !important;
+        }
+
+        /* Product cards: make real state and content boundaries obvious. */
+        #shop-categories article {
+            border-width: 2px !important;
+            box-shadow: 0 10px 24px rgba(61, 37, 47, 0.11) !important;
+        }
+
+        #shop-categories article h3 {
+            color: #2E2027;
+        }
+
+        /* BRIDAL REGISTRY -------------------------------------- */
+        #page-registry {
+            background: linear-gradient(180deg, #FFFDF8 0%, #FFF8FA 58%, #FFFDF8 100%) !important;
+        }
+
+        .registry-card {
+            background: linear-gradient(145deg, #FFFFFF 0%, #FFF7F9 55%, #FFF9E6 100%);
+            border: 2px solid #C594A6;
+            border-left: 8px solid #C45B7D;
+            border-radius: 26px;
+            box-shadow: 0 18px 44px rgba(66, 40, 51, 0.12);
+        }
+
+        .registry-card > .fa-gift {
+            color: #744D00 !important;
+            background: #FFF1B9;
+            border: 2px solid #C79A29;
+            width: 92px;
+            height: 92px;
+            border-radius: 24px;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .registry-card > p {
+            color: #43323B !important;
+        }
+
+        .registry-card > a {
+            color: #2D2027 !important;
+            background: #EDA8BB !important;
+            border: 2px solid #A44A68;
+            box-shadow: 0 10px 25px rgba(113, 46, 72, 0.18);
+        }
+
+        .registry-card > a:hover {
+            background: #F4C95D !important;
+            border-color: #946B12;
+        }
+
+        /* WEDDINGS --------------------------------------------- */
+        .wedding-intro-card {
+            background: linear-gradient(135deg, #FFF8FA, #FFFDF4);
+            border: 2px solid #C8A2AE;
+            border-left: 7px solid #7EA38A;
+            border-radius: 22px;
+            padding: 2rem 2.25rem;
+            box-shadow: 0 13px 32px rgba(63, 39, 49, 0.09);
+        }
+
+        .gallery-heading {
+            color: #302129 !important;
+            background: #FFFFFF;
+            border: 2px solid #C394A4;
+            border-bottom: 5px solid #C65C7E;
+            border-radius: 16px;
+            padding: 0.65rem 1.35rem;
+            box-shadow: 0 7px 18px rgba(63, 39, 49, 0.08);
+        }
+
+        .masonry-item {
+            border: 3px solid #FFFFFF;
+            outline: 1px solid #B98A9B;
+            border-radius: 14px !important;
+            box-shadow: 0 9px 20px rgba(55, 34, 43, 0.14) !important;
+        }
+
+        .masonry-item:hover {
+            outline-color: #93435F;
+            box-shadow: 0 13px 28px rgba(55, 34, 43, 0.20) !important;
+        }
+
+        /* LIGHTBOXES ------------------------------------------- */
+        #lightbox,
+        #shop-image-viewer {
+            background: rgba(255, 250, 247, 0.98) !important;
+        }
+
+        #lightbox > button,
+        #lightbox .fa-chevron-left,
+        #lightbox .fa-chevron-right {
+            filter: drop-shadow(0 2px 3px rgba(255,255,255,0.85));
+        }
+
+        #lightbox-img {
+            border: 3px solid #FFFFFF;
+            outline: 1px solid #B88899;
+        }
+
+        /* FOOTER ----------------------------------------------- */
+        footer {
+            border-top-width: 5px !important;
+        }
+
+        .footer-card-grid > div {
+            background: rgba(255,255,255,0.67);
+            border: 1px solid #CCABB6;
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(64, 39, 50, 0.07);
+        }
+
+        footer p,
+        footer li,
+        footer button,
+        footer a {
+            color: #493640 !important;
+            font-size: 0.95rem;
+        }
+
+        footer h4 {
+            color: #704900 !important;
+            font-size: 1.15rem !important;
+        }
+
+        footer .border-t {
+            border-color: #C9A8B3 !important;
+        }
+
+        /* Accessibility / readable controls ------------------- */
+        :where(a, button, input, select, summary):focus-visible {
+            outline: 3px solid #8D3152 !important;
+            outline-offset: 3px !important;
+        }
+
+        button,
+        a,
+        summary,
+        select {
+            touch-action: manipulation;
+        }
+
+        @media (max-width: 767px) {
+            nav .h-24 {
+                height: 5rem !important;
+            }
+
+            .page-heading-band {
+                padding-top: 2.25rem !important;
+                padding-bottom: 2.25rem !important;
+            }
+
+            .page-heading-band h1 {
+                font-size: 2.25rem !important;
+                line-height: 1.1 !important;
+                border-radius: 15px;
+                padding: 0.55rem 1rem 0.65rem;
+            }
+
+            .hero-copy-panel {
+                border-radius: 20px;
+                padding: 1.5rem !important;
+            }
+
+            .hero-copy-panel h1 {
+                font-size: 2.35rem !important;
+            }
+
+            .hero-copy-panel p {
+                font-size: 1rem !important;
+            }
+
+            #page-home .py-24 .grid > div:first-child {
+                padding: 1.4rem;
+            }
+
+            .floral-service-card {
+                min-height: 0;
+            }
+
+            .facility-panel > .grid > div {
+                padding: 1.1rem;
+            }
+
+            .registry-card {
+                border-left-width: 5px;
+                border-radius: 20px;
+            }
+
+            .wedding-intro-card {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .shop-category > summary {
+                min-height: 76px;
+                padding: 1rem !important;
+            }
+
+            .shop-category > summary h2 {
+                font-size: 1.25rem !important;
+            }
+
+            .shop-category > summary p {
+                font-size: 0.88rem !important;
+            }
+
+            .footer-card-grid > div {
+                padding: 1.25rem;
+            }
+        }
+
     </style>
     <script src="shop-config.js"></script>
 </head>
@@ -368,7 +1001,7 @@
                 
                 <!-- Hero Overlay Content -->
                 <div class="absolute inset-0 bg-gradient-to-r from-[#FFF9F3]/90 via-[#FFF2F6]/76 to-[#FFF8DF]/72 flex items-center justify-center z-10">
-                    <div class="text-center px-4 max-w-5xl">
+                    <div class="hero-copy-panel text-center px-6 md:px-10 py-8 md:py-10 max-w-5xl mx-4">
                         <p class="text-[#8E3658] font-semibold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">Local Nashville Florist • Bakery • Gifts</p>
                         <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-brand-black mb-6 leading-tight">
                             Welcome Amelia's Picalily <br>
@@ -465,7 +1098,7 @@
 
         <!-- ==================== FLORAL PAGE (Includes Bakery) ==================== -->
         <section id="page-floral" class="page-section">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
+            <div class="page-heading-band bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
                 <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Floral & Bakery</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
@@ -474,10 +1107,10 @@
                 
                 <!-- Floral Section -->
                 <div>
-                    <h2 class="text-4xl font-serif font-bold text-center mb-12">Floral Arrangements</h2>
+                    <h2 class="section-heading text-4xl font-serif font-bold text-center mb-12">Floral Arrangements</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-champagne-glasses"></i>
                             </div>
@@ -485,7 +1118,7 @@
                             <p class="text-gray-600 text-sm">Perfect blooms for birthdays, anniversaries, and milestones.</p>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-holly-berry"></i>
                             </div>
@@ -493,7 +1126,7 @@
                             <p class="text-gray-600 text-sm">Seasonal arrangements to make your holidays brighter.</p>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-dove"></i>
                             </div>
@@ -501,7 +1134,7 @@
                             <p class="text-gray-600 text-sm">Elegant and thoughtful sprays to express your condolences.</p>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-sun"></i>
                             </div>
@@ -509,7 +1142,7 @@
                             <p class="text-gray-600 text-sm">Just because! Fresh flowers to brighten any normal day.</p>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-seedling"></i>
                             </div>
@@ -520,7 +1153,7 @@
                     </div>
 
                     <!-- Online Ordering & Product Categories -->
-                    <div class="mt-12 bg-gradient-to-br from-[#FFF7DC] via-[#FFF3F6] to-[#EEF8F0] text-brand-black rounded-2xl p-8 md:p-10 shadow-lg border border-[#F1CED8] text-center">
+                    <div class="online-flower-panel mt-12 bg-gradient-to-br from-[#FFF7DC] via-[#FFF3F6] to-[#EEF8F0] text-brand-black rounded-2xl p-8 md:p-10 shadow-lg border border-[#F1CED8] text-center">
                         <i class="fa-solid fa-cart-shopping text-4xl text-brand-yellow mb-4"></i>
                         <h3 class="text-3xl font-serif font-bold mb-4">Online Flower Shop</h3>
                         <p class="text-[#57424E] max-w-3xl mx-auto mb-8 leading-relaxed">
@@ -532,22 +1165,22 @@
                         </a>
 
                         <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 text-sm">
-                            <a href="https://www.picalilyflowers.net/all_occasions.php" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">All Occasions</a>
-                            <a href="https://www.picalilyflowers.net/roses.php" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Roses</a>
-                            <a href="https://www.picalilyflowers.net/seasonal.php" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Seasonal Flowers</a>
-                            <a href="https://www.picalilyflowers.net/sympathy-flowers" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Sympathy & Funeral</a>
-                            <a href="https://www.picalilyflowers.net/prom-flowers/corsages" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Prom Flowers</a>
-                            <a href="https://www.picalilyflowers.net/patriotic-flowers" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Patriotic Flowers</a>
-                            <a href="https://www.picalilyflowers.net/luxury" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Luxury Flowers</a>
-                            <a href="https://www.picalilyflowers.net/en-espanol.php" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">En Espa&ntilde;ol</a>
-                            <a href="https://www.picalilyflowers.net/plants.php" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Plants</a>
-                            <a href="https://www.picalilyflowers.net/gift-baskets" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Gift Baskets</a>
+                            <a href="https://www.picalilyflowers.net/all_occasions.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">All Occasions</a>
+                            <a href="https://www.picalilyflowers.net/roses.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Roses</a>
+                            <a href="https://www.picalilyflowers.net/seasonal.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Seasonal Flowers</a>
+                            <a href="https://www.picalilyflowers.net/sympathy-flowers" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Sympathy & Funeral</a>
+                            <a href="https://www.picalilyflowers.net/prom-flowers/corsages" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Prom Flowers</a>
+                            <a href="https://www.picalilyflowers.net/patriotic-flowers" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Patriotic Flowers</a>
+                            <a href="https://www.picalilyflowers.net/luxury" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Luxury Flowers</a>
+                            <a href="https://www.picalilyflowers.net/en-espanol.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">En Espa&ntilde;ol</a>
+                            <a href="https://www.picalilyflowers.net/plants.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Plants</a>
+                            <a href="https://www.picalilyflowers.net/gift-baskets" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Gift Baskets</a>
                         </div>
                     </div>
 
                     <!-- Delivery & Custom Orders -->
                     <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div class="bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8">
+                        <div class="information-card bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8">
                             <div class="flex items-center gap-4 mb-5">
                                 <div class="w-14 h-14 bg-brand-yellow/20 rounded-full flex items-center justify-center text-2xl text-brand-yellow"><i class="fa-solid fa-truck-fast"></i></div>
                                 <h3 class="text-2xl font-serif font-bold">Flower Delivery</h3>
@@ -558,7 +1191,7 @@
                             <a href="https://www.picalilyflowers.net/flower-delivery.php" target="_blank" rel="noopener noreferrer" class="font-bold text-brand-black border-b-2 border-brand-yellow hover:text-brand-yellow transition-colors">View Delivery Information <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8">
+                        <div class="information-card bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8">
                             <div class="flex items-center gap-4 mb-5">
                                 <div class="w-14 h-14 bg-brand-yellow/20 rounded-full flex items-center justify-center text-2xl text-brand-yellow"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                                 <h3 class="text-2xl font-serif font-bold">Custom Floral Orders</h3>
@@ -570,7 +1203,7 @@
                     </div>
 
                     <!-- Facility Delivery Details -->
-                    <div class="mt-12 bg-brand-yellowLight rounded-2xl p-8 md:p-10 border border-brand-yellow/30">
+                    <div class="facility-panel mt-12 bg-brand-yellowLight rounded-2xl p-8 md:p-10 border border-brand-yellow/30">
                         <h3 class="text-3xl font-serif font-bold text-center mb-8">Hospital, Care Facility & Funeral Home Delivery</h3>
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                             <div>
@@ -598,7 +1231,7 @@
                     </div>
 
                     <!-- Pricing & Substitution Policy -->
-                    <div class="mt-12 bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8 md:p-10">
+                    <div class="policy-card mt-12 bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8 md:p-10">
                         <h3 class="text-3xl font-serif font-bold text-center mb-6">Pricing & Substitution Policy</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-600">
                             <div>
@@ -617,9 +1250,9 @@
                 <div class="border-t-2 border-brand-yellow/50 w-full max-w-3xl mx-auto"></div>
 
                 <!-- Bakery Section -->
-                <div class="bg-brand-yellowLight rounded-3xl p-8 md:p-12 shadow-lg border border-brand-yellow/30">
+                <div class="bakery-panel bg-brand-yellowLight rounded-3xl p-8 md:p-12 shadow-lg border border-brand-yellow/30">
                     <div class="text-center mb-10">
-                        <h2 class="text-4xl font-serif font-bold text-brand-black mb-4">Itty Bitty Bakery</h2>
+                        <h2 class="section-heading text-4xl font-serif font-bold text-brand-black mb-4">Itty Bitty Bakery</h2>
                         <p class="text-lg text-gray-700 italic">Handmade with quality ingredients and scratch recipes</p>
                         <p class="mt-4 max-w-3xl mx-auto text-gray-600">
                             Itty Bitty Bakery is a small bakery operating as part of Amelia's Picalily Flowers. We offer handmade bakery items, including mini cakes, cupcakes, sheet cakes, cookie baskets, and other sweet treats. Because our bakery is small, we do not make large tiered wedding cakes or cakes requiring fondant décor.
@@ -656,7 +1289,7 @@
 
                     <!-- Bakery Menu Details -->
                     <div class="mt-16 text-center">
-                        <h3 class="text-3xl font-serif font-bold mb-8">Our Menus</h3>
+                        <h3 class="section-heading text-3xl font-serif font-bold mb-8">Our Menus</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
                                 <h4 class="font-bold text-xl mb-4 bg-[#FCE8EE] text-brand-black py-3 rounded-t-lg border border-[#F0C9D4]">Bakery Menu</h4>
@@ -693,7 +1326,7 @@
 
         <!-- ==================== GIFTS/BOUTIQUE PAGE ==================== -->
         <section id="page-gifts" class="page-section">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
+            <div class="page-heading-band bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
                 <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Gifts & Boutique</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
@@ -706,9 +1339,9 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Bath -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80">
                         <img src="photos/Gifts_and_Products/image_0002.jpg" alt="Bath Products" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Bath'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Bath</h3>
                                 <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Luxurious bath bombs, soaps, and body care.</p>
@@ -717,9 +1350,9 @@
                     </div>
 
                     <!-- Home Decor -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80">
                         <img src="photos/Home_Decor/image_0015.jpg" alt="Home Decor" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Home+Decor'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Home Decor</h3>
                                 <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Unique accents to make any house a home.</p>
@@ -728,9 +1361,9 @@
                     </div>
 
                     <!-- Candles -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80">
                         <img src="photos/Gifts_and_Products/image_0030.jpg" alt="Candles" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Candles'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Candles</h3>
                                 <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Premium poured candles in exquisite scents.</p>
@@ -739,9 +1372,9 @@
                     </div>
 
                     <!-- Clothing -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80 md:col-span-2 lg:col-span-1 lg:col-start-2">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80 md:col-span-2 lg:col-span-1 lg:col-start-2">
                         <img src="photos/Clothing/image_0016.jpg" alt="Clothing" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Clothing'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Clothing</h3>
                                 <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Stylish boutique apparel carefully curated for you.</p>
@@ -750,9 +1383,9 @@
                     </div>
 
                     <!-- Accessories -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg h-80 md:col-span-2 lg:col-span-1">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80 md:col-span-2 lg:col-span-1">
                         <img src="photos/Jewelry_and_Accessories/image_0024.jpg" alt="Accessories" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Accessories'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#6C4A59]/65 via-[#8A6574]/20 to-transparent flex items-end p-8">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
                                 <h3 class="text-3xl font-serif font-bold text-white mb-2">Accessories & Jewelry</h3>
                                 <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Bags, statement jewelry, and everyday pieces.</p>
@@ -764,7 +1397,7 @@
 
                 <div class="mt-16 bg-gradient-to-br from-[#FCE8EE] via-[#FFF7DB] to-[#EAF7EE] text-brand-black rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0CBD6] text-center">
                     <i class="fa-solid fa-tags text-4xl text-brand-yellow mb-4"></i>
-                    <h3 class="text-3xl font-serif font-bold mb-4">Special Offers & Holiday Reminders</h3>
+                    <h3 class="section-heading text-3xl font-serif font-bold mb-4">Special Offers & Holiday Reminders</h3>
                     <p class="text-[#57424E] max-w-3xl mx-auto mb-4">Current featured offers include Deal of the Day, Weekly Special, and Birthday Florals selections.</p>
                     <p class="text-[#57424E] max-w-3xl mx-auto mb-8">Visit the special-offers page to view current pricing and join the mailing list for offers and holiday reminders.</p>
                     <a href="https://www.picalilyflowers.net/special_offers.php" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg uppercase tracking-wide">
@@ -778,7 +1411,7 @@
 
         <!-- ==================== LIVE INVENTORY SHOP ==================== -->
         <section id="page-shop" class="page-section min-h-screen">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-12 md:py-16 text-center border-b border-[#DDB6C2]">
+            <div class="page-heading-band bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-12 md:py-16 text-center border-b border-[#DDB6C2]">
                 <div class="max-w-5xl mx-auto px-4">
                     <p class="text-brand-yellow uppercase tracking-[0.25em] text-xs md:text-sm font-semibold mb-3">Live Store Inventory</p>
                     <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-black mb-4">Shop Amelia's Picalily</h1>
@@ -799,7 +1432,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl border border-[#D6BBC5] shadow-sm p-4 md:p-6 mb-8 sticky top-24 z-30">
+                <div class="shop-control-panel bg-white rounded-2xl border border-[#D6BBC5] shadow-sm p-4 md:p-6 mb-8 sticky top-24 z-30">
                     <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px_180px_180px] gap-3">
                         <label class="shop-search-ring flex items-center gap-3 rounded-xl border border-[#BFA2AD] bg-white px-4 transition">
                             <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
@@ -871,7 +1504,7 @@
 
                 <div id="shop-categories" class="space-y-4"></div>
 
-                <div class="mt-12 rounded-2xl bg-gradient-to-r from-[#EEF8F0] via-[#FFF9DD] to-[#FFF0F4] text-brand-black p-6 md:p-8 text-center border border-[#E6D5C2] shadow-sm">
+                <div class="shop-help-card mt-12 rounded-2xl bg-gradient-to-r from-[#EEF8F0] via-[#FFF9DD] to-[#FFF0F4] text-brand-black p-6 md:p-8 text-center border border-[#E6D5C2] shadow-sm">
                     <h2 class="text-2xl font-serif font-bold mb-2">Need help finding something?</h2>
                     <p class="text-[#57424E] mb-5">Call Amelia's Picalily and we'll help you locate an item or prepare an order.</p>
                     <a href="tel:+18708452738" class="inline-flex items-center gap-2 bg-brand-yellow text-brand-black px-6 py-3 rounded-full font-bold hover:bg-white transition">
@@ -884,14 +1517,14 @@
 
         <!-- ==================== BRIDAL REGISTRY PAGE ==================== -->
         <section id="page-registry" class="page-section bg-[#FFFDF8]">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
+            <div class="page-heading-band bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
                 <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Bridal Registry</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
 
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+            <div class="registry-card max-w-4xl mx-auto px-6 sm:px-10 lg:px-12 py-16 md:py-20 text-center my-12 md:my-16">
                 <i class="fa-solid fa-gift text-6xl text-brand-yellow mb-8 block"></i>
-                <h2 class="text-4xl font-serif font-bold text-brand-black mb-6">Find or Create a Registry</h2>
+                <h2 class="section-heading text-4xl font-serif font-bold text-brand-black mb-6">Find or Create a Registry</h2>
                 <p class="text-xl text-gray-600 mb-12">
                     Access Amelia's Picalily bridal registry to create a registry, manage a wish list, or shop for a happy couple.
                 </p>
@@ -907,18 +1540,20 @@
 
         <!-- ==================== WEDDING PAGE ==================== -->
         <section id="page-wedding" class="page-section bg-[#FFFDF8] min-h-screen pb-20">
-            <div class="bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
+            <div class="page-heading-band bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
                 <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Weddings</h1>
                 <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-black mb-6">Your Dream Day, Flawlessly Executed</h2>
-                <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-16 leading-relaxed">
-                    At Amelia's Picalily Flowers and More, we believe your wedding day should reflect your individual style and budget. Our talented designers create custom bouquets, flower arrangements, and on-site décor for weddings and special events of every size. Call us to schedule a consultation and begin planning your flowers. We also rent wedding equipment and tuxedos.
-                </p>
+                <div class="wedding-intro-card max-w-4xl mx-auto mb-16">
+                    <h2 class="section-heading text-3xl md:text-4xl font-serif font-bold text-brand-black mb-6">Your Dream Day, Flawlessly Executed</h2>
+                    <p class="text-lg text-gray-700 mx-auto leading-relaxed">
+                        At Amelia's Picalily Flowers and More, we believe your wedding day should reflect your individual style and budget. Our talented designers create custom bouquets, flower arrangements, and on-site décor for weddings and special events of every size. Call us to schedule a consultation and begin planning your flowers. We also rent wedding equipment and tuxedos.
+                    </p>
+                </div>
 
-                <h3 class="text-3xl font-serif font-bold text-brand-black mb-10 border-b-2 border-brand-yellow pb-2 inline-block">Wedding Gallery</h3>
+                <h3 class="gallery-heading text-3xl font-serif font-bold text-brand-black mb-10 inline-flex items-center justify-center">Wedding Gallery</h3>
                 
                 <!-- Masonry Grid for Wedding Photos -->
                 <div id="masonry-container" class="masonry-grid text-left">
@@ -1009,7 +1644,7 @@
     <!-- Footer -->
     <footer class="bg-gradient-to-r from-[#FFF0F4] via-[#FFF8E7] to-[#EEF8F0] text-brand-black pt-16 pb-8 border-t-4 border-[#F2C95E] mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div class="footer-card-grid grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
                 <div>
                     <div class="flex items-center gap-3 mb-6">
                         <img src="photos/Logo/logo.jpg" alt="Logo" class="w-12 h-12 rounded-full border border-brand-yellow" onerror="this.style.display='none'">
