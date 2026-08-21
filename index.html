@@ -144,6 +144,37 @@
             100% { background-position: -200% 0; }
         }
 
+        /* Product Image Viewer */
+        #shop-image-viewer-stage {
+            touch-action: none;
+            overscroll-behavior: contain;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        #shop-image-viewer-img {
+            transform-origin: center center;
+            will-change: transform;
+            -webkit-user-drag: none;
+            user-drag: none;
+        }
+
+        #shop-image-viewer-zoom {
+            accent-color: #FBBF24;
+        }
+
+        .shop-image-viewer-control {
+            min-width: 44px;
+            min-height: 44px;
+            touch-action: manipulation;
+        }
+
+        @media (max-width: 640px) {
+            #shop-image-viewer-toolbar {
+                padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+            }
+        }
+
     </style>
     <script src="shop-config.js"></script>
 </head>
@@ -785,6 +816,65 @@
         <p id="lightbox-caption" class="text-brand-yellow mt-6 text-lg font-medium tracking-wide uppercase"></p>
     </div>
 
+    <!-- Fullscreen Product Image Viewer -->
+    <div id="shop-image-viewer"
+         class="fixed inset-0 z-[220] hidden bg-black/95 backdrop-blur-sm"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="shop-image-viewer-title">
+        <div class="absolute inset-0 flex flex-col">
+            <div class="relative z-30 flex items-center justify-between gap-3 border-b border-white/10 bg-black/65 px-3 py-3 sm:px-5">
+                <div class="min-w-0">
+                    <div id="shop-image-viewer-title" class="truncate font-serif text-base font-bold text-white sm:text-xl">Product image</div>
+                    <div id="shop-image-viewer-help" class="hidden text-xs text-gray-300 sm:block">Drag to pan • Mouse wheel or slider to zoom • Esc to close</div>
+                </div>
+                <button id="shop-image-viewer-close"
+                        type="button"
+                        class="shop-image-viewer-control flex shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-2xl text-white transition hover:border-brand-yellow hover:bg-brand-yellow hover:text-black focus:outline-none focus:ring-2 focus:ring-brand-yellow"
+                        aria-label="Close full image viewer"
+                        title="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="shop-image-viewer-stage" class="relative min-h-0 flex-1 overflow-hidden bg-black flex items-center justify-center cursor-grab active:cursor-grabbing">
+                <img id="shop-image-viewer-img"
+                     src=""
+                     alt=""
+                     draggable="false"
+                     class="max-h-full max-w-full object-contain select-none">
+
+                <div class="pointer-events-none absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white sm:hidden">
+                    Drag to pan • Pinch to zoom
+                </div>
+            </div>
+
+            <div id="shop-image-viewer-toolbar" class="relative z-30 border-t border-white/10 bg-black/80 px-3 py-3 text-white sm:px-5">
+                <div class="mx-auto flex max-w-5xl flex-col gap-3">
+                    <div class="flex items-center gap-3">
+                        <button id="shop-image-viewer-zoom-out" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 text-lg hover:border-brand-yellow hover:text-brand-yellow" aria-label="Zoom out" title="Zoom out">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input id="shop-image-viewer-zoom" type="range" min="1" max="5" step="0.05" value="1" class="h-2 min-w-0 flex-1 cursor-pointer" aria-label="Image zoom level">
+                        <button id="shop-image-viewer-zoom-in" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 text-lg hover:border-brand-yellow hover:text-brand-yellow" aria-label="Zoom in" title="Zoom in">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div id="shop-image-viewer-zoom-label" class="w-14 shrink-0 text-center text-sm font-bold text-brand-yellow">100%</div>
+                        <button id="shop-image-viewer-reset" type="button" class="shop-image-viewer-control rounded-xl border border-white/20 bg-white/10 px-3 text-xs font-bold uppercase tracking-wide hover:border-brand-yellow hover:text-brand-yellow" aria-label="Reset zoom and pan" title="Reset zoom and pan">Reset</button>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-2" aria-label="Pan image controls">
+                        <button id="shop-image-viewer-pan-left" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 hover:border-brand-yellow hover:text-brand-yellow" aria-label="Pan image left" title="Pan left"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button id="shop-image-viewer-pan-up" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 hover:border-brand-yellow hover:text-brand-yellow" aria-label="Pan image up" title="Pan up"><i class="fa-solid fa-arrow-up"></i></button>
+                        <button id="shop-image-viewer-pan-down" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 hover:border-brand-yellow hover:text-brand-yellow" aria-label="Pan image down" title="Pan down"><i class="fa-solid fa-arrow-down"></i></button>
+                        <button id="shop-image-viewer-pan-right" type="button" class="shop-image-viewer-control flex items-center justify-center rounded-xl border border-white/20 bg-white/10 hover:border-brand-yellow hover:text-brand-yellow" aria-label="Pan image right" title="Pan right"><i class="fa-solid fa-arrow-right"></i></button>
+                        <span class="ml-2 hidden text-xs text-gray-400 md:inline">Arrow keys also pan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-brand-black text-white pt-16 pb-8 border-t-4 border-brand-yellow mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1080,6 +1170,18 @@
         let shopRefreshTimer = null;
         let shopSearchTimer = null;
         const shopObjectURLs = new Set();
+
+        const shopImageViewerState = {
+            open: false,
+            scale: 1,
+            x: 0,
+            y: 0,
+            pointers: new Map(),
+            dragStart: null,
+            pinchStartDistance: 0,
+            pinchStartScale: 1,
+            lastFocused: null
+        };
 
         function shopConfigured() {
             return Boolean(
@@ -1624,14 +1726,21 @@
             fallbackText.textContent = "No product image";
             fallback.append(icon, fallbackText);
 
-            imageBox.append(fallback, img);
+            const zoomHint = document.createElement("button");
+            zoomHint.type = "button";
+            zoomHint.className = "hidden absolute bottom-3 right-3 z-20 h-11 w-11 items-center justify-center rounded-full border border-white/50 bg-black/65 text-white shadow-lg backdrop-blur-sm transition hover:bg-brand-yellow hover:text-black focus:outline-none focus:ring-2 focus:ring-brand-yellow";
+            zoomHint.innerHTML = '<i class="fa-solid fa-expand"></i>';
+            zoomHint.title = "View full image";
+            zoomHint.setAttribute("aria-label", `View full image of ${item._name}`);
+
+            imageBox.append(fallback, img, zoomHint);
             card.appendChild(imageBox);
 
             // Only request an image when the bridge says a genuine source exists.
             // This prevents thousands of pointless /images/... requests for POS rows
             // that only contain the generic Floral POS placeholder.
             if (item.has_image) {
-                loadShopTunnelImage(img, fallback, item);
+                loadShopTunnelImage(img, fallback, item, zoomHint);
             }
 
             const body = document.createElement("div");
@@ -1713,7 +1822,217 @@
             return card;
         }
 
-        async function loadShopTunnelImage(img, fallback, item) {
+        function shopImageViewerElements() {
+            return {
+                root: document.getElementById("shop-image-viewer"),
+                stage: document.getElementById("shop-image-viewer-stage"),
+                img: document.getElementById("shop-image-viewer-img"),
+                title: document.getElementById("shop-image-viewer-title"),
+                slider: document.getElementById("shop-image-viewer-zoom"),
+                label: document.getElementById("shop-image-viewer-zoom-label"),
+                close: document.getElementById("shop-image-viewer-close")
+            };
+        }
+
+        function shopClampZoom(value) {
+            return Math.min(5, Math.max(1, Number(value) || 1));
+        }
+
+        function shopApplyImageViewerTransform() {
+            const {img, slider, label} = shopImageViewerElements();
+            if (!img) return;
+            const s = shopClampZoom(shopImageViewerState.scale);
+            shopImageViewerState.scale = s;
+            if (s <= 1.0001) {
+                shopImageViewerState.x = 0;
+                shopImageViewerState.y = 0;
+            }
+            img.style.transform = `translate3d(${shopImageViewerState.x}px, ${shopImageViewerState.y}px, 0) scale(${s})`;
+            if (slider) slider.value = String(s);
+            if (label) label.textContent = `${Math.round(s * 100)}%`;
+        }
+
+        function shopSetImageViewerZoom(value) {
+            shopImageViewerState.scale = shopClampZoom(value);
+            shopApplyImageViewerTransform();
+        }
+
+        function shopPanImageViewer(dx, dy) {
+            if (!shopImageViewerState.open || shopImageViewerState.scale <= 1) return;
+            shopImageViewerState.x += Number(dx) || 0;
+            shopImageViewerState.y += Number(dy) || 0;
+            shopApplyImageViewerTransform();
+        }
+
+        function shopResetImageViewer() {
+            shopImageViewerState.scale = 1;
+            shopImageViewerState.x = 0;
+            shopImageViewerState.y = 0;
+            shopImageViewerState.pointers.clear();
+            shopImageViewerState.dragStart = null;
+            shopApplyImageViewerTransform();
+        }
+
+        function openShopImageViewer(src, name, trigger = null) {
+            if (!src) return;
+            const {root, img, title, close} = shopImageViewerElements();
+            if (!root || !img) return;
+
+            shopImageViewerState.open = true;
+            shopImageViewerState.lastFocused = trigger || document.activeElement;
+            shopResetImageViewer();
+
+            img.src = src;
+            img.alt = name ? `${name} full product image` : "Full product image";
+            title.textContent = name || "Product image";
+            root.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+            window.requestAnimationFrame(() => close?.focus());
+        }
+
+        function closeShopImageViewer() {
+            if (!shopImageViewerState.open) return;
+            const {root, img} = shopImageViewerElements();
+            shopImageViewerState.open = false;
+            shopImageViewerState.pointers.clear();
+            shopImageViewerState.dragStart = null;
+            root?.classList.add("hidden");
+            if (img) {
+                img.removeAttribute("src");
+                img.style.transform = "";
+            }
+            document.body.style.overflow = "auto";
+            const previous = shopImageViewerState.lastFocused;
+            shopImageViewerState.lastFocused = null;
+            if (previous && typeof previous.focus === "function" && document.contains(previous)) {
+                previous.focus({preventScroll: true});
+            }
+        }
+
+        function shopPointerDistance(a, b) {
+            return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        }
+
+        function initShopImageViewer() {
+            const {root, stage, slider, close} = shopImageViewerElements();
+            if (!root || !stage || !slider || !close) return;
+
+            close.addEventListener("click", closeShopImageViewer);
+            document.getElementById("shop-image-viewer-zoom-in")?.addEventListener("click", () => shopSetImageViewerZoom(shopImageViewerState.scale + 0.25));
+            document.getElementById("shop-image-viewer-zoom-out")?.addEventListener("click", () => shopSetImageViewerZoom(shopImageViewerState.scale - 0.25));
+            document.getElementById("shop-image-viewer-reset")?.addEventListener("click", shopResetImageViewer);
+            document.getElementById("shop-image-viewer-pan-left")?.addEventListener("click", () => shopPanImageViewer(-70, 0));
+            document.getElementById("shop-image-viewer-pan-right")?.addEventListener("click", () => shopPanImageViewer(70, 0));
+            document.getElementById("shop-image-viewer-pan-up")?.addEventListener("click", () => shopPanImageViewer(0, -70));
+            document.getElementById("shop-image-viewer-pan-down")?.addEventListener("click", () => shopPanImageViewer(0, 70));
+
+            slider.addEventListener("input", () => shopSetImageViewerZoom(slider.value));
+
+            root.addEventListener("click", (event) => {
+                if (event.target === root) closeShopImageViewer();
+            });
+
+            stage.addEventListener("wheel", (event) => {
+                if (!shopImageViewerState.open) return;
+                event.preventDefault();
+                const delta = event.deltaY < 0 ? 0.2 : -0.2;
+                shopSetImageViewerZoom(shopImageViewerState.scale + delta);
+            }, {passive: false});
+
+            stage.addEventListener("pointerdown", (event) => {
+                if (!shopImageViewerState.open) return;
+                stage.setPointerCapture?.(event.pointerId);
+                shopImageViewerState.pointers.set(event.pointerId, event);
+
+                if (shopImageViewerState.pointers.size === 1) {
+                    shopImageViewerState.dragStart = {
+                        clientX: event.clientX,
+                        clientY: event.clientY,
+                        x: shopImageViewerState.x,
+                        y: shopImageViewerState.y
+                    };
+                } else if (shopImageViewerState.pointers.size === 2) {
+                    const points = [...shopImageViewerState.pointers.values()];
+                    shopImageViewerState.pinchStartDistance = shopPointerDistance(points[0], points[1]) || 1;
+                    shopImageViewerState.pinchStartScale = shopImageViewerState.scale;
+                    shopImageViewerState.dragStart = null;
+                }
+            });
+
+            stage.addEventListener("pointermove", (event) => {
+                if (!shopImageViewerState.pointers.has(event.pointerId)) return;
+                shopImageViewerState.pointers.set(event.pointerId, event);
+
+                if (shopImageViewerState.pointers.size >= 2) {
+                    const points = [...shopImageViewerState.pointers.values()].slice(0, 2);
+                    const distance = shopPointerDistance(points[0], points[1]);
+                    if (shopImageViewerState.pinchStartDistance > 0) {
+                        shopSetImageViewerZoom(shopImageViewerState.pinchStartScale * (distance / shopImageViewerState.pinchStartDistance));
+                    }
+                    return;
+                }
+
+                if (shopImageViewerState.scale > 1 && shopImageViewerState.dragStart) {
+                    shopImageViewerState.x = shopImageViewerState.dragStart.x + (event.clientX - shopImageViewerState.dragStart.clientX);
+                    shopImageViewerState.y = shopImageViewerState.dragStart.y + (event.clientY - shopImageViewerState.dragStart.clientY);
+                    shopApplyImageViewerTransform();
+                }
+            });
+
+            const releasePointer = (event) => {
+                shopImageViewerState.pointers.delete(event.pointerId);
+                if (shopImageViewerState.pointers.size === 1) {
+                    const remaining = [...shopImageViewerState.pointers.values()][0];
+                    shopImageViewerState.dragStart = {
+                        clientX: remaining.clientX,
+                        clientY: remaining.clientY,
+                        x: shopImageViewerState.x,
+                        y: shopImageViewerState.y
+                    };
+                } else {
+                    shopImageViewerState.dragStart = null;
+                }
+            };
+            stage.addEventListener("pointerup", releasePointer);
+            stage.addEventListener("pointercancel", releasePointer);
+
+            stage.addEventListener("dblclick", () => {
+                shopSetImageViewerZoom(shopImageViewerState.scale > 1 ? 1 : 2);
+            });
+
+            document.addEventListener("keydown", (event) => {
+                if (!shopImageViewerState.open) return;
+                if (event.key === "Escape") {
+                    event.preventDefault();
+                    closeShopImageViewer();
+                    return;
+                }
+                if (event.key === "+" || event.key === "=") {
+                    event.preventDefault();
+                    shopSetImageViewerZoom(shopImageViewerState.scale + 0.25);
+                } else if (event.key === "-" || event.key === "_") {
+                    event.preventDefault();
+                    shopSetImageViewerZoom(shopImageViewerState.scale - 0.25);
+                } else if (event.key === "0") {
+                    event.preventDefault();
+                    shopResetImageViewer();
+                } else if (event.key === "ArrowLeft") {
+                    event.preventDefault();
+                    shopPanImageViewer(-70, 0);
+                } else if (event.key === "ArrowRight") {
+                    event.preventDefault();
+                    shopPanImageViewer(70, 0);
+                } else if (event.key === "ArrowUp") {
+                    event.preventDefault();
+                    shopPanImageViewer(0, -70);
+                } else if (event.key === "ArrowDown") {
+                    event.preventDefault();
+                    shopPanImageViewer(0, 70);
+                }
+            });
+        }
+
+        async function loadShopTunnelImage(img, fallback, item, zoomHint) {
             if (!item?.pos_item_id || !shopConfigured()) return;
             try {
                 const response = await shopFetch(`/images/${encodeURIComponent(item.pos_item_id)}`);
@@ -1722,8 +2041,34 @@
                 if (!blob.size || !blob.type.startsWith("image/")) return;
                 const objectURL = URL.createObjectURL(blob);
                 shopObjectURLs.add(objectURL);
+
+                const enableViewer = () => {
+                    fallback.classList.add("hidden");
+                    img.classList.add("cursor-zoom-in");
+                    img.setAttribute("role", "button");
+                    img.setAttribute("tabindex", "0");
+                    img.setAttribute("aria-label", `View full image of ${item._name}`);
+                    if (zoomHint) {
+                        zoomHint.classList.remove("hidden");
+                        zoomHint.classList.add("flex");
+                    }
+
+                    const open = (trigger) => openShopImageViewer(objectURL, item._name, trigger);
+                    img.addEventListener("click", () => open(img));
+                    img.addEventListener("keydown", (event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            open(img);
+                        }
+                    });
+                    zoomHint?.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        open(zoomHint);
+                    });
+                };
+
+                img.addEventListener("load", enableViewer, {once: true});
                 img.src = objectURL;
-                fallback.classList.add("hidden");
             } catch (_) {
                 // No product image is not an inventory failure.
             }
@@ -1760,6 +2105,7 @@
         // --- 6. INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
             initHeroSlider();
+            initShopImageViewer();
             navigate('home');
         });
 
