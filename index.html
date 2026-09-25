@@ -1247,9 +1247,9 @@
                     <button onclick="navigate('home')" class="nav-link active-nav h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="home">Home</button>
                     <button onclick="navigate('floral')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="floral">Floral</button>
                     <button onclick="navigate('gifts')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="gifts">Gifts/Boutique</button>
-                    <button onclick="navigate('shop')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="shop">Shop</button>
                     <button onclick="navigate('registry')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="registry">Bridal Registry</button>
                     <button onclick="navigate('wedding')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="wedding">Wedding</button>
+                    <button onclick="navigate('faq')" class="nav-link h-full px-2 text-sm uppercase tracking-wider font-medium hover:text-brand-yellow transition-colors flex items-center" data-target="faq">Frequently Asked Questions</button>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -1267,9 +1267,9 @@
                 <button onclick="navigate('home')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="home">Home</button>
                 <button onclick="navigate('floral')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="floral">Floral</button>
                 <button onclick="navigate('gifts')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="gifts">Gifts/Boutique</button>
-                <button onclick="navigate('shop')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="shop">Shop Live Inventory</button>
                 <button onclick="navigate('registry')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="registry">Bridal Registry</button>
                 <button onclick="navigate('wedding')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="wedding">Wedding</button>
+                <button onclick="navigate('faq')" class="mobile-link text-left w-full px-4 py-3 rounded-xl text-base font-medium text-brand-black hover:text-[#913456] hover:bg-[#FCE8EE]" data-target="faq">Frequently Asked Questions</button>
             </div>
         </div>
     </nav>
@@ -1296,18 +1296,7 @@
                         <p class="text-xl md:text-2xl text-[#57424E] mb-10 max-w-3xl mx-auto font-light">
                             where you'll find three stores in one.
                         </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button onclick="navigate('floral')" class="bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg text-center flex items-center justify-center gap-2 uppercase tracking-wide">
-                                Explore Floral & Bakery
-                            </button>
-                            <button onclick="navigate('shop')" class="bg-white text-brand-black px-8 py-4 rounded-full font-bold hover:bg-brand-yellow transition-all shadow-lg text-center flex items-center justify-center gap-2 uppercase tracking-wide">
-                                <i class="fa-solid fa-bag-shopping"></i>
-                                Shop Live Inventory
-                            </button>
-                            <a href="https://www.picalilyflowers.net/" target="_blank" rel="noopener noreferrer" class="bg-white text-brand-black px-8 py-4 rounded-full font-bold hover:bg-brand-yellow transition-all shadow-lg text-center flex items-center justify-center gap-2 uppercase tracking-wide">
-                                Shop Flowers Online
-                            </a>
-                        </div>
+
                     </div>
 
                 </div>
@@ -1317,35 +1306,21 @@
                 <button onclick="nextHeroSlide()" class="hero-slider-control hero-slider-next absolute right-4 top-1/2 -translate-y-1/2 z-20 text-brand-black/45 hover:text-[#A83F65] text-4xl p-2 transition-colors opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
 
-            <!-- About / History & Staff Section -->
-            <div class="py-24 bg-[#FFFDF8] relative">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-black mb-6">Our History</h2>
-                            <div class="w-24 h-1 bg-brand-yellow mb-8"></div>
-                            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Amelia's Picalily Flowers and More is a local Nashville, Arkansas, florist offering fresh flowers and creative gift ideas for weddings, special events, celebrations, sympathy, and everyday moments.
-                            </p>
-                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Along with floral design, we offer gourmet and fruit baskets, baked goods, homemade fudge, plants, home décor, baby gifts, balloons, plush animals, and other unique gifts. The <strong>Itty Bitty Bakery</strong> operates as part of Amelia's Picalily and makes handmade treats with quality ingredients and scratch recipes.
-                            </p>
-                        </div>
-                        <div class="relative">
-                            <!-- Staff Photo -->
-                            <div class="absolute -inset-4 bg-brand-yellow/20 rounded-xl transform rotate-3"></div>
-                            <img src="photos/People/image_0038.jpg" alt="Amelia's Picalily Staff" class="staff-photo relative z-10 w-full h-[500px] object-cover rounded-xl shadow-2xl" onerror="this.src='https://placehold.co/800x600/FFF1F5/D87391?text=Meet+Our+Staff'">
-                            <div class="team-badge absolute -bottom-8 -left-8 bg-[#FFF1F5] text-brand-black p-6 rounded-xl shadow-xl z-20 border border-[#F0C1CF]">
-                                <div class="flex items-center gap-4">
-                                    <i class="fa-solid fa-users text-4xl text-brand-yellow"></i>
-                                    <div>
-                                        <p class="font-bold text-xl">Meet Our Team</p>
-                                        <p class="text-sm text-[#604B57]">Passionate & Dedicated</p>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Staff Section -->
+            <div class="py-20 bg-[#FFFDF8] relative">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <div class="relative max-w-3xl mx-auto">
+                        <div class="absolute -inset-4 bg-brand-yellow/20 rounded-xl transform rotate-2"></div>
+                        <img src="photos/People/image_0038.jpg" alt="Amelia's Picalily Staff" class="staff-photo relative z-10 w-full h-[500px] object-cover rounded-xl shadow-2xl" onerror="this.src='https://placehold.co/800x600/FFF1F5/D87391?text=Meet+Our+Staff'">
+                        <div class="team-badge absolute -bottom-8 left-1/2 -translate-x-1/2 bg-[#FFF1F5] text-brand-black px-8 py-5 rounded-xl shadow-xl z-20 border border-[#F0C1CF] whitespace-nowrap">
+                            <p class="font-bold text-xl">Meet Our Team</p>
+                            <p class="text-sm text-[#604B57]">Passionate & Dedicated</p>
                         </div>
                     </div>
+                    <button onclick="navigate('faq')" class="mt-16 inline-flex items-center justify-center gap-3 rounded-full bg-[#E9A9B9] px-8 py-4 font-bold text-brand-black shadow-md transition hover:bg-brand-yellow">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Frequently Asked Questions
+                    </button>
                 </div>
             </div>
             
@@ -1359,7 +1334,7 @@
                             </div>
                             <h3 class="font-serif text-xl font-bold">Floral</h3>
                         </div>
-                        <div class="text-center group cursor-pointer" onclick="navigate('floral')">
+                        <div class="text-center group cursor-pointer" onclick="navigateInventory('Bakery & Sweets')">
                             <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
                                 <i class="fa-solid fa-cake-candles text-3xl text-brand-yellow group-hover:text-brand-black"></i>
                             </div>
@@ -1370,6 +1345,7 @@
                                 <i class="fa-solid fa-gift text-3xl text-brand-yellow group-hover:text-brand-black"></i>
                             </div>
                             <h3 class="font-serif text-xl font-bold">Gifts/Boutique</h3>
+                            <p class="mt-2 text-xs text-[#6B5661]">Tap a category to shop live inventory</p>
                         </div>
                         <div class="text-center group cursor-pointer" onclick="navigate('wedding')">
                             <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
@@ -1396,7 +1372,7 @@
                     <h2 class="section-heading text-4xl font-serif font-bold text-center mb-12">Floral Arrangements</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         
-                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition" role="button" tabindex="0" onclick="navigateInventory('Floral & Flowers')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateInventory('Floral & Flowers')}">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-champagne-glasses"></i>
                             </div>
@@ -1404,15 +1380,15 @@
                             <p class="text-gray-600 text-sm">Perfect blooms for birthdays, anniversaries, and milestones.</p>
                         </div>
 
-                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition" role="button" tabindex="0" onclick="navigateInventory('Seasonal & Holiday')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateInventory('Seasonal & Holiday')}">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-holly-berry"></i>
                             </div>
-                            <h3 class="font-bold text-xl font-serif mb-2">Holiday Events</h3>
+                            <h3 class="font-bold text-xl font-serif mb-2">Holidays and Events</h3>
                             <p class="text-gray-600 text-sm">Seasonal arrangements to make your holidays brighter.</p>
                         </div>
 
-                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition" role="button" tabindex="0" onclick="navigateInventory('Floral & Flowers')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateInventory('Floral & Flowers')}">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-dove"></i>
                             </div>
@@ -1420,7 +1396,7 @@
                             <p class="text-gray-600 text-sm">Elegant and thoughtful sprays to express your condolences.</p>
                         </div>
 
-                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition" role="button" tabindex="0" onclick="navigateInventory('Floral & Flowers')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateInventory('Floral & Flowers')}">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-sun"></i>
                             </div>
@@ -1428,7 +1404,7 @@
                             <p class="text-gray-600 text-sm">Just because! Fresh flowers to brighten any normal day.</p>
                         </div>
 
-                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition">
+                        <div class="floral-service-card bg-white rounded-xl shadow-md overflow-hidden border border-[#D6BBC5] text-center p-6 hover:shadow-lg transition" role="button" tabindex="0" onclick="navigateInventory('Plants')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateInventory('Plants')}">
                             <div class="w-16 h-16 mx-auto bg-brand-yellow/20 rounded-full flex items-center justify-center mb-4 text-2xl text-brand-yellow">
                                 <i class="fa-solid fa-seedling"></i>
                             </div>
@@ -1438,101 +1414,14 @@
 
                     </div>
 
-                    <!-- Online Ordering & Product Categories -->
-                    <div class="online-flower-panel mt-12 bg-gradient-to-br from-[#FFF7DC] via-[#FFF3F6] to-[#EEF8F0] text-brand-black rounded-2xl p-8 md:p-10 shadow-lg border border-[#F1CED8] text-center">
-                        <i class="fa-solid fa-cart-shopping text-4xl text-brand-yellow mb-4"></i>
-                        <h3 class="text-3xl font-serif font-bold mb-4">Online Flower Shop</h3>
-                        <p class="text-[#57424E] max-w-3xl mx-auto mb-8 leading-relaxed">
-                            Browse the complete flower catalog, view individual product pages, customize an arrangement, add items to your cart, and place a secure order online 24 hours a day. Local and worldwide delivery options are available.
-                        </p>
-                        <a href="https://www.picalilyflowers.net/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg uppercase tracking-wide">
-                            <span>Shop & Order Flowers</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-
-                        <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 text-sm">
-                            <a href="https://www.picalilyflowers.net/all_occasions.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">All Occasions</a>
-                            <a href="https://www.picalilyflowers.net/roses.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Roses</a>
-                            <a href="https://www.picalilyflowers.net/seasonal.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Seasonal Flowers</a>
-                            <a href="https://www.picalilyflowers.net/sympathy-flowers" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Sympathy & Funeral</a>
-                            <a href="https://www.picalilyflowers.net/prom-flowers/corsages" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Prom Flowers</a>
-                            <a href="https://www.picalilyflowers.net/patriotic-flowers" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Patriotic Flowers</a>
-                            <a href="https://www.picalilyflowers.net/luxury" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Luxury Flowers</a>
-                            <a href="https://www.picalilyflowers.net/en-espanol.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">En Espa&ntilde;ol</a>
-                            <a href="https://www.picalilyflowers.net/plants.php" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Plants</a>
-                            <a href="https://www.picalilyflowers.net/gift-baskets" target="_blank" rel="noopener noreferrer" class="flower-shop-chip bg-white/90 hover:bg-brand-yellow hover:text-brand-black rounded-lg px-4 py-3 transition-colors">Gift Baskets</a>
-                        </div>
-                    </div>
-
-                    <!-- Delivery & Custom Orders -->
-                    <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div class="information-card bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8">
-                            <div class="flex items-center gap-4 mb-5">
-                                <div class="w-14 h-14 bg-brand-yellow/20 rounded-full flex items-center justify-center text-2xl text-brand-yellow"><i class="fa-solid fa-truck-fast"></i></div>
-                                <h3 class="text-2xl font-serif font-bold">Flower Delivery</h3>
-                            </div>
-                            <p class="text-gray-600 mb-4">Delivery is available in Nashville and the surrounding communities of Center Point, Dierks, Mineral Springs, and Murfreesboro.</p>
-                            <p class="text-gray-600 mb-4"><strong>Delivery ZIP codes:</strong> 71833, 71846, 71851, 71852, 71855, 71859, and 71958.</p>
-                            <p class="text-gray-600 mb-5">Daily floral delivery is available to local funeral homes, hospitals, nursing homes, and care facilities.</p>
-                            <a href="https://www.picalilyflowers.net/flower-delivery.php" target="_blank" rel="noopener noreferrer" class="font-bold text-brand-black border-b-2 border-brand-yellow hover:text-brand-yellow transition-colors">View Delivery Information <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
-                        </div>
-
-                        <div class="information-card bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8">
-                            <div class="flex items-center gap-4 mb-5">
-                                <div class="w-14 h-14 bg-brand-yellow/20 rounded-full flex items-center justify-center text-2xl text-brand-yellow"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                                <h3 class="text-2xl font-serif font-bold">Custom Floral Orders</h3>
-                            </div>
-                            <p class="text-gray-600 mb-4">Request a one-of-a-kind fresh flower arrangement for an anniversary, birthday, funeral, get-well gift, new baby, or any other occasion.</p>
-                            <p class="text-gray-600 mb-5">Because every design is individually handcrafted, flower colors, varieties, and containers may be substituted when necessary. Some unusual flower varieties require 3 to 7 days of lead time. Call to discuss special requests, timed delivery, and order cutoff times.</p>
-                            <a href="https://www.picalilyflowers.net/custom_orders.php" target="_blank" rel="noopener noreferrer" class="font-bold text-brand-black border-b-2 border-brand-yellow hover:text-brand-yellow transition-colors">Create a Custom Order <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Facility Delivery Details -->
-                    <div class="facility-panel mt-12 bg-brand-yellowLight rounded-2xl p-8 md:p-10 border border-brand-yellow/30">
-                        <h3 class="text-3xl font-serif font-bold text-center mb-8">Hospital, Care Facility & Funeral Home Delivery</h3>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                            <div>
-                                <h4 class="font-bold text-xl mb-4"><i class="fa-solid fa-hospital text-brand-yellow mr-2"></i>Hospitals & Care Facilities</h4>
-                                <ul class="space-y-3 text-gray-700">
-                                    <li><strong>Howard Memorial Hospital</strong><br><span class="text-sm">PO Box 381, Nashville, AR 71852 • (870) 845-4400</span></li>
-                                    <li><strong>Mine Creek Healthcare Center LLC</strong><br><span class="text-sm">1407 North Main Street, Nashville, AR 71852 • (870) 845-2021</span></li>
-                                    <li><strong>Nashville Nursing Center</strong><br><span class="text-sm">PO Box 376, Nashville, AR 71852 • (870) 845-4600</span></li>
-                                    <li><strong>Murfreesboro Nursing Center</strong><br><span class="text-sm">110 W 13th St, Murfreesboro, AR 71958 • (870) 285-2186</span></li>
-                                    <li><strong>Pike County Memorial Hospital</strong><br><span class="text-sm">PO Box F, Murfreesboro, AR 71958 • (870) 285-3182</span></li>
-                                </ul>
-                                <a href="https://www.picalilyflowers.net/hospital-delivery.php" target="_blank" rel="noopener noreferrer" class="inline-block mt-5 font-bold border-b-2 border-brand-yellow hover:text-brand-yellow transition-colors">Hospital Delivery Details</a>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl mb-4"><i class="fa-solid fa-church text-brand-yellow mr-2"></i>Funeral Homes</h4>
-                                <ul class="space-y-3 text-gray-700">
-                                    <li><strong>Latimer Funeral Home</strong><br><span class="text-sm">115 E Hempstead St, Nashville, AR 71852 • (870) 845-2233</span></li>
-                                    <li><strong>Nashville Funeral Home</strong><br><span class="text-sm">1208 W Sunset St, Nashville, AR 71852 • (870) 845-1398</span></li>
-                                    <li><strong>Wilkerson Funeral Home Inc.</strong><br><span class="text-sm">110 E 4 St, Dierks, AR 71833 • (870) 286-3088</span></li>
-                                    <li><strong>Latimer Funeral Home</strong><br><span class="text-sm">1211 Anthony Ave, Murfreesboro, AR 71958 • (870) 285-2194</span></li>
-                                </ul>
-                                <a href="https://www.picalilyflowers.net/funeral-home-delivery.php" target="_blank" rel="noopener noreferrer" class="inline-block mt-5 font-bold border-b-2 border-brand-yellow hover:text-brand-yellow transition-colors">Funeral Delivery Details</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pricing & Substitution Policy -->
-                    <div class="policy-card mt-12 bg-white rounded-xl shadow-md border border-[#D6BBC5] p-8 md:p-10">
-                        <h3 class="text-3xl font-serif font-bold text-center mb-6">Pricing & Substitution Policy</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-600">
-                            <div>
-                                <p class="mb-4"><strong class="text-brand-black">Prices and fees:</strong> Product prices do not include applicable service fees, delivery fees, taxes, or optional tips. These charges are calculated before payment during checkout and may vary by delivery location, timing, and handling requirements.</p>
-                                <p><strong class="text-brand-black">Substitutions:</strong> Seasonal availability may require substitutions. Picalily will preserve the arrangement's overall style, theme, and value whenever substitutions are necessary.</p>
-                            </div>
-                            <div>
-                                <p class="mb-4"><strong class="text-brand-black">Returns and replacements:</strong> If there is a concern with an order, call Picalily directly to discuss the available return or replacement options.</p>
-                                <a href="https://www.picalilyflowers.net/pricing-substitution-policy" target="_blank" rel="noopener noreferrer" class="font-bold text-brand-black border-b-2 border-brand-yellow hover:text-brand-yellow transition-colors">Read the Complete Policy <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
-                            </div>
-                        </div>
+                    <div class="mt-10 text-center">
+                        <button onclick="navigate('faq')" class="inline-flex items-center gap-3 rounded-full border border-[#C99EAC] bg-white px-7 py-3.5 font-bold text-brand-black shadow-sm transition hover:bg-[#FCE8EE]">
+                            <i class="fa-solid fa-circle-question"></i>
+                            Frequently Asked Questions
+                        </button>
                     </div>
                 </div>
 
-                <!-- Divider -->
                 <div class="border-t-2 border-brand-yellow/50 w-full max-w-3xl mx-auto"></div>
 
                 <!-- Bakery Section -->
@@ -1543,14 +1432,18 @@
                         <p class="mt-4 max-w-3xl mx-auto text-gray-600">
                             Itty Bitty Bakery is a small bakery operating as part of Amelia's Picalily Flowers. We offer handmade bakery items, including mini cakes, cupcakes, sheet cakes, cookie baskets, and other sweet treats. Because our bakery is small, we do not make large tiered wedding cakes or cakes requiring fondant décor.
                         </p>
+                        <div class="mt-6 max-w-3xl mx-auto rounded-2xl bg-white/80 border border-[#E1C7CF] p-6 text-left">
+                            <h3 class="text-2xl font-serif font-bold mb-3 text-center">About Shelby and Elaine</h3>
+                            <p class="text-gray-600 leading-relaxed">Customer-provided details about Shelby and Elaine will be added here.</p>
+                        </div>
                         
                         <div class="mt-8 inline-block bg-[#FFF3CE] text-brand-black px-6 py-4 rounded-xl shadow-md border-2 border-[#F1C85B]">
                             <i class="fa-solid fa-triangle-exclamation text-brand-yellow mr-2 text-xl"></i>
-                            <span class="font-bold text-lg">Please Note: Special orders or flavors require one week's notice.</span>
+                            <span class="font-bold text-lg">Please Note: Special orders and catering require two weeks' notice.</span>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-[#DCC8CF]">
                             <i class="fa-solid fa-basket-shopping text-3xl text-brand-yellow mb-4"></i>
                             <h4 class="font-bold text-lg">Gourmet Gift Baskets</h4>
@@ -1560,6 +1453,11 @@
                             <i class="fa-solid fa-cookie-bite text-3xl text-brand-yellow mb-4"></i>
                             <h4 class="font-bold text-lg">Cakes & Cupcakes</h4>
                             <p class="text-sm text-gray-500 mt-2">Handmade mini cakes, sheet cakes, and cupcakes.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-[#DCC8CF] cursor-pointer" onclick="navigateInventory('Bakery & Sweets')">
+                            <i class="fa-solid fa-store text-3xl text-brand-yellow mb-4"></i>
+                            <h4 class="font-bold text-lg">Fresh from our Bakery Case</h4>
+                            <p class="text-sm text-gray-500 mt-2">See what is available from the bakery right now.</p>
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-sm border border-[#DCC8CF]">
                             <i class="fa-solid fa-candy-cane text-3xl text-brand-yellow mb-4"></i>
@@ -1573,34 +1471,19 @@
                         </div>
                     </div>
 
-                    <!-- Bakery Menu Details -->
+                    <!-- Bakery Menu Images (customer assets pending) -->
                     <div class="mt-16 text-center">
-                        <h3 class="section-heading text-3xl font-serif font-bold mb-8">Our Menus</h3>
+                        <h3 class="section-heading text-3xl font-serif font-bold mb-8">Bakery & Take-and-Bake Menus</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-bold text-xl mb-4 bg-[#FCE8EE] text-brand-black py-3 rounded-t-lg border border-[#F0C9D4]">Bakery Menu</h4>
-                                <div class="bg-white p-6 border-2 border-brand-black rounded-b-lg shadow-xl h-[500px] flex items-center justify-center bg-gray-50">
-                                    <div class="text-left text-gray-700 w-full max-w-sm space-y-4">
-                                        <div class="flex justify-between gap-4 border-b pb-2"><a href="https://www.picalilyflowers.net/product/5c2bc22e333bb/vanilla-mini-cake" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-brand-yellow">Vanilla Mini Cake</a><strong>$17</strong></div>
-                                        <div class="flex justify-between gap-4 border-b pb-2"><a href="https://www.picalilyflowers.net/product/5c2bc6484ee4b/4-chocolate-mini-cake" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-brand-yellow">4&quot; Chocolate Mini Cake</a><strong>$15</strong></div>
-                                        <div class="flex justify-between gap-4 border-b pb-2"><a href="https://www.picalilyflowers.net/product/5c2bc99aaa916/4-pack-standard" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-brand-yellow">4-Pack Standard Cupcakes</a><strong>$16</strong></div>
-                                        <div class="flex justify-between gap-4 border-b pb-2"><a href="https://www.picalilyflowers.net/product/5c2bcc0072301/sheet-cake" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-brand-yellow">Sheet Cake</a><strong>$30</strong></div>
-                                        <div class="flex justify-between gap-4 border-b pb-2"><a href="https://www.picalilyflowers.net/product/5c2bcf905fb88/cookie-basket" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-brand-yellow">Cookie Basket</a><strong>$10</strong></div>
-                                        <div class="flex justify-between gap-4 border-b pb-2"><a href="https://www.picalilyflowers.net/product/gb00409/chocolate-lovers-basket" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-brand-yellow">Chocolate Lovers' Basket</a><strong>$50</strong></div>
-                                        <div class="flex justify-between gap-4"><a href="https://www.picalilyflowers.net/product/69ff2b3f152d43.19625/strawberry-shortcake" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-brand-yellow">Strawberry Shortcake</a><strong>Call</strong></div>
-                                    </div>
-                                </div>
+                            <div class="rounded-2xl border-2 border-dashed border-[#D7B6C1] bg-white p-10 shadow-sm">
+                                <i class="fa-solid fa-image text-4xl text-[#B86684] mb-4"></i>
+                                <h4 class="font-bold text-xl mb-2">Bakery Menu</h4>
+                                <p class="text-sm text-gray-500">Customer Canva menu image will be placed here.</p>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-xl mb-4 bg-brand-yellow text-brand-black py-2 rounded-t-lg">Special Order Menu</h4>
-                                <div class="bg-white p-6 border-2 border-brand-yellow rounded-b-lg shadow-xl h-[500px] flex items-center justify-center bg-gray-50">
-                                    <div class="text-center text-gray-700 max-w-sm">
-                                        <i class="fa-solid fa-phone text-4xl text-brand-yellow mb-5"></i>
-                                        <p class="font-bold text-xl mb-4">Planning a special flavor or bakery order?</p>
-                                        <p class="mb-6 leading-relaxed">Please call at least one week before the requested pickup or delivery date. Large tiered wedding cakes and cakes requiring fondant d&eacute;cor are not available.</p>
-                                        <a href="tel:+18708452738" class="inline-flex items-center justify-center gap-2 bg-[#E9A9B9] text-brand-black px-6 py-3 rounded-full font-bold hover:bg-brand-yellow transition-colors shadow-sm">Call (870) 845-2738</a>
-                                    </div>
-                                </div>
+                            <div class="rounded-2xl border-2 border-dashed border-[#D7B6C1] bg-white p-10 shadow-sm">
+                                <i class="fa-solid fa-image text-4xl text-[#B86684] mb-4"></i>
+                                <h4 class="font-bold text-xl mb-2">Take & Bake Menu</h4>
+                                <p class="text-sm text-gray-500">Customer Canva menu image will be placed here.</p>
                             </div>
                         </div>
                     </div>
@@ -1625,7 +1508,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Bath -->
-                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80" role="button" tabindex="0" onclick="navigateInventory('Bath & Body')">
                         <img src="photos/Gifts_and_Products/image_0002.jpg" alt="Bath Products" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Bath'">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
@@ -1636,7 +1519,7 @@
                     </div>
 
                     <!-- Home Decor -->
-                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80" role="button" tabindex="0" onclick="navigateInventory('Home Décor')">
                         <img src="photos/Home_Decor/image_0015.jpg" alt="Home Decor" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Home+Decor'">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
@@ -1647,7 +1530,7 @@
                     </div>
 
                     <!-- Candles -->
-                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80" role="button" tabindex="0" onclick="navigateInventory('Candles & Fragrance')">
                         <img src="photos/Gifts_and_Products/image_0030.jpg" alt="Candles" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Candles'">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
@@ -1658,7 +1541,7 @@
                     </div>
 
                     <!-- Clothing -->
-                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80 md:col-span-2 lg:col-span-1 lg:col-start-2">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80" role="button" tabindex="0" onclick="navigateInventory('Clothing & Apparel')">
                         <img src="photos/Clothing/image_0016.jpg" alt="Clothing" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Clothing'">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
@@ -1669,7 +1552,7 @@
                     </div>
 
                     <!-- Accessories -->
-                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80 md:col-span-2 lg:col-span-1">
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80" role="button" tabindex="0" onclick="navigateInventory('Jewelry & Accessories')">
                         <img src="photos/Jewelry_and_Accessories/image_0024.jpg" alt="Accessories" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/171717/FBBF24?text=Accessories'">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
                             <div>
@@ -1679,18 +1562,24 @@
                         </div>
                     </div>
 
+                    <!-- Laundry -->
+                    <div class="gift-photo-card group relative overflow-hidden rounded-2xl shadow-lg h-80 cursor-pointer" role="button" tabindex="0" onclick="navigateInventory('Gifts & Boutique')">
+                        <div class="w-full h-full bg-gradient-to-br from-[#FCE8EE] via-[#FFF7DB] to-[#EAF7EE] flex items-center justify-center" aria-label="Laundry photo pending">
+                            <div class="text-center text-[#8A4660]">
+                                <i class="fa-solid fa-shirt text-5xl mb-3"></i>
+                                <p class="text-sm font-bold uppercase tracking-widest">Photo Pending</p>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#4B2F3C]/88 via-[#6B4656]/36 to-transparent flex items-end p-8">
+                            <div>
+                                <h3 class="text-3xl font-serif font-bold text-white mb-2">Laundry</h3>
+                                <p class="photo-overlay-copy text-gray-300 text-sm font-medium">Fresh, practical laundry favorites for home and gifting.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="mt-16 bg-gradient-to-br from-[#FCE8EE] via-[#FFF7DB] to-[#EAF7EE] text-brand-black rounded-2xl p-8 md:p-10 shadow-lg border border-[#F0CBD6] text-center">
-                    <i class="fa-solid fa-tags text-4xl text-brand-yellow mb-4"></i>
-                    <h3 class="section-heading text-3xl font-serif font-bold mb-4">Special Offers & Holiday Reminders</h3>
-                    <p class="text-[#57424E] max-w-3xl mx-auto mb-4">Current featured offers include Deal of the Day, Weekly Special, and Birthday Florals selections.</p>
-                    <p class="text-[#57424E] max-w-3xl mx-auto mb-8">Visit the special-offers page to view current pricing and join the mailing list for offers and holiday reminders.</p>
-                    <a href="https://www.picalilyflowers.net/special_offers.php" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg uppercase tracking-wide">
-                        <span>View Offers & Join Mailing List</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
             </div>
         </section>
 
@@ -1699,10 +1588,10 @@
         <section id="page-shop" class="page-section min-h-screen">
             <div class="page-heading-band bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-12 md:py-16 text-center border-b border-[#DDB6C2]">
                 <div class="max-w-5xl mx-auto px-4">
-                    <p class="text-brand-yellow uppercase tracking-[0.25em] text-xs md:text-sm font-semibold mb-3">Live Store Inventory</p>
-                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-black mb-4">Shop Amelia's Picalily</h1>
+                    <p class="text-brand-yellow uppercase tracking-[0.25em] text-xs md:text-sm font-semibold mb-3">Available In Store</p>
+                    <h1 id="inventory-page-title" class="text-4xl md:text-5xl font-serif font-bold text-brand-black mb-4">Browse Current Inventory</h1>
                     <p class="text-[#57424E] max-w-3xl mx-auto font-medium leading-relaxed">
-                        Browse current products directly from our in-store inventory. Products are automatically organized into easy-to-shop departments using the POS category plus each product's name and description.
+                        See what Amelia's Picalily currently has available in store.
                     </p>
                 </div>
             </div>
@@ -1810,17 +1699,75 @@
 
             <div class="registry-card max-w-4xl mx-auto px-6 sm:px-10 lg:px-12 py-16 md:py-20 text-center my-12 md:my-16">
                 <i class="fa-solid fa-gift text-6xl text-brand-yellow mb-8 block"></i>
-                <h2 class="section-heading text-4xl font-serif font-bold text-brand-black mb-6">Find or Create a Registry</h2>
-                <p class="text-xl text-gray-600 mb-12">
-                    Access Amelia's Picalily bridal registry to create a registry, manage a wish list, or shop for a happy couple.
-                </p>
-                
-                <a href="https://ameliaspicalilyflowersandmore.myshoplocal.com/registry.cfm" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-[#E9A9B9] text-brand-black px-10 py-5 rounded-full font-bold text-lg hover:bg-brand-yellow transition-all shadow-[0_10px_30px_rgba(216,115,145,0.20)] hover:shadow-[0_10px_30px_rgba(244,201,93,0.28)] uppercase tracking-widest">
-                    <span>Access Registry Portal</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+                <h2 class="section-heading text-4xl font-serif font-bold text-brand-black mb-6">Bridal Registry</h2>
+                <p class="text-xl text-gray-600 mb-10">Find a registry, manage your own registry, or discover in-store favorites for the bride.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+                    <a href="https://ameliaspicalilyflowersandmore.myshoplocal.com/registry.cfm" target="_blank" rel="noopener noreferrer" class="rounded-2xl border border-[#D6BBC5] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        <i class="fa-solid fa-magnifying-glass text-2xl text-[#A83F65] mb-3"></i>
+                        <h3 class="font-serif text-xl font-bold mb-2">Find a Registry</h3>
+                        <p class="text-sm text-gray-600">Search for a couple's registry and shop their selected gifts.</p>
+                    </a>
+                    <a href="https://ameliaspicalilyflowersandmore.myshoplocal.com/registry.cfm" target="_blank" rel="noopener noreferrer" class="rounded-2xl border border-[#D6BBC5] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        <i class="fa-solid fa-right-to-bracket text-2xl text-[#A83F65] mb-3"></i>
+                        <h3 class="font-serif text-xl font-bold mb-2">Start or Login to Your Registry</h3>
+                        <p class="text-sm text-gray-600">Create a registry or sign in to manage your existing selections.</p>
+                    </a>
+                    <div class="rounded-2xl border border-[#D6BBC5] bg-white p-6 shadow-sm">
+                        <i class="fa-solid fa-gift text-2xl text-[#A83F65] mb-3"></i>
+                        <h3 class="font-serif text-xl font-bold mb-2">Great In-store Items for Any Bride</h3>
+                        <p class="text-sm text-gray-600">Visit Amelia's Picalily for thoughtful gifts and registry-ready finds.</p>
+                    </div>
+                </div>
+                <div class="mt-10 rounded-2xl border-2 border-dashed border-[#D7B6C1] bg-[#FFF8FA] p-8">
+                    <h3 class="font-serif text-2xl font-bold mb-2">Past Bridal Registry Showers</h3>
+                    <p class="text-gray-500">Customer-selected shower photos will be added here after the gallery is reorganized.</p>
+                </div>
+            </div>
+        </section>
 
-                <p class="mt-8 text-sm text-gray-400">This link will open securely in a new tab.</p>
+        <!-- ==================== FREQUENTLY ASKED QUESTIONS ==================== -->
+        <section id="page-faq" class="page-section bg-[#FFFDF8] min-h-screen pb-20">
+            <div class="page-heading-band bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] py-16 text-center border-b border-[#DDB6C2]">
+                <h1 class="text-5xl font-serif font-bold text-brand-black mb-4">Frequently Asked Questions</h1>
+                <div class="w-24 h-1 bg-brand-yellow mx-auto"></div>
+            </div>
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-4">
+                <details class="rounded-2xl border border-[#D6BBC5] bg-white p-6 shadow-sm" open>
+                    <summary class="cursor-pointer font-serif text-2xl font-bold">About Amelia's Picalily</summary>
+                    <div class="mt-4 space-y-4 text-gray-600 leading-relaxed">
+                        <p>Amelia's Picalily Flowers and More is a local Nashville, Arkansas, florist offering fresh flowers and creative gift ideas for weddings, special events, celebrations, sympathy, and everyday moments.</p>
+                        <p>Along with floral design, we offer gourmet and fruit baskets, baked goods, homemade fudge, plants, home décor, baby gifts, balloons, plush animals, and other unique gifts. The <strong>Itty Bitty Bakery</strong> operates as part of Amelia's Picalily and makes handmade treats with quality ingredients and scratch recipes.</p>
+                    </div>
+                </details>
+                <details class="rounded-2xl border border-[#D6BBC5] bg-white p-6 shadow-sm">
+                    <summary class="cursor-pointer font-serif text-2xl font-bold">Do you deliver flowers?</summary>
+                    <div class="mt-4 text-gray-600 leading-relaxed">
+                        <p>Yes. Delivery is available in Nashville and surrounding communities including Center Point, Dierks, Mineral Springs, and Murfreesboro. Delivery is also available to local funeral homes, hospitals, nursing homes, and care facilities.</p>
+                    </div>
+                </details>
+                <details class="rounded-2xl border border-[#D6BBC5] bg-white p-6 shadow-sm">
+                    <summary class="cursor-pointer font-serif text-2xl font-bold">Can I place a custom floral order?</summary>
+                    <div class="mt-4 text-gray-600 leading-relaxed">
+                        <p>Yes. Custom arrangements are available for anniversaries, birthdays, funerals, get-well gifts, new babies, and other occasions. Call the shop for special requests, timing, and flower availability.</p>
+                    </div>
+                </details>
+                <details class="rounded-2xl border border-[#D6BBC5] bg-white p-6 shadow-sm">
+                    <summary class="cursor-pointer font-serif text-2xl font-bold">How far ahead should I order from Itty Bitty Bakery?</summary>
+                    <div class="mt-4 text-gray-600 leading-relaxed">
+                        <p>Special bakery orders and catering require at least two weeks' notice. Availability may vary, so calling early is recommended.</p>
+                    </div>
+                </details>
+                <details class="rounded-2xl border border-[#D6BBC5] bg-white p-6 shadow-sm">
+                    <summary class="cursor-pointer font-serif text-2xl font-bold">What happens if flowers or containers are unavailable?</summary>
+                    <div class="mt-4 text-gray-600 leading-relaxed">
+                        <p>Seasonal availability may require substitutions. Amelia's Picalily will preserve the arrangement's overall style, theme, and value whenever substitutions are necessary.</p>
+                    </div>
+                </details>
+                <div class="text-center pt-6">
+                    <a href="tel:+18708452738" class="inline-flex items-center gap-2 rounded-full bg-brand-yellow px-7 py-3.5 font-bold text-brand-black shadow-sm">
+                        <i class="fa-solid fa-phone"></i> Call (870) 845-2738
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -1833,13 +1780,13 @@
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 text-center">
                 <div class="wedding-intro-card max-w-4xl mx-auto mb-16">
-                    <h2 class="section-heading text-3xl md:text-4xl font-serif font-bold text-brand-black mb-6">Your Dream Day, Flawlessly Executed</h2>
+                    <h2 class="section-heading text-3xl md:text-4xl font-serif font-bold text-brand-black mb-6">Your One-stop Wedding Shop!</h2>
                     <p class="text-lg text-gray-700 mx-auto leading-relaxed">
                         At Amelia's Picalily Flowers and More, we believe your wedding day should reflect your individual style and budget. Our talented designers create custom bouquets, flower arrangements, and on-site décor for weddings and special events of every size. Call us to schedule a consultation and begin planning your flowers. We also rent wedding equipment and tuxedos.
                     </p>
                 </div>
 
-                <h3 class="gallery-heading text-3xl font-serif font-bold text-brand-black mb-10 inline-flex items-center justify-center">Wedding Gallery</h3>
+                <h3 class="gallery-heading text-3xl font-serif font-bold text-brand-black mb-10 inline-flex items-center justify-center">Photo Gallery</h3>
                 
                 <!-- Masonry Grid for Wedding Photos -->
                 <div id="masonry-container" class="masonry-grid text-left">
@@ -1953,7 +1900,6 @@
                         <li><button onclick="navigate('home')" class="hover:text-[#913456] transition-colors">Home</button></li>
                         <li><button onclick="navigate('floral')" class="hover:text-[#913456] transition-colors">Floral</button></li>
                         <li><button onclick="navigate('gifts')" class="hover:text-[#913456] transition-colors">Gifts/Boutique</button></li>
-                        <li><button onclick="navigate('shop')" class="hover:text-[#913456] transition-colors">Shop Live Inventory</button></li>
                         <li><button onclick="navigate('registry')" class="hover:text-[#913456] transition-colors">Bridal Registry</button></li>
                         <li><button onclick="navigate('wedding')" class="hover:text-[#913456] transition-colors">Wedding</button></li>
                     </ul>
@@ -1979,54 +1925,802 @@
         // --- 1. DATA INGESTION: ALL PROVIDED IMAGES ---
         // (Full array retained to ensure no loss of original image references and for the Wedding Gallery filter)
         const allImages = [
-            { cat: "Clothing", url: "photos/Clothing/image_0016.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0017.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0045.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0052.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0064.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0151.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0161.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0183.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0393.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0407.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0425.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0438.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0447.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0463.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0466.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0506.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0592.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0642.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0649.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0676.jpg" }, { cat: "Clothing", url: "photos/Clothing/image_0689.jpg" },
-            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0012.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0026.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0037.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0049.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0080.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0090.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0096.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0135.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0149.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0154.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0168.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0178.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0182.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0194.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0228.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0245.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0321.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0344.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0348.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0365.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0370.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0374.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0420.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0437.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0453.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0454.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0458.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0459.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0484.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0515.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0517.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0586.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0645.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0665.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0667.jpg" }, { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0694.jpg" },
-            { cat: "Events", url: "photos/Events_and_Venues/image_0055.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0103.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0107.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0114.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0116.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0125.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0128.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0130.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0134.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0141.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0145.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0158.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0195.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0196.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0197.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0198.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0206.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0207.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0209.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0223.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0239.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0255.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0266.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0319.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0325.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0329.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0363.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0377.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0468.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0473.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0491.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0495.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0555.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0577.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0593.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0596.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0598.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0600.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0622.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0637.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0641.jpg" }, { cat: "Events", url: "photos/Events_and_Venues/image_0702.jpg" },
-            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0008.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0033.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0036.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0046.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0051.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0058.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0065.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0069.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0072.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0083.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0092.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0105.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0119.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0131.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0137.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0140.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0143.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0159.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0170.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0175.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0180.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0191.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0192.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0210.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0211.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0212.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0213.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0215.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0217.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0218.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0221.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0222.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0224.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0227.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0230.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0232.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0234.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0238.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0241.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0249.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0260.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0261.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0264.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0268.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0271.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0274.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0277.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0281.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0309.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0312.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0316.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0322.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0337.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0342.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0350.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0353.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0366.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0383.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0386.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0388.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0390.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0400.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0404.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0415.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0419.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0445.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0448.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0451.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0457.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0474.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0478.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0479.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0492.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0497.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0507.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0512.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0523.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0527.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0528.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0532.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0533.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0534.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0537.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0538.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0539.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0541.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0543.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0544.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0545.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0548.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0549.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0550.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0552.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0553.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0554.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0556.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0557.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0560.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0563.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0565.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0568.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0569.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0572.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0575.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0576.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0578.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0580.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0582.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0584.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0587.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0597.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0605.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0606.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0608.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0610.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0612.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0615.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0616.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0619.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0628.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0634.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0636.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0638.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0640.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0648.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0654.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0655.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0656.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0658.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0659.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0660.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0661.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0662.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0670.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0674.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0693.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0713.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0715.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0717.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0718.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0719.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0720.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0728.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0729.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0731.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0733.jpg" }, { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0736.jpg" },
-            { cat: "Food", url: "photos/Food/image_0001.jpg" }, { cat: "Food", url: "photos/Food/image_0004.jpg" }, { cat: "Food", url: "photos/Food/image_0005.jpg" }, { cat: "Food", url: "photos/Food/image_0009.jpg" }, { cat: "Food", url: "photos/Food/image_0011.jpg" }, { cat: "Food", url: "photos/Food/image_0013.jpg" }, { cat: "Food", url: "photos/Food/image_0023.jpg" }, { cat: "Food", url: "photos/Food/image_0027.jpg" }, { cat: "Food", url: "photos/Food/image_0029.jpg" }, { cat: "Food", url: "photos/Food/image_0032.jpg" }, { cat: "Food", url: "photos/Food/image_0035.jpg" }, { cat: "Food", url: "photos/Food/image_0040.jpg" }, { cat: "Food", url: "photos/Food/image_0041.jpg" }, { cat: "Food", url: "photos/Food/image_0043.jpg" }, { cat: "Food", url: "photos/Food/image_0050.jpg" }, { cat: "Food", url: "photos/Food/image_0053.jpg" }, { cat: "Food", url: "photos/Food/image_0056.jpg" }, { cat: "Food", url: "photos/Food/image_0060.jpg" }, { cat: "Food", url: "photos/Food/image_0063.jpg" }, { cat: "Food", url: "photos/Food/image_0068.jpg" }, { cat: "Food", url: "photos/Food/image_0077.jpg" }, { cat: "Food", url: "photos/Food/image_0084.jpg" }, { cat: "Food", url: "photos/Food/image_0086.jpg" }, { cat: "Food", url: "photos/Food/image_0087.jpg" }, { cat: "Food", url: "photos/Food/image_0093.jpg" }, { cat: "Food", url: "photos/Food/image_0094.jpg" }, { cat: "Food", url: "photos/Food/image_0106.jpg" }, { cat: "Food", url: "photos/Food/image_0117.jpg" }, { cat: "Food", url: "photos/Food/image_0121.jpg" }, { cat: "Food", url: "photos/Food/image_0122.jpg" }, { cat: "Food", url: "photos/Food/image_0127.jpg" }, { cat: "Food", url: "photos/Food/image_0132.jpg" }, { cat: "Food", url: "photos/Food/image_0136.jpg" }, { cat: "Food", url: "photos/Food/image_0139.jpg" }, { cat: "Food", url: "photos/Food/image_0142.jpg" }, { cat: "Food", url: "photos/Food/image_0146.jpg" }, { cat: "Food", url: "photos/Food/image_0150.jpg" }, { cat: "Food", url: "photos/Food/image_0156.jpg" }, { cat: "Food", url: "photos/Food/image_0166.jpg" }, { cat: "Food", url: "photos/Food/image_0167.jpg" }, { cat: "Food", url: "photos/Food/image_0172.jpg" }, { cat: "Food", url: "photos/Food/image_0173.jpg" }, { cat: "Food", url: "photos/Food/image_0177.jpg" }, { cat: "Food", url: "photos/Food/image_0193.jpg" }, { cat: "Food", url: "photos/Food/image_0199.jpg" }, { cat: "Food", url: "photos/Food/image_0204.jpg" }, { cat: "Food", url: "photos/Food/image_0208.jpg" }, { cat: "Food", url: "photos/Food/image_0233.jpg" }, { cat: "Food", url: "photos/Food/image_0235.jpg" }, { cat: "Food", url: "photos/Food/image_0242.jpg" }, { cat: "Food", url: "photos/Food/image_0284.jpg" }, { cat: "Food", url: "photos/Food/image_0287.jpg" }, { cat: "Food", url: "photos/Food/image_0290.jpg" }, { cat: "Food", url: "photos/Food/image_0294.jpg" }, { cat: "Food", url: "photos/Food/image_0296.jpg" }, { cat: "Food", url: "photos/Food/image_0308.jpg" }, { cat: "Food", url: "photos/Food/image_0311.jpg" }, { cat: "Food", url: "photos/Food/image_0313.jpg" }, { cat: "Food", url: "photos/Food/image_0318.jpg" }, { cat: "Food", url: "photos/Food/image_0324.jpg" }, { cat: "Food", url: "photos/Food/image_0326.jpg" }, { cat: "Food", url: "photos/Food/image_0328.jpg" }, { cat: "Food", url: "photos/Food/image_0335.jpg" }, { cat: "Food", url: "photos/Food/image_0340.jpg" }, { cat: "Food", url: "photos/Food/image_0355.jpg" }, { cat: "Food", url: "photos/Food/image_0356.jpg" }, { cat: "Food", url: "photos/Food/image_0358.jpg" }, { cat: "Food", url: "photos/Food/image_0364.jpg" }, { cat: "Food", url: "photos/Food/image_0368.jpg" }, { cat: "Food", url: "photos/Food/image_0371.jpg" }, { cat: "Food", url: "photos/Food/image_0372.jpg" }, { cat: "Food", url: "photos/Food/image_0376.jpg" }, { cat: "Food", url: "photos/Food/image_0379.jpg" }, { cat: "Food", url: "photos/Food/image_0380.jpg" }, { cat: "Food", url: "photos/Food/image_0382.jpg" }, { cat: "Food", url: "photos/Food/image_0392.jpg" }, { cat: "Food", url: "photos/Food/image_0394.jpg" }, { cat: "Food", url: "photos/Food/image_0395.jpg" }, { cat: "Food", url: "photos/Food/image_0397.jpg" }, { cat: "Food", url: "photos/Food/image_0399.jpg" }, { cat: "Food", url: "photos/Food/image_0402.jpg" }, { cat: "Food", url: "photos/Food/image_0406.jpg" }, { cat: "Food", url: "photos/Food/image_0408.jpg" }, { cat: "Food", url: "photos/Food/image_0409.jpg" }, { cat: "Food", url: "photos/Food/image_0412.jpg" }, { cat: "Food", url: "photos/Food/image_0413.jpg" }, { cat: "Food", url: "photos/Food/image_0416.jpg" }, { cat: "Food", url: "photos/Food/image_0417.jpg" }, { cat: "Food", url: "photos/Food/image_0422.jpg" }, { cat: "Food", url: "photos/Food/image_0428.jpg" }, { cat: "Food", url: "photos/Food/image_0429.jpg" }, { cat: "Food", url: "photos/Food/image_0430.jpg" }, { cat: "Food", url: "photos/Food/image_0431.jpg" }, { cat: "Food", url: "photos/Food/image_0433.jpg" }, { cat: "Food", url: "photos/Food/image_0435.jpg" }, { cat: "Food", url: "photos/Food/image_0436.jpg" }, { cat: "Food", url: "photos/Food/image_0450.jpg" }, { cat: "Food", url: "photos/Food/image_0452.jpg" }, { cat: "Food", url: "photos/Food/image_0456.jpg" }, { cat: "Food", url: "photos/Food/image_0462.jpg" }, { cat: "Food", url: "photos/Food/image_0470.jpg" }, { cat: "Food", url: "photos/Food/image_0472.jpg" }, { cat: "Food", url: "photos/Food/image_0480.jpg" }, { cat: "Food", url: "photos/Food/image_0482.jpg" }, { cat: "Food", url: "photos/Food/image_0485.jpg" }, { cat: "Food", url: "photos/Food/image_0490.jpg" }, { cat: "Food", url: "photos/Food/image_0493.jpg" }, { cat: "Food", url: "photos/Food/image_0494.jpg" }, { cat: "Food", url: "photos/Food/image_0496.jpg" }, { cat: "Food", url: "photos/Food/image_0501.jpg" }, { cat: "Food", url: "photos/Food/image_0502.jpg" }, { cat: "Food", url: "photos/Food/image_0503.jpg" }, { cat: "Food", url: "photos/Food/image_0505.jpg" }, { cat: "Food", url: "photos/Food/image_0522.jpg" }, { cat: "Food", url: "photos/Food/image_0530.jpg" }, { cat: "Food", url: "photos/Food/image_0531.jpg" }, { cat: "Food", url: "photos/Food/image_0540.jpg" }, { cat: "Food", url: "photos/Food/image_0558.jpg" }, { cat: "Food", url: "photos/Food/image_0561.jpg" }, { cat: "Food", url: "photos/Food/image_0570.jpg" }, { cat: "Food", url: "photos/Food/image_0574.jpg" }, { cat: "Food", url: "photos/Food/image_0589.jpg" }, { cat: "Food", url: "photos/Food/image_0601.jpg" }, { cat: "Food", url: "photos/Food/image_0604.jpg" }, { cat: "Food", url: "photos/Food/image_0611.jpg" }, { cat: "Food", url: "photos/Food/image_0614.jpg" }, { cat: "Food", url: "photos/Food/image_0646.jpg" }, { cat: "Food", url: "photos/Food/image_0650.jpg" }, { cat: "Food", url: "photos/Food/image_0651.jpg" }, { cat: "Food", url: "photos/Food/image_0652.jpg" }, { cat: "Food", url: "photos/Food/image_0653.jpg" }, { cat: "Food", url: "photos/Food/image_0671.jpg" }, { cat: "Food", url: "photos/Food/image_0678.jpg" }, { cat: "Food", url: "photos/Food/image_0679.jpg" }, { cat: "Food", url: "photos/Food/image_0681.jpg" }, { cat: "Food", url: "photos/Food/image_0682.jpg" }, { cat: "Food", url: "photos/Food/image_0684.jpg" }, { cat: "Food", url: "photos/Food/image_0685.jpg" }, { cat: "Food", url: "photos/Food/image_0686.jpg" }, { cat: "Food", url: "photos/Food/image_0691.jpg" }, { cat: "Food", url: "photos/Food/image_0696.jpg" }, { cat: "Food", url: "photos/Food/image_0697.jpg" }, { cat: "Food", url: "photos/Food/image_0698.jpg" }, { cat: "Food", url: "photos/Food/image_0701.jpg" }, { cat: "Food", url: "photos/Food/image_0705.jpg" }, { cat: "Food", url: "photos/Food/image_0712.jpg" },
-            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0002.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0006.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0007.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0018.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0019.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0022.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0030.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0074.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0360.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0369.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0535.jpg" }, { cat: "Gifts", url: "photos/Gifts_and_Products/image_0657.jpg" },
-            { cat: "Graphics", url: "photos/Graphics/image_0010.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0047.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0057.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0070.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0091.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0101.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0104.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0108.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0113.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0144.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0162.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0163.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0171.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0181.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0188.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0267.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0331.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0440.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0487.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0526.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0588.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0599.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0626.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0663.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0666.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0706.jpg" }, { cat: "Graphics", url: "photos/Graphics/image_0735.jpg" },
-            { cat: "Home Decor", url: "photos/Home_Decor/image_0015.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0021.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0025.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0044.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0054.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0059.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0062.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0066.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0073.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0075.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0076.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0078.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0082.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0095.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0098.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0099.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0100.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0102.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0109.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0169.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0220.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0226.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0236.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0251.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0252.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0256.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0279.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0285.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0300.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0306.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0333.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0336.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0351.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0352.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0424.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0476.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0488.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0504.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0511.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0513.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0525.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0585.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0687.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0690.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0703.jpg" }, { cat: "Home Decor", url: "photos/Home_Decor/image_0704.jpg" },
-            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0024.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0034.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0079.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0088.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0097.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0164.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0184.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0187.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0216.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0219.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0225.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0253.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0302.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0345.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0367.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0373.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0375.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0384.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0414.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0427.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0441.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0465.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0475.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0477.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0483.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0486.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0498.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0500.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0508.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0510.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0514.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0516.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0518.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0519.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0520.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0524.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0529.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0536.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0542.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0547.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0551.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0559.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0564.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0566.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0579.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0581.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0595.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0621.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0623.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0624.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0630.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0632.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0668.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0672.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0683.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0699.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0708.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0709.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0710.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0714.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0716.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0721.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0722.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0723.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0724.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0725.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0726.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0727.jpg" }, { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0730.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0016.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0017.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0045.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0052.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0064.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0151.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0161.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0183.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0393.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0407.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0425.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0438.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0447.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0463.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0466.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0506.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0592.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0642.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0649.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0676.jpg" },
+            { cat: "Clothing", url: "photos/Clothing/image_0689.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0012.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0026.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0037.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0049.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0080.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0096.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0135.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0149.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0154.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0168.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0178.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0182.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0194.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0228.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0245.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0321.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0348.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0365.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0370.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0374.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0420.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0437.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0452.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0453.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0454.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0458.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0459.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0484.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0515.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0586.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0645.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0665.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0667.jpg" },
+            { cat: "Drinks", url: "photos/Drinks_and_Drinkware/image_0694.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0103.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0107.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0114.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0116.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0125.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0130.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0134.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0141.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0145.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0158.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0195.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0196.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0206.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0207.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0209.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0255.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0266.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0319.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0325.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0363.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0377.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0468.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0473.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0491.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0555.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0577.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0593.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0622.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0637.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0641.jpg" },
+            { cat: "Events", url: "photos/Events_and_Venues/image_0702.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0033.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0036.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0046.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0051.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0055.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0058.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0065.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0069.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0072.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0074.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0092.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0119.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0127.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0131.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0137.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0140.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0143.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0159.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0169.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0170.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0175.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0180.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0191.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0192.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0199.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0204.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0210.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0211.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0212.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0213.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0215.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0217.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0218.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0221.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0224.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0227.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0230.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0232.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0234.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0238.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0239.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0241.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0252.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0260.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0264.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0267.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0271.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0274.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0277.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0281.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0312.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0316.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0322.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0337.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0342.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0350.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0351.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0353.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0361.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0366.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0369.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0378.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0383.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0386.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0387.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0388.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0389.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0390.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0400.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0415.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0418.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0419.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0445.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0448.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0449.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0457.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0471.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0474.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0478.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0481.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0492.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0497.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0507.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0508.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0511.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0512.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0513.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0517.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0518.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0523.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0527.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0528.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0532.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0537.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0538.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0539.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0541.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0544.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0545.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0548.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0549.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0552.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0554.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0557.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0560.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0563.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0565.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0568.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0569.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0573.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0578.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0580.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0581.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0582.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0583.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0584.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0597.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0598.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0600.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0603.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0605.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0606.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0608.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0610.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0612.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0615.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0616.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0619.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0623.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0624.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0626.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0634.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0636.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0655.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0656.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0657.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0658.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0659.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0660.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0661.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0662.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0663.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0670.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0674.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0693.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0703.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0720.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0727.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0731.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0732.jpg" },
+            { cat: "Flowers", url: "photos/Flowers_and_Plants/image_0733.jpg" },
+            { cat: "Food", url: "photos/Food/image_0001.jpg" },
+            { cat: "Food", url: "photos/Food/image_0004.jpg" },
+            { cat: "Food", url: "photos/Food/image_0005.jpg" },
+            { cat: "Food", url: "photos/Food/image_0009.jpg" },
+            { cat: "Food", url: "photos/Food/image_0011.jpg" },
+            { cat: "Food", url: "photos/Food/image_0013.jpg" },
+            { cat: "Food", url: "photos/Food/image_0023.jpg" },
+            { cat: "Food", url: "photos/Food/image_0027.jpg" },
+            { cat: "Food", url: "photos/Food/image_0029.jpg" },
+            { cat: "Food", url: "photos/Food/image_0032.jpg" },
+            { cat: "Food", url: "photos/Food/image_0035.jpg" },
+            { cat: "Food", url: "photos/Food/image_0040.jpg" },
+            { cat: "Food", url: "photos/Food/image_0041.jpg" },
+            { cat: "Food", url: "photos/Food/image_0043.jpg" },
+            { cat: "Food", url: "photos/Food/image_0047.jpg" },
+            { cat: "Food", url: "photos/Food/image_0050.jpg" },
+            { cat: "Food", url: "photos/Food/image_0053.jpg" },
+            { cat: "Food", url: "photos/Food/image_0056.jpg" },
+            { cat: "Food", url: "photos/Food/image_0060.jpg" },
+            { cat: "Food", url: "photos/Food/image_0063.jpg" },
+            { cat: "Food", url: "photos/Food/image_0068.jpg" },
+            { cat: "Food", url: "photos/Food/image_0077.jpg" },
+            { cat: "Food", url: "photos/Food/image_0084.jpg" },
+            { cat: "Food", url: "photos/Food/image_0086.jpg" },
+            { cat: "Food", url: "photos/Food/image_0087.jpg" },
+            { cat: "Food", url: "photos/Food/image_0091.jpg" },
+            { cat: "Food", url: "photos/Food/image_0093.jpg" },
+            { cat: "Food", url: "photos/Food/image_0094.jpg" },
+            { cat: "Food", url: "photos/Food/image_0105.jpg" },
+            { cat: "Food", url: "photos/Food/image_0106.jpg" },
+            { cat: "Food", url: "photos/Food/image_0117.jpg" },
+            { cat: "Food", url: "photos/Food/image_0121.jpg" },
+            { cat: "Food", url: "photos/Food/image_0122.jpg" },
+            { cat: "Food", url: "photos/Food/image_0128.jpg" },
+            { cat: "Food", url: "photos/Food/image_0132.jpg" },
+            { cat: "Food", url: "photos/Food/image_0136.jpg" },
+            { cat: "Food", url: "photos/Food/image_0139.jpg" },
+            { cat: "Food", url: "photos/Food/image_0142.jpg" },
+            { cat: "Food", url: "photos/Food/image_0146.jpg" },
+            { cat: "Food", url: "photos/Food/image_0150.jpg" },
+            { cat: "Food", url: "photos/Food/image_0156.jpg" },
+            { cat: "Food", url: "photos/Food/image_0166.jpg" },
+            { cat: "Food", url: "photos/Food/image_0167.jpg" },
+            { cat: "Food", url: "photos/Food/image_0172.jpg" },
+            { cat: "Food", url: "photos/Food/image_0173.jpg" },
+            { cat: "Food", url: "photos/Food/image_0177.jpg" },
+            { cat: "Food", url: "photos/Food/image_0193.jpg" },
+            { cat: "Food", url: "photos/Food/image_0197.jpg" },
+            { cat: "Food", url: "photos/Food/image_0201.jpg" },
+            { cat: "Food", url: "photos/Food/image_0208.jpg" },
+            { cat: "Food", url: "photos/Food/image_0233.jpg" },
+            { cat: "Food", url: "photos/Food/image_0235.jpg" },
+            { cat: "Food", url: "photos/Food/image_0242.jpg" },
+            { cat: "Food", url: "photos/Food/image_0284.jpg" },
+            { cat: "Food", url: "photos/Food/image_0287.jpg" },
+            { cat: "Food", url: "photos/Food/image_0290.jpg" },
+            { cat: "Food", url: "photos/Food/image_0294.jpg" },
+            { cat: "Food", url: "photos/Food/image_0296.jpg" },
+            { cat: "Food", url: "photos/Food/image_0308.jpg" },
+            { cat: "Food", url: "photos/Food/image_0309.jpg" },
+            { cat: "Food", url: "photos/Food/image_0311.jpg" },
+            { cat: "Food", url: "photos/Food/image_0313.jpg" },
+            { cat: "Food", url: "photos/Food/image_0318.jpg" },
+            { cat: "Food", url: "photos/Food/image_0324.jpg" },
+            { cat: "Food", url: "photos/Food/image_0326.jpg" },
+            { cat: "Food", url: "photos/Food/image_0328.jpg" },
+            { cat: "Food", url: "photos/Food/image_0335.jpg" },
+            { cat: "Food", url: "photos/Food/image_0340.jpg" },
+            { cat: "Food", url: "photos/Food/image_0344.jpg" },
+            { cat: "Food", url: "photos/Food/image_0355.jpg" },
+            { cat: "Food", url: "photos/Food/image_0356.jpg" },
+            { cat: "Food", url: "photos/Food/image_0358.jpg" },
+            { cat: "Food", url: "photos/Food/image_0364.jpg" },
+            { cat: "Food", url: "photos/Food/image_0368.jpg" },
+            { cat: "Food", url: "photos/Food/image_0371.jpg" },
+            { cat: "Food", url: "photos/Food/image_0372.jpg" },
+            { cat: "Food", url: "photos/Food/image_0376.jpg" },
+            { cat: "Food", url: "photos/Food/image_0379.jpg" },
+            { cat: "Food", url: "photos/Food/image_0380.jpg" },
+            { cat: "Food", url: "photos/Food/image_0382.jpg" },
+            { cat: "Food", url: "photos/Food/image_0392.jpg" },
+            { cat: "Food", url: "photos/Food/image_0394.jpg" },
+            { cat: "Food", url: "photos/Food/image_0395.jpg" },
+            { cat: "Food", url: "photos/Food/image_0397.jpg" },
+            { cat: "Food", url: "photos/Food/image_0399.jpg" },
+            { cat: "Food", url: "photos/Food/image_0402.jpg" },
+            { cat: "Food", url: "photos/Food/image_0406.jpg" },
+            { cat: "Food", url: "photos/Food/image_0408.jpg" },
+            { cat: "Food", url: "photos/Food/image_0409.jpg" },
+            { cat: "Food", url: "photos/Food/image_0412.jpg" },
+            { cat: "Food", url: "photos/Food/image_0413.jpg" },
+            { cat: "Food", url: "photos/Food/image_0416.jpg" },
+            { cat: "Food", url: "photos/Food/image_0417.jpg" },
+            { cat: "Food", url: "photos/Food/image_0422.jpg" },
+            { cat: "Food", url: "photos/Food/image_0428.jpg" },
+            { cat: "Food", url: "photos/Food/image_0429.jpg" },
+            { cat: "Food", url: "photos/Food/image_0430.jpg" },
+            { cat: "Food", url: "photos/Food/image_0431.jpg" },
+            { cat: "Food", url: "photos/Food/image_0433.jpg" },
+            { cat: "Food", url: "photos/Food/image_0435.jpg" },
+            { cat: "Food", url: "photos/Food/image_0436.jpg" },
+            { cat: "Food", url: "photos/Food/image_0450.jpg" },
+            { cat: "Food", url: "photos/Food/image_0451.jpg" },
+            { cat: "Food", url: "photos/Food/image_0455.jpg" },
+            { cat: "Food", url: "photos/Food/image_0456.jpg" },
+            { cat: "Food", url: "photos/Food/image_0462.jpg" },
+            { cat: "Food", url: "photos/Food/image_0470.jpg" },
+            { cat: "Food", url: "photos/Food/image_0472.jpg" },
+            { cat: "Food", url: "photos/Food/image_0480.jpg" },
+            { cat: "Food", url: "photos/Food/image_0482.jpg" },
+            { cat: "Food", url: "photos/Food/image_0485.jpg" },
+            { cat: "Food", url: "photos/Food/image_0490.jpg" },
+            { cat: "Food", url: "photos/Food/image_0493.jpg" },
+            { cat: "Food", url: "photos/Food/image_0494.jpg" },
+            { cat: "Food", url: "photos/Food/image_0496.jpg" },
+            { cat: "Food", url: "photos/Food/image_0501.jpg" },
+            { cat: "Food", url: "photos/Food/image_0502.jpg" },
+            { cat: "Food", url: "photos/Food/image_0503.jpg" },
+            { cat: "Food", url: "photos/Food/image_0505.jpg" },
+            { cat: "Food", url: "photos/Food/image_0522.jpg" },
+            { cat: "Food", url: "photos/Food/image_0530.jpg" },
+            { cat: "Food", url: "photos/Food/image_0531.jpg" },
+            { cat: "Food", url: "photos/Food/image_0540.jpg" },
+            { cat: "Food", url: "photos/Food/image_0558.jpg" },
+            { cat: "Food", url: "photos/Food/image_0561.jpg" },
+            { cat: "Food", url: "photos/Food/image_0570.jpg" },
+            { cat: "Food", url: "photos/Food/image_0574.jpg" },
+            { cat: "Food", url: "photos/Food/image_0589.jpg" },
+            { cat: "Food", url: "photos/Food/image_0601.jpg" },
+            { cat: "Food", url: "photos/Food/image_0604.jpg" },
+            { cat: "Food", url: "photos/Food/image_0611.jpg" },
+            { cat: "Food", url: "photos/Food/image_0614.jpg" },
+            { cat: "Food", url: "photos/Food/image_0646.jpg" },
+            { cat: "Food", url: "photos/Food/image_0650.jpg" },
+            { cat: "Food", url: "photos/Food/image_0651.jpg" },
+            { cat: "Food", url: "photos/Food/image_0652.jpg" },
+            { cat: "Food", url: "photos/Food/image_0653.jpg" },
+            { cat: "Food", url: "photos/Food/image_0671.jpg" },
+            { cat: "Food", url: "photos/Food/image_0678.jpg" },
+            { cat: "Food", url: "photos/Food/image_0679.jpg" },
+            { cat: "Food", url: "photos/Food/image_0681.jpg" },
+            { cat: "Food", url: "photos/Food/image_0682.jpg" },
+            { cat: "Food", url: "photos/Food/image_0684.jpg" },
+            { cat: "Food", url: "photos/Food/image_0685.jpg" },
+            { cat: "Food", url: "photos/Food/image_0686.jpg" },
+            { cat: "Food", url: "photos/Food/image_0691.jpg" },
+            { cat: "Food", url: "photos/Food/image_0696.jpg" },
+            { cat: "Food", url: "photos/Food/image_0697.jpg" },
+            { cat: "Food", url: "photos/Food/image_0698.jpg" },
+            { cat: "Food", url: "photos/Food/image_0701.jpg" },
+            { cat: "Food", url: "photos/Food/image_0705.jpg" },
+            { cat: "Food", url: "photos/Food/image_0712.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0002.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0006.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0007.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0018.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0019.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0022.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0030.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0090.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0179.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0216.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0360.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0443.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0469.jpg" },
+            { cat: "Gifts", url: "photos/Gifts_and_Products/image_0535.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0010.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0057.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0070.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0101.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0104.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0108.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0113.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0144.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0162.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0163.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0171.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0181.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0188.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0331.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0440.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0487.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0526.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0588.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0599.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0666.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0706.jpg" },
+            { cat: "Graphics", url: "photos/Graphics/image_0735.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0015.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0021.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0025.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0044.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0054.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0059.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0062.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0066.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0073.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0075.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0076.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0078.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0082.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0095.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0098.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0099.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0100.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0102.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0109.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0220.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0226.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0236.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0251.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0256.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0279.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0285.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0306.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0333.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0336.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0352.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0476.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0488.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0504.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0690.jpg" },
+            { cat: "Home Decor", url: "photos/Home_Decor/image_0704.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0024.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0028.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0034.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0079.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0088.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0097.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0164.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0184.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0187.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0219.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0225.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0253.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0302.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0345.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0367.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0373.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0375.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0384.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0414.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0427.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0441.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0465.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0475.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0477.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0483.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0486.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0498.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0510.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0520.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0559.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0564.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0579.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0595.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0630.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0668.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0683.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0699.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0708.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0710.jpg" },
+            { cat: "Jewelry", url: "photos/Jewelry_and_Accessories/image_0730.jpg" },
             { cat: "Logo", url: "photos/Logo/logo.jpg" },
-            { cat: "Other", url: "photos/Other_or_Unreadable/image_0111.img" },
-            { cat: "People", url: "photos/People/image_0014.jpg" }, { cat: "People", url: "photos/People/image_0031.jpg" }, { cat: "People", url: "photos/People/image_0038.jpg" }, { cat: "People", url: "photos/People/image_0039.jpg" }, { cat: "People", url: "photos/People/image_0071.jpg" }, { cat: "People", url: "photos/People/image_0147.jpg" }, { cat: "People", url: "photos/People/image_0153.jpg" }, { cat: "People", url: "photos/People/image_0157.jpg" }, { cat: "People", url: "photos/People/image_0174.jpg" }, { cat: "People", url: "photos/People/image_0185.jpg" }, { cat: "People", url: "photos/People/image_0186.jpg" }, { cat: "People", url: "photos/People/image_0190.jpg" }, { cat: "People", url: "photos/People/image_0201.jpg" }, { cat: "People", url: "photos/People/image_0349.jpg" }, { cat: "People", url: "photos/People/image_0357.jpg" }, { cat: "People", url: "photos/People/image_0361.jpg" }, { cat: "People", url: "photos/People/image_0362.jpg" }, { cat: "People", url: "photos/People/image_0378.jpg" }, { cat: "People", url: "photos/People/image_0381.jpg" }, { cat: "People", url: "photos/People/image_0385.jpg" }, { cat: "People", url: "photos/People/image_0387.jpg" }, { cat: "People", url: "photos/People/image_0389.jpg" }, { cat: "People", url: "photos/People/image_0391.jpg" }, { cat: "People", url: "photos/People/image_0396.jpg" }, { cat: "People", url: "photos/People/image_0398.jpg" }, { cat: "People", url: "photos/People/image_0401.jpg" }, { cat: "People", url: "photos/People/image_0405.jpg" }, { cat: "People", url: "photos/People/image_0411.jpg" }, { cat: "People", url: "photos/People/image_0423.jpg" }, { cat: "People", url: "photos/People/image_0426.jpg" }, { cat: "People", url: "photos/People/image_0432.jpg" }, { cat: "People", url: "photos/People/image_0439.jpg" }, { cat: "People", url: "photos/People/image_0444.jpg" }, { cat: "People", url: "photos/People/image_0446.jpg" }, { cat: "People", url: "photos/People/image_0449.jpg" }, { cat: "People", url: "photos/People/image_0455.jpg" }, { cat: "People", url: "photos/People/image_0460.jpg" }, { cat: "People", url: "photos/People/image_0461.jpg" }, { cat: "People", url: "photos/People/image_0467.jpg" }, { cat: "People", url: "photos/People/image_0489.jpg" }, { cat: "People", url: "photos/People/image_0499.jpg" }, { cat: "People", url: "photos/People/image_0509.jpg" }, { cat: "People", url: "photos/People/image_0521.jpg" }, { cat: "People", url: "photos/People/image_0567.jpg" }, { cat: "People", url: "photos/People/image_0571.jpg" }, { cat: "People", url: "photos/People/image_0573.jpg" }, { cat: "People", url: "photos/People/image_0583.jpg" }, { cat: "People", url: "photos/People/image_0590.jpg" }, { cat: "People", url: "photos/People/image_0594.jpg" }, { cat: "People", url: "photos/People/image_0603.jpg" }, { cat: "People", url: "photos/People/image_0617.jpg" }, { cat: "People", url: "photos/People/image_0643.jpg" }, { cat: "People", url: "photos/People/image_0644.jpg" }, { cat: "People", url: "photos/People/image_0647.jpg" }, { cat: "People", url: "photos/People/image_0664.jpg" }, { cat: "People", url: "photos/People/image_0669.jpg" }, { cat: "People", url: "photos/People/image_0673.jpg" }, { cat: "People", url: "photos/People/image_0675.jpg" }, { cat: "People", url: "photos/People/image_0677.jpg" }, { cat: "People", url: "photos/People/image_0680.jpg" }, { cat: "People", url: "photos/People/image_0688.jpg" }, { cat: "People", url: "photos/People/image_0695.jpg" }, { cat: "People", url: "photos/People/image_0700.jpg" }, { cat: "People", url: "photos/People/image_0707.jpg" }, { cat: "People", url: "photos/People/image_0734.jpg" },
-            { cat: "Pets", url: "photos/Pets/image_0061.jpg" }, { cat: "Pets", url: "photos/Pets/image_0089.jpg" }, { cat: "Pets", url: "photos/Pets/image_0205.jpg" }, { cat: "Pets", url: "photos/Pets/image_0403.jpg" },
-            { cat: "Store", url: "photos/Store_and_Displays/image_0003.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0020.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0028.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0067.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0081.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0085.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0160.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0179.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0189.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0304.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0305.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0315.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0410.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0418.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0434.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0442.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0443.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0464.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0469.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0471.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0481.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0546.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0711.jpg" }, { cat: "Store", url: "photos/Store_and_Displays/image_0732.jpg" }
+            { cat: "People", url: "photos/People/image_0014.jpg" },
+            { cat: "People", url: "photos/People/image_0031.jpg" },
+            { cat: "People", url: "photos/People/image_0038.jpg" },
+            { cat: "People", url: "photos/People/image_0039.jpg" },
+            { cat: "People", url: "photos/People/image_0071.jpg" },
+            { cat: "People", url: "photos/People/image_0147.jpg" },
+            { cat: "People", url: "photos/People/image_0153.jpg" },
+            { cat: "People", url: "photos/People/image_0157.jpg" },
+            { cat: "People", url: "photos/People/image_0185.jpg" },
+            { cat: "People", url: "photos/People/image_0186.jpg" },
+            { cat: "People", url: "photos/People/image_0190.jpg" },
+            { cat: "People", url: "photos/People/image_0349.jpg" },
+            { cat: "People", url: "photos/People/image_0357.jpg" },
+            { cat: "People", url: "photos/People/image_0362.jpg" },
+            { cat: "People", url: "photos/People/image_0385.jpg" },
+            { cat: "People", url: "photos/People/image_0391.jpg" },
+            { cat: "People", url: "photos/People/image_0396.jpg" },
+            { cat: "People", url: "photos/People/image_0398.jpg" },
+            { cat: "People", url: "photos/People/image_0401.jpg" },
+            { cat: "People", url: "photos/People/image_0405.jpg" },
+            { cat: "People", url: "photos/People/image_0411.jpg" },
+            { cat: "People", url: "photos/People/image_0423.jpg" },
+            { cat: "People", url: "photos/People/image_0426.jpg" },
+            { cat: "People", url: "photos/People/image_0432.jpg" },
+            { cat: "People", url: "photos/People/image_0439.jpg" },
+            { cat: "People", url: "photos/People/image_0444.jpg" },
+            { cat: "People", url: "photos/People/image_0446.jpg" },
+            { cat: "People", url: "photos/People/image_0461.jpg" },
+            { cat: "People", url: "photos/People/image_0467.jpg" },
+            { cat: "People", url: "photos/People/image_0499.jpg" },
+            { cat: "People", url: "photos/People/image_0509.jpg" },
+            { cat: "People", url: "photos/People/image_0521.jpg" },
+            { cat: "People", url: "photos/People/image_0617.jpg" },
+            { cat: "People", url: "photos/People/image_0644.jpg" },
+            { cat: "People", url: "photos/People/image_0647.jpg" },
+            { cat: "People", url: "photos/People/image_0664.jpg" },
+            { cat: "People", url: "photos/People/image_0669.jpg" },
+            { cat: "People", url: "photos/People/image_0675.jpg" },
+            { cat: "People", url: "photos/People/image_0680.jpg" },
+            { cat: "People", url: "photos/People/image_0688.jpg" },
+            { cat: "People", url: "photos/People/image_0695.jpg" },
+            { cat: "People", url: "photos/People/image_0700.jpg" },
+            { cat: "Pets", url: "photos/Pets/image_0061.jpg" },
+            { cat: "Pets", url: "photos/Pets/image_0089.jpg" },
+            { cat: "Pets", url: "photos/Pets/image_0174.jpg" },
+            { cat: "Pets", url: "photos/Pets/image_0205.jpg" },
+            { cat: "Pets", url: "photos/Pets/image_0403.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0003.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0020.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0067.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0081.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0085.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0160.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0189.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0305.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0315.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0410.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0434.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0442.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0464.jpg" },
+            { cat: "Store", url: "photos/Store_and_Displays/image_0546.jpg" },
+            { cat: "Sympathy & Funerals", url: "photos/Sympathy_and_Funerals/image_0223.jpg" },
+            { cat: "Sympathy & Funerals", url: "photos/Sympathy_and_Funerals/image_0329.jpg" },
+            { cat: "Sympathy & Funerals", url: "photos/Sympathy_and_Funerals/image_0525.jpg" },
+            { cat: "Sympathy & Funerals", url: "photos/Sympathy_and_Funerals/image_0566.jpg" },
+            { cat: "Sympathy & Funerals", url: "photos/Sympathy_and_Funerals/image_0594.jpg" },
+            { cat: "Sympathy & Funerals", url: "photos/Sympathy_and_Funerals/image_0596.jpg" },
+            { cat: "Sympathy & Funerals", url: "photos/Sympathy_and_Funerals/image_0687.jpg" },
+            { cat: "Sympathy & Funerals", url: "photos/Sympathy_and_Funerals/image_0711.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0008.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0083.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0198.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0222.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0249.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0261.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0268.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0300.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0304.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0381.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0404.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0424.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0460.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0479.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0489.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0495.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0500.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0514.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0516.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0519.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0524.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0529.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0533.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0534.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0536.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0542.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0543.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0547.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0550.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0551.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0553.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0556.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0567.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0571.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0572.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0575.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0576.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0585.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0587.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0590.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0621.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0628.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0632.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0638.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0640.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0643.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0648.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0654.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0672.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0673.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0677.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0707.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0709.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0713.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0714.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0715.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0716.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0717.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0718.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0719.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0721.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0722.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0723.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0724.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0725.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0726.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0728.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0729.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0734.jpg" },
+            { cat: "Wedding", url: "photos/Wedding/image_0736.jpg" },
         ];
 
         // --- 2. SINGLE PAGE APP (SPA) ROUTING ---
-        function navigate(pageId) {
-            // Hide all pages
+        // Hash routes keep every page/shareable inventory category refresh-safe on static hosting.
+        const PAGE_ROUTE_SLUGS = {
+            home: "home",
+            floral: "floral",
+            gifts: "gifts-boutique",
+            registry: "bridal-registry",
+            wedding: "wedding",
+            faq: "frequently-asked-questions"
+        };
+        const ROUTE_PAGE_IDS = Object.fromEntries(
+            Object.entries(PAGE_ROUTE_SLUGS).map(([pageId, slug]) => [slug, pageId])
+        );
+        let activeRouteKey = "";
+
+        function inventoryCategorySlug(category) {
+            return String(category || "")
+                .normalize("NFKD")
+                .replace(/[̀-ͯ]/g, "")
+                .replace(/&/g, " and ")
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-+|-+$/g, "");
+        }
+
+        function inventoryCategoryFromSlug(slug) {
+            if (!slug) return "";
+            return SHOP_CATEGORY_ORDER.find(category => inventoryCategorySlug(category) === slug) || "";
+        }
+
+        function pageRouteHash(pageId) {
+            return "#/" + (PAGE_ROUTE_SLUGS[pageId] || PAGE_ROUTE_SLUGS.home);
+        }
+
+        function inventoryRouteHash(category = "") {
+            const slug = inventoryCategorySlug(category);
+            return slug ? "#/inventory/" + slug : "#/inventory";
+        }
+
+        function setRouteHash(hash, {replace = false} = {}) {
+            if (!hash.startsWith("#/")) hash = "#/" + hash.replace(/^#?\/?/, "");
+            if (window.location.hash === hash) {
+                activeRouteKey = hash;
+                return;
+            }
+            const url = new URL(window.location.href);
+            url.hash = hash;
+            if (replace) history.replaceState({route: hash}, "", url);
+            else history.pushState({route: hash}, "", url);
+            activeRouteKey = hash;
+        }
+
+        function showPage(pageId) {
+            const target = document.getElementById('page-' + pageId);
+            if (!target) return false;
+
             document.querySelectorAll('.page-section').forEach(el => {
                 el.classList.remove('active');
             });
-            // Show target page
-            document.getElementById('page-' + pageId).classList.add('active');
-            
-            // Update Navigation active state
-            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active-nav'));
-            const activeLinks = document.querySelectorAll(`[data-target="${pageId}"]`);
-            activeLinks.forEach(el => el.classList.add('active-nav'));
+            target.classList.add('active');
 
-            // Close mobile menu if open
+            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active-nav'));
+            document.querySelectorAll(`[data-target="${pageId}"]`).forEach(el => el.classList.add('active-nav'));
+
             const menu = document.getElementById('mobile-menu');
             const icon = document.querySelector('#mobile-menu-btn i');
-            menu.classList.add('hidden');
-            icon.classList.remove('fa-xmark');
-            icon.classList.add('fa-bars');
+            menu?.classList.add('hidden');
+            icon?.classList.remove('fa-xmark');
+            icon?.classList.add('fa-bars');
 
-            // Scroll to top
             window.scrollTo(0, 0);
 
-            // Initialize Wedding Gallery only if navigating to wedding page and not yet populated
-            if(pageId === 'wedding' && document.getElementById('masonry-container').children.length === 0) {
+            if (pageId === 'wedding' && document.getElementById('masonry-container')?.children.length === 0) {
                 initWeddingGallery();
             }
-            if(pageId === 'shop') {
+            if (pageId === 'shop') {
                 initLiveShop();
             }
+            return true;
         }
+
+        function navigate(pageId, options = {}) {
+            const validPage = PAGE_ROUTE_SLUGS[pageId] ? pageId : "home";
+            showPage(validPage);
+            if (!options.fromRoute) {
+                setRouteHash(pageRouteHash(validPage), {replace: Boolean(options.replace)});
+            }
+        }
+
+        async function navigateInventory(category = "", options = {}) {
+            shopPendingCategory = category || "";
+            showPage('shop');
+
+            const title = document.getElementById('inventory-page-title');
+            if (title) title.textContent = category ? category : "Browse Current Inventory";
+
+            if (!options.fromRoute) {
+                setRouteHash(inventoryRouteHash(category), {replace: Boolean(options.replace)});
+            }
+
+            await initLiveShop();
+            if (shopLoaded) {
+                const select = document.getElementById('shop-category-filter');
+                if (select) {
+                    if (shopPendingCategory && [...select.options].some(o => o.value === shopPendingCategory)) {
+                        select.value = shopPendingCategory;
+                    } else if (!shopPendingCategory) {
+                        select.value = "";
+                    }
+                }
+                renderShop();
+            }
+        }
+
+        async function applyRouteFromLocation({replaceInvalid = false} = {}) {
+            const hash = window.location.hash || "";
+            if (hash === activeRouteKey) return;
+
+            const raw = hash.replace(/^#\/?/, "");
+            const parts = raw.split("/").filter(Boolean);
+            const root = parts[0] || "home";
+
+            if (root === "inventory") {
+                const requestedSlug = parts[1] || "";
+                const category = inventoryCategoryFromSlug(requestedSlug);
+                if (requestedSlug && !category) {
+                    await navigateInventory("", {fromRoute: true});
+                    setRouteHash(inventoryRouteHash(""), {replace: true});
+                    return;
+                }
+                activeRouteKey = inventoryRouteHash(category);
+                await navigateInventory(category, {fromRoute: true});
+                return;
+            }
+
+            const pageId = ROUTE_PAGE_IDS[root] || (root === "home" ? "home" : "");
+            if (!pageId) {
+                activeRouteKey = pageRouteHash("home");
+                navigate("home", {fromRoute: true});
+                setRouteHash(pageRouteHash("home"), {replace: true});
+                return;
+            }
+
+            activeRouteKey = pageRouteHash(pageId);
+            navigate(pageId, {fromRoute: true});
+        }
+
+        function handleBrowserRouteChange() {
+            // Back/forward can produce both popstate and hashchange; coalesce them.
+            queueMicrotask(() => applyRouteFromLocation());
+        }
+
+        window.addEventListener("popstate", handleBrowserRouteChange);
+        window.addEventListener("hashchange", handleBrowserRouteChange);
 
         // Mobile Menu Toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
@@ -2043,31 +2737,47 @@
         });
 
         // --- 3. HERO SLIDESHOW ---
-        const heroImages = [
-            "photos/Store_and_Displays/image_0003.jpg",
-            "photos/Flowers_and_Plants/image_0008.jpg",
-            "photos/Food/image_0001.jpg",
-            "photos/Jewelry_and_Accessories/image_0024.jpg"
-        ];
+        const heroImages = allImages
+            .filter(img => img.cat !== "Sympathy & Funerals")
+            .map(img => img.url);
         let currentHeroIndex = 0;
         let heroInterval;
 
+        let heroActiveLayer = 0;
+
         function initHeroSlider() {
             const container = document.getElementById('hero-slider');
-            heroImages.forEach((src, index) => {
+            container.innerHTML = '';
+
+            // Keep only two image elements in the DOM so the browser does not download
+            // the entire photo library at once. The slideshow still cycles every image.
+            for (let layer = 0; layer < 2; layer++) {
                 const img = document.createElement('img');
-                img.src = src;
-                img.className = `absolute inset-0 w-full h-full object-cover slide ${index === 0 ? 'active' : ''}`;
+                img.className = `absolute inset-0 w-full h-full object-cover slide ${layer === 0 ? 'active' : ''}`;
+                img.alt = "Amelia's Picalily photo slideshow";
                 img.setAttribute('onerror', "this.src='https://placehold.co/1200x800/171717/FBBF24'");
+                if (layer === 0 && heroImages.length) img.src = heroImages[0];
                 container.appendChild(img);
-            });
+            }
             startHeroTimer();
         }
 
         function showHeroSlide(index) {
             const slides = document.querySelectorAll('#hero-slider .slide');
-            slides.forEach(s => s.classList.remove('active'));
-            if(slides[index]) slides[index].classList.add('active');
+            if (slides.length < 2 || !heroImages[index]) return;
+
+            const nextLayer = heroActiveLayer === 0 ? 1 : 0;
+            const currentImg = slides[heroActiveLayer];
+            const nextImg = slides[nextLayer];
+            const activateNext = () => {
+                currentImg.classList.remove('active');
+                nextImg.classList.add('active');
+                heroActiveLayer = nextLayer;
+            };
+
+            nextImg.onload = activateNext;
+            nextImg.src = heroImages[index];
+            if (nextImg.complete) activateNext();
         }
 
         function nextHeroSlide() {
@@ -2097,10 +2807,10 @@
         let currentFilteredImages = [];
 
         function initWeddingGallery() {
-            // Filter only to images related to weddings (Events & Flowers for example)
-            currentFilteredImages = allImages.filter(img => img.cat === "Events" || img.cat === "Flowers");
+            // Use only photos curated into the Wedding category.
+            currentFilteredImages = allImages.filter(img => img.cat === "Wedding");
             
-            // Randomize array to mix events and flowers
+            // Randomize the curated wedding gallery
             currentFilteredImages.sort(() => 0.5 - Math.random());
             
             loadMoreGalleryImages();
@@ -2221,6 +2931,7 @@
         let shopGeneratedAt = "";
         let shopRefreshTimer = null;
         let shopSearchTimer = null;
+        let shopPendingCategory = "";
         const shopObjectURLs = new Set();
 
         const shopImageViewerState = {
@@ -2604,7 +3315,11 @@
                 option.textContent = cat;
                 select.appendChild(option);
             }
-            if ([...select.options].some(o => o.value === current)) select.value = current;
+            if (shopPendingCategory && [...select.options].some(o => o.value === shopPendingCategory)) {
+                select.value = shopPendingCategory;
+            } else if ([...select.options].some(o => o.value === current)) {
+                select.value = current;
+            }
         }
 
         function filteredShopItems() {
@@ -3142,7 +3857,13 @@
             input.focus();
             renderShop();
         });
-        document.getElementById("shop-category-filter").addEventListener("change", renderShop);
+        document.getElementById("shop-category-filter").addEventListener("change", function() {
+            shopPendingCategory = this.value || "";
+            const title = document.getElementById("inventory-page-title");
+            if (title) title.textContent = shopPendingCategory || "Browse Current Inventory";
+            setRouteHash(inventoryRouteHash(shopPendingCategory));
+            renderShop();
+        });
         document.getElementById("shop-availability-filter").addEventListener("change", renderShop);
         document.getElementById("shop-sort").addEventListener("change", renderShop);
         document.getElementById("shop-refresh").addEventListener("click", () => loadLiveInventory(true));
@@ -3182,11 +3903,16 @@
         }
 
         // --- 6. INITIALIZATION ---
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             initHeroSlider();
             initMobileHeroSwipe();
             initShopImageViewer();
-            navigate('home');
+
+            if (!window.location.hash || window.location.hash === "#") {
+                setRouteHash(pageRouteHash("home"), {replace: true});
+                activeRouteKey = "";
+            }
+            await applyRouteFromLocation({replaceInvalid: true});
         });
 
     </script>
