@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff5f2">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Picalily Inventory">
+  <title>Picalily Employee Inventory</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="../firebase-config.js"></script>
+</head>
+<body>
+  <div id="boot-screen" class="gate-screen">
+    <div class="gate-card">
+      <img class="gate-logo" src="icons/icon-192.png" alt="">
+      <p class="eyebrow">Amelia's Picalily</p>
+      <h1>Employee Inventory</h1>
+      <p class="muted">Loading secure inventory access…</p>
+      <div class="spinner" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div id="setup-screen" class="gate-screen" hidden>
+    <div class="gate-card">
+      <img class="gate-logo" src="icons/icon-192.png" alt="">
+      <p class="eyebrow">Setup required</p>
+      <h1>Firebase is ready to connect</h1>
+      <p class="muted">This employee PWA is prepared, but the Picalily Firebase web configuration has not been filled in yet.</p>
+      <a class="button secondary full" href="../">Back to website</a>
+    </div>
+  </div>
+
+  <div id="login-screen" class="gate-screen" hidden>
+    <div class="gate-card">
+      <img class="gate-logo" src="icons/icon-192.png" alt="">
+      <p class="eyebrow">Amelia's Picalily</p>
+      <h1>Employee Sign In</h1>
+      <p class="muted">Use the Firebase account associated with your employee email.</p>
+      <button id="login-google" class="button google full" type="button">Continue with Google</button>
+      <div class="divider"><span></span><b>or</b><span></span></div>
+      <form id="login-form" class="stack">
+        <label class="field">Email<input id="login-email" type="email" autocomplete="email" required></label>
+        <label class="field">Password<input id="login-password" type="password" autocomplete="current-password" minlength="6" required></label>
+        <button class="button primary full" type="submit">Sign in with email</button>
+      </form>
+      <button id="login-reset" class="text-button" type="button">Forgot password?</button>
+      <p id="login-status" class="status-message" hidden></p>
+      <a class="back-link" href="../">← Back to customer website</a>
+    </div>
+  </div>
+
+  <div id="denied-screen" class="gate-screen" hidden>
+    <div class="gate-card">
+      <img class="gate-logo" src="icons/icon-192.png" alt="">
+      <p class="eyebrow">Employee access</p>
+      <h1>Access not authorized</h1>
+      <p id="denied-message" class="muted">This signed-in account is not on the employee allowlist.</p>
+      <button id="denied-signout" class="button secondary full" type="button">Sign out</button>
+      <a class="back-link" href="../">← Back to customer website</a>
+    </div>
+  </div>
+
+  <div id="employee-app" class="app-shell" hidden>
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="icons/icon-192.png" alt="">
+        <div>
+          <strong>Amelia's</strong>
+          <span>Picalily Inventory</span>
+        </div>
+      </div>
+      <nav class="side-nav" aria-label="Employee inventory">
+        <button data-view="dashboard" class="active"><span class="nav-dot"></span>Dashboard</button>
+        <button data-view="products"><span class="nav-dot"></span>Products</button>
+        <button data-view="settings"><span class="nav-dot"></span>Settings</button>
+      </nav>
+      <div class="sidebar-note">
+        <span class="online-dot"></span>
+        <div><strong>Remote access</strong><small>Live through the Picalily tunnel</small></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Amelia's Picalily Flowers & More</p>
+          <h1 id="page-title">Inventory Dashboard</h1>
+        </div>
+        <button id="top-add-product" class="button warm">+ Add Product</button>
+      </header>
+
+      <div id="global-status" class="global-status" hidden></div>
+
+      <section id="view-dashboard" class="view active">
+        <article class="hero-card">
+          <div>
+            <p class="eyebrow">Inventory at a glance</p>
+            <h2>Your store, website inventory, and backend in one place.</h2>
+            <p>Changes made here are saved to the same Picalily Inventory backend used by the shop computer.</p>
+          </div>
+          <button class="button warm hero-add" data-add-product>+ Add a product</button>
+        </article>
+
+        <div class="stats-grid">
+          <article class="stat-card"><span>Total Products</span><strong id="stat-total">—</strong><small>All inventory records</small></article>
+          <article class="stat-card"><span>Published</span><strong id="stat-published">—</strong><small>Visible to the website</small></article>
+          <article class="stat-card"><span>Categories</span><strong id="stat-categories">—</strong><small>Product groups</small></article>
+          <article class="stat-card"><span>Low Stock</span><strong id="stat-low">—</strong><small>Tracked quantity 1–5</small></article>
+          <article class="stat-card"><span>Out of Stock</span><strong id="stat-out">—</strong><small>Tracked or disabled</small></article>
+          <article class="stat-card"><span>With Images</span><strong id="stat-images">—</strong><small>Managed/local images</small></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel">
+            <p class="eyebrow">Live connection</p>
+            <h3>Inventory Backend</h3>
+            <dl class="status-list">
+              <div><dt>Cloudflare API</dt><dd id="backend-state">Checking…</dd></div>
+              <div><dt>Signed in as</dt><dd id="dashboard-email">—</dd></div>
+            </dl>
+            <button class="button secondary" id="dashboard-refresh">Refresh</button>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Mobile workflow</p>
+            <h3>Quick Inventory Changes</h3>
+            <p class="muted">Search for an item, update quantity or pricing, publish changes, or add a new product without being at the shop PC.</p>
+            <button class="button secondary" data-go-products>Open products</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="view-products" class="view">
+        <div class="product-toolbar">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="product-search" type="search" autocomplete="off" placeholder="Search products or barcodes">
+            <button id="product-search-clear" type="button" aria-label="Clear search">×</button>
+          </label>
+          <button class="button warm" data-add-product>+ Add Product</button>
+        </div>
+        <div class="filter-row">
+          <select id="product-category"><option value="">All categories</option></select>
+          <select id="product-stock">
+            <option value="">All stock</option>
+            <option value="in">In stock</option>
+            <option value="low">Low stock</option>
+            <option value="out">Out of stock</option>
+          </select>
+          <select id="product-published">
+            <option value="">All visibility</option>
+            <option value="true">Published</option>
+            <option value="false">Hidden</option>
+          </select>
+        </div>
+        <div id="product-list" class="product-list"></div>
+        <div id="product-empty" class="empty-state" hidden>No products match the current filters.</div>
+        <div class="pager">
+          <button id="prev-page" class="button secondary">Previous</button>
+          <span id="page-info">Page 1</span>
+          <button id="next-page" class="button secondary">Next</button>
+        </div>
+      </section>
+
+      <section id="view-settings" class="view">
+        <div class="settings-grid">
+          <article class="panel">
+            <p class="eyebrow">Account</p>
+            <h3>Employee Session</h3>
+            <dl class="status-list">
+              <div><dt>Name</dt><dd id="settings-name">—</dd></div>
+              <div><dt>Email</dt><dd id="settings-email">—</dd></div>
+              <div><dt>Authorization</dt><dd>Employee allowlist</dd></div>
+            </dl>
+            <button id="settings-signout" class="button secondary">Sign out</button>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Install</p>
+            <h3>Employee PWA</h3>
+            <p class="muted">Install this inventory app on the owner's phone for quick access. Inventory data itself is never cached as an offline source of truth.</p>
+            <button id="install-pwa" class="button primary" hidden>Install app</button>
+            <p id="install-hint" class="muted tiny">Use your browser's “Add to Home screen” option if an install button is not shown.</p>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Connection</p>
+            <h3>Backend Status</h3>
+            <p id="settings-backend" class="muted">Checking connection…</p>
+            <button id="settings-refresh" class="button secondary">Refresh status</button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Employee inventory">
+      <button data-view="dashboard" class="active"><span>⌂</span>Dashboard</button>
+      <button data-view="products"><span>▦</span>Products</button>
+      <button data-view="settings"><span>⚙</span>Settings</button>
+    </nav>
+  </div>
+
+  <dialog id="product-editor">
+    <form id="product-form" class="editor-card">
+      <div class="editor-header">
+        <div>
+          <p class="eyebrow" id="editor-eyebrow">Inventory</p>
+          <h2 id="editor-title">Add Product</h2>
+        </div>
+        <button id="editor-close" class="icon-button" type="button" aria-label="Close">×</button>
+      </div>
+
+      <div id="editor-image-preview" class="image-preview">
+        <img id="editor-image" alt="Product image" hidden>
+        <div id="editor-image-placeholder">No image</div>
+      </div>
+      <div class="image-actions">
+        <label class="button secondary file-button">Choose image<input id="editor-image-file" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></label>
+        <button id="editor-remove-image" class="text-button danger" type="button">Remove image</button>
+      </div>
+
+      <input id="editor-id" type="hidden">
+      <div class="form-grid">
+        <label class="field wide">Product Name<input id="editor-name" required maxlength="180"></label>
+        <label class="field">Category<input id="editor-category" list="category-options" maxlength="120"></label>
+        <label class="field">Barcode<input id="editor-barcode" maxlength="120"></label>
+        <label class="field">Regular Price<input id="editor-regular-price" type="number" min="0" step="0.01" inputmode="decimal" required></label>
+        <label class="field">Sale Price<input id="editor-sale-price" type="number" min="0" step="0.01" inputmode="decimal"></label>
+        <label class="field">Quantity<input id="editor-quantity" type="number" min="0" step="1" inputmode="numeric"></label>
+        <label class="field wide">Picture URL<input id="editor-picture-url" type="url" inputmode="url"></label>
+        <label class="field wide">Description<textarea id="editor-description" rows="4"></textarea></label>
+      </div>
+      <datalist id="category-options"></datalist>
+
+      <div class="toggle-grid">
+        <label><input id="editor-published" type="checkbox">Published</label>
+        <label><input id="editor-taxable" type="checkbox">Taxable</label>
+        <label><input id="editor-track-quantity" type="checkbox">Track quantity</label>
+        <label><input id="editor-disabled" type="checkbox">Disabled</label>
+        <label><input id="editor-sale-enabled" type="checkbox">Sale price enabled</label>
+      </div>
+
+      <details class="sale-details">
+        <summary>Sale schedule</summary>
+        <div class="form-grid">
+          <label class="field"><span><input id="editor-sale-start-enabled" type="checkbox"> Start enabled</span><input id="editor-sale-start" type="datetime-local"></label>
+          <label class="field"><span><input id="editor-sale-end-enabled" type="checkbox"> End enabled</span><input id="editor-sale-end" type="datetime-local"></label>
+        </div>
+      </details>
+
+      <details class="sale-details shipping-details">
+        <summary>Shipping & Package</summary>
+        <p class="muted tiny">Use the size and weight of one unit as it will actually leave the shop, including its normal box and padding.</p>
+        <div class="toggle-grid">
+          <label><input id="editor-shippable" type="checkbox">Shippable</label>
+          <label><input id="editor-ships-separately" type="checkbox">Ships separately</label>
+          <label><input id="editor-signature-required" type="checkbox">Signature required</label>
+          <label><input id="editor-hazmat" type="checkbox">Hazardous materials</label>
+          <label><input id="editor-perishable" type="checkbox">Perishable</label>
+        </div>
+        <div class="form-grid">
+          <label class="field">Package Type
+            <select id="editor-package-type">
+              <option value="custom_box">Custom box</option>
+              <option value="envelope">Envelope</option>
+              <option value="tube">Tube</option>
+              <option value="poly_mailer">Poly mailer</option>
+              <option value="carrier_packaging">Carrier-provided packaging</option>
+            </select>
+          </label>
+          <label class="field">Packaged Weight (lb)<input id="editor-weight-lb" type="number" min="0" step="0.01" inputmode="decimal"></label>
+          <label class="field">Length (in)<input id="editor-length-in" type="number" min="0" step="0.1" inputmode="decimal"></label>
+          <label class="field">Width (in)<input id="editor-width-in" type="number" min="0" step="0.1" inputmode="decimal"></label>
+          <label class="field">Height (in)<input id="editor-height-in" type="number" min="0" step="0.1" inputmode="decimal"></label>
+          <label class="field">Max Units / Package<input id="editor-max-units-package" type="number" min="1" step="1" inputmode="numeric"></label>
+          <label class="field">Dry Ice Weight (lb)<input id="editor-dry-ice-weight" type="number" min="0" step="0.01" inputmode="decimal"></label>
+          <label class="field">Country of Origin<input id="editor-origin-country" maxlength="2" placeholder="US" autocapitalize="characters"></label>
+          <label class="field">HS / Tariff Code<input id="editor-hs-code" inputmode="numeric"></label>
+          <label class="field">Declared Value Override<input id="editor-declared-value" type="number" min="0" step="0.01" inputmode="decimal"></label>
+          <label class="field wide">Customs Description<input id="editor-customs-description" placeholder="Description used for customs paperwork"></label>
+        </div>
+      </details>
+
+      <p id="editor-status" class="status-message" hidden></p>
+      <div class="editor-actions">
+        <button id="editor-delete" class="button danger" type="button">Delete</button>
+        <div class="editor-actions-right">
+          <button id="editor-cancel" class="button secondary" type="button">Cancel</button>
+          <button id="editor-save" class="button primary" type="submit">Save Product</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

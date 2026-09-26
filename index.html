@@ -1227,6 +1227,7 @@
 
     </style>
     <script src="shop-config.js"></script>
+    <script src="firebase-config.js"></script>
 </head>
 <body class="bg-[#FFFDF9] text-brand-black font-sans flex flex-col min-h-screen relative bg-floral-pattern">
 
@@ -1324,38 +1325,6 @@
                 </div>
             </div>
             
-            <!-- Quick Categories Grid -->
-            <div class="py-16 bg-gradient-to-r from-[#FFF0E8] via-[#FFF4F7] to-[#EEF8F0] text-brand-black">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                        <div class="text-center group cursor-pointer" onclick="navigate('floral')">
-                            <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
-                                <i class="fa-solid fa-leaf text-3xl text-brand-yellow group-hover:text-brand-black"></i>
-                            </div>
-                            <h3 class="font-serif text-xl font-bold">Floral</h3>
-                        </div>
-                        <div class="text-center group cursor-pointer" onclick="navigateInventory('Bakery & Sweets')">
-                            <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
-                                <i class="fa-solid fa-cake-candles text-3xl text-brand-yellow group-hover:text-brand-black"></i>
-                            </div>
-                            <h3 class="font-serif text-xl font-bold">Bakery</h3>
-                        </div>
-                        <div class="text-center group cursor-pointer" onclick="navigate('gifts')">
-                            <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
-                                <i class="fa-solid fa-gift text-3xl text-brand-yellow group-hover:text-brand-black"></i>
-                            </div>
-                            <h3 class="font-serif text-xl font-bold">Gifts/Boutique</h3>
-                            <p class="mt-2 text-xs text-[#6B5661]">Tap a category to shop live inventory</p>
-                        </div>
-                        <div class="text-center group cursor-pointer" onclick="navigate('wedding')">
-                            <div class="w-20 h-20 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-yellow transition-colors duration-300">
-                                <i class="fa-solid fa-ring text-3xl text-brand-yellow group-hover:text-brand-black"></i>
-                            </div>
-                            <h3 class="font-serif text-xl font-bold">Weddings</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- ==================== FLORAL PAGE (Includes Bakery) ==================== -->
@@ -1602,7 +1571,7 @@
                         <i class="fa-solid fa-triangle-exclamation mt-1"></i>
                         <div>
                             <p class="font-bold">Live inventory connection is not configured.</p>
-                            <p class="text-sm mt-1">The site owner needs to set the Cloudflare Tunnel URL and bridge access key in <code>shop-config.js</code>.</p>
+                            <p class="text-sm mt-1">Live inventory is not configured yet. The site can use either the current direct tunnel mode or the future Cloudflare Functions API mode.</p>
                         </div>
                     </div>
                 </div>
@@ -2917,6 +2886,8 @@
         const SHOP_DEFAULTS = {
             tunnelUrl: "",
             accessKey: "",
+            apiBase: "",
+            checkoutEnabled: false,
             refreshSeconds: 60,
             hideNonPositivePrice: true,
             initialProductsPerCategory: 18,
@@ -2946,7 +2917,12 @@
             lastFocused: null
         };
 
+        function shopUsesFunctions() {
+            return Boolean(String(SHOP_CONFIG.apiBase || "").trim());
+        }
+
         function shopConfigured() {
+            if (shopUsesFunctions()) return true;
             return Boolean(
                 String(SHOP_CONFIG.tunnelUrl || "").trim() &&
                 String(SHOP_CONFIG.accessKey || "").trim()
@@ -2954,13 +2930,21 @@
         }
 
         function shopBaseURL() {
+            if (shopUsesFunctions()) {
+                return String(SHOP_CONFIG.apiBase || "").trim().replace(/\/+$/, "");
+            }
             return String(SHOP_CONFIG.tunnelUrl || "").trim().replace(/\/+$/, "");
         }
 
         function shopHeaders(extra = {}) {
+            if (shopUsesFunctions()) return Object.assign({}, extra);
             return Object.assign({
                 "Authorization": "Bearer " + String(SHOP_CONFIG.accessKey || "").trim()
             }, extra);
+        }
+
+        function shopCheckoutConfigured() {
+            return shopUsesFunctions() && Boolean(SHOP_CONFIG.checkoutEnabled);
         }
 
         function shopEscapePrice(value) {
@@ -3457,6 +3441,34 @@
             }
         }
 
+        async function beginShopCheckout(item, button) {
+            if (!shopCheckoutConfigured()) return;
+            const original = button.textContent;
+            button.disabled = true;
+            button.textContent = "Opening checkout…";
+            try {
+                const response = await fetch(String(SHOP_CONFIG.apiBase).replace(/\/+$/, "") + "/checkout", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    cache: "no-store",
+                    credentials: "same-origin",
+                    body: JSON.stringify({
+                        items: [{product_id: Number(item.pos_item_id), quantity: 1}]
+                    })
+                });
+                const payload = await response.json().catch(() => ({}));
+                if (!response.ok || !payload?.url) {
+                    throw new Error(payload?.error || "Checkout is temporarily unavailable.");
+                }
+                window.location.assign(payload.url);
+            } catch (error) {
+                console.error("Checkout error:", error);
+                alert(error?.message || "Checkout is temporarily unavailable. Please try again.");
+                button.disabled = false;
+                button.textContent = original;
+            }
+        }
+
         function createShopProductCard(item) {
             const card = document.createElement("article");
             card.className = "rounded-2xl border overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col " +
@@ -3585,6 +3597,16 @@
 
             priceRow.append(prices, details);
             body.append(top, name, desc, priceRow);
+
+            if (shopCheckoutConfigured() && item.in_stock) {
+                const buy = document.createElement("button");
+                buy.type = "button";
+                buy.className = "mt-4 w-full rounded-full bg-[#A83F65] px-5 py-3 font-bold text-white shadow-sm transition hover:bg-[#8A2F50] disabled:cursor-wait disabled:opacity-60";
+                buy.textContent = "Buy Now";
+                buy.addEventListener("click", () => beginShopCheckout(item, buy));
+                body.appendChild(buy);
+            }
+
             card.appendChild(body);
             return card;
         }
@@ -3916,5 +3938,6 @@
         });
 
     </script>
+    <script type="module" src="auth.js"></script>
 </body>
 </html>
